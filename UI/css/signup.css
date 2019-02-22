@@ -109,6 +109,7 @@ body{
      width: 40%;
      margin-left: 30%;
      margin-bottom: 4%;
+     margin-top: 3%;
      border-radius: 10px;
      text-align:center; 
      background: #F5F5F5;
@@ -140,6 +141,11 @@ body{
   border-radius: 3px;
 }
 
+#forgotText{
+  height:2em;
+  border-radius: 3px;
+}
+
 #passwordText{
 	height:2em;
   border-radius: 3px;
@@ -166,9 +172,14 @@ body{
 }
 
 #welcomeText{
-	font-size: 3em;
-	color:white;
+	font-size: 1.6em;
+	color:#E0E0E0;
 }
+
+.iconid{
+  border-radius: 20%;
+}
+
 
 #dropdown{
 	width: 80%;
