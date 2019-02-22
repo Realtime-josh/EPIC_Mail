@@ -297,6 +297,15 @@ nav ul li a:hover{
   opacity: 0.4;
 }
 
+.myBtn{
+  width: 90%;
+  padding: 0.6em;
+  margin-left:4%;
+  margin-top: 1%;
+  background: linear-gradient(to bottom right,#01579B,#4FC3F7);
+  color:white;
+}
+
 
 .container {
   display: flex;
