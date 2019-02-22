@@ -110,5 +110,29 @@ function validateValuesSignUp(){
 }
 
 
+function validatepassword(){
+   let formDocumentEmail = document.forms["forgotpassword"]["forgotpasswordd"].value;
+   let formDocumentTrim = formDocumentEmail.trim();
+   if(formDocumentTrim == ""){
+    document.getElementById("emailSpan").innerHTML = "Email must be filled out";
+    return false;
+   }else if(whiteSpace(formDocumentTrim)){
+    document.getElementById("emailSpan").innerHTML = "Email must not include spaces";
+    return false;
+   }else if(formDocumentTrim.length <= 5){
+    document.getElementById("emailSpan").innerHTML = "Please enter valid email address";
+    return false;
+   }else if(filterInput(formDocumentTrim)){
+    document.getElementById("emailSpan").innerHTML = "Special characters are not allowed";
+    return false;
+   }else if(!emailSigns(formDocumentTrim) || !emailSignage(formDocumentTrim)){
+      document.getElementById("emailSpan").innerHTML = "Invalid Email";
+        return false;
+   }else{
+    return true;
+   }
+
+}
+
 
 
