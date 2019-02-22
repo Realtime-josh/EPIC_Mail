@@ -179,9 +179,10 @@ body{
   display:-webkit-box;
   -webkit-box-pack:center;
 
-  
+  width: 40%;
   background: black;
-  width:20%;
+  text-align: center;
+  margin-left: 30% 
 }
 
 #dropdown{
