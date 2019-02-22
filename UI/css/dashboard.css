@@ -19,7 +19,7 @@ a{
 }
 
 h1{
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 
@@ -305,6 +305,7 @@ nav ul li a:hover{
   background: linear-gradient(to bottom right,#01579B,#4FC3F7);
   color:white;
 }
+
 
 
 .container {
