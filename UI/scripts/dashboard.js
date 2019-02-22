@@ -78,13 +78,6 @@ document.getElementById("catSmallDivCartSent").addEventListener("mouseenter", hi
 document.getElementById("logoutSmallDiv").addEventListener("mouseenter", hideSmallMenuDiv)
 
 
-if(electronics){
-  electronics.onclick = () => {
-    // dialogBackgroundWindow.style.display = 'none';
-    window.location.href='./electronics.html';
-  };
-}
-
 
 
 
