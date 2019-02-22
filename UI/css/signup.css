@@ -176,6 +176,10 @@ body{
 	color:#E0E0E0;
 }
 
+.iconid{
+  border-radius: 20%;
+}
+
 
 #dropdown{
 	width: 80%;
