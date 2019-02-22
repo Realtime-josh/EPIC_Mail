@@ -15,13 +15,10 @@
       <body>
         <div id="wrapperDiv">
 
-              <div id="welcomeDiv">
-                      <p id="welcomeText">Login</p>
-              </div>
-
              <div id="formDivv" class="formDivv">
                   <div class="formDiv">
                              <form id="loginForm" class="loginForm"  action="http://127.0.0.1:3000/api/v1/login"onsubmit="return validateValues()" method="POST">
+                                      <img src="./img/blackicon.png" /><br><br>
                                       <input type="text" name="email" id="emailText" size="35" height="60" placeholder ="  Email Address" required/><br><span id="emailSpan" class="errorSpan"></span><br>
 
                                       <input type="password" name="password" id="passwordText" size="35" height="60" placeholder ="  Password" required/><br><span id="passwordSpan" class="errorSpan"></span>
