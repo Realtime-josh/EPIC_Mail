@@ -1,7 +1,7 @@
 
 .messageDiv{
      	display:-webkit-box;
-		/*-webkit-box-pack:center;*/
+		-webkit-box-pack:center;
 	    -webkit-box-orient:vertical;
 	    -webkit-box-flex:1;
 
@@ -27,7 +27,7 @@
 
 .innermessageDiv{
         display:-webkit-box;
-		/*-webkit-box-pack:center;*/
+		-webkit-box-pack:center;
 	    -webkit-box-orient:vertical;
 	    -webkit-box-flex:1;
 
@@ -41,9 +41,14 @@
 	   -o-box-orient:vertical;
 	   -o-box-flex:1;
 	    height: 70%;
-		background: #E0E0E0;
+		background:white;
 		margin-top: 3%;
 		margin-bottom:3%;
 		margin-left: 11%;
 		margin-right: 11%;
+}
+
+.messageP{
+	margin-left:4%;
+	margin-right:4%;
 }
