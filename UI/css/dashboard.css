@@ -306,7 +306,10 @@ nav ul li a:hover{
   color:white;
 }
 
+.receivedFrom{
+  font-family: 'Aleo', serif;
 
+}
 
 .container {
   display: flex;
@@ -344,7 +347,7 @@ footer{
 
 @media screen and (min-width: 600px) {
   .card {
-    flex: 1 1 calc(50% - 2rem);
+    flex: 1 1 calc(80% - 2rem);
   }
 
 
@@ -358,6 +361,16 @@ footer{
     #footerText{
   margin-top: 20%;
 }
+
+    .myBtnn{
+      width: 100%;
+      padding: 0.6em;
+      margin-left:0%;
+      margin-top: 1%;
+      background: linear-gradient(to bottom right,#01579B,#4FC3F7);
+      color:white;
+    }
+
 }
 
 
