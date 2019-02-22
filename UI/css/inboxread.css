@@ -1,0 +1,7 @@
+
+.actionButtons{
+	display:-webkit-box;
+	-webkit-box-pack:center;
+    -webkit-box-orient:horizontal;
+    -webkit-box-flex:1;
+}
