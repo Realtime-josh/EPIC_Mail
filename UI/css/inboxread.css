@@ -1,0 +1,52 @@
+
+.actionButtons{
+	display:-webkit-box;
+	-webkit-box-pack:left;
+    -webkit-box-orient:horizontal;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+    -moz-box-flex:1;
+
+    display:-o-box;
+    -o-box-orient:horizontal;
+    -o-box-flex:1;
+
+
+    margin-left:74%;
+    background: black;
+}
+
+
+
+.myBtn{
+	display:-webkit-box;
+	-webkit-box-pack:left;
+    -webkit-box-orient:horizontal;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+    -moz-box-flex:1;
+
+    display:-o-box;
+    -o-box-orient:horizontal;
+    -o-box-flex:1;
+
+
+
+   width: 40%;
+  padding: 0.6em;
+  margin-top: 1%;
+  background: linear-gradient(to bottom right,#01579B,#4FC3F7);
+  color:white;
+}
+
+
+@media screen and (max-width: 600px) {
+  .actionButtons{
+  	margin-left: 0%;
+  }
+
+}
