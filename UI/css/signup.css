@@ -175,15 +175,6 @@ body{
 	color:#E0E0E0;
 }
 
-#welcomeDiv{
-  display:-webkit-box;
-  -webkit-box-pack:center;
-
-  width: 40%;
-  background: black;
-  text-align: center;
-  margin-left: 30% 
-}
 
 #dropdown{
 	width: 80%;
