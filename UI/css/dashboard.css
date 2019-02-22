@@ -18,6 +18,10 @@ a{
   color: black;
 }
 
+h1{
+  font-size: 1.1em;
+}
+
 
 body{
 	width: 100%;
@@ -293,6 +297,19 @@ nav ul li a:hover{
   opacity: 0.4;
 }
 
+.myBtnn{
+  width: 20%;
+  padding: 0.6em;
+  margin-left:74%;
+  margin-top: 1%;
+  background: linear-gradient(to bottom right,#01579B,#4FC3F7);
+  color:white;
+}
+
+.receivedFrom{
+  font-family: 'Aleo', serif;
+
+}
 
 .container {
   display: flex;
@@ -330,7 +347,7 @@ footer{
 
 @media screen and (min-width: 600px) {
   .card {
-    flex: 1 1 calc(50% - 2rem);
+    flex: 1 1 calc(80% - 2rem);
   }
 
 
@@ -341,15 +358,25 @@ footer{
     flex: 1 1 calc(90% - 2rem);
   }
 
-    #footerText{
-  margin-top: 20%;
+#footerText{
+margin-top: 20%;
 }
+
+    .myBtnn{
+      width: 100%;
+      padding: 0.6em;
+      margin-left:0%;
+      margin-top: 1%;
+      background: linear-gradient(to bottom right,#01579B,#4FC3F7);
+      color:white;
+    }
+
 }
 
 
 @media screen and (min-width: 900px) {
   .card {
-    flex: 1 1 calc(33% - 2rem);
+    flex: 1 1 calc(80% - 2rem);
   }
 }
 
@@ -357,13 +384,18 @@ footer{
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
+
+
 .card:nth-child(4n) h1{
   background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
 }
 
+
+
 .card:nth-child(5n) h1{
   background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
 }
+
 
 
 @media screen and (max-width: 1000px) {
