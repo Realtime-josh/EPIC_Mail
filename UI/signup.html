@@ -36,7 +36,26 @@
                           </div><br><br> 
 
     
-                              
+                              <div id="signupDivForm" class="formDiv">
+                                 <form id="signupForm" class="loginForm"  action="http://127.0.0.1:3000/api/v1/signupRoute"onsubmit="return validateValuesSignUp()" method="POST">
+                                      <input type="text" name="fname" id="firstNameText" class="styleHeightForm"size="35" height="60" placeholder =" First Name" required/><br><span id="NameSpan" class="errorSpan"></span><br>
+
+                                      <input type="text" name="lname" id="lastNameText" size="35" class="styleHeightForm"  height="60" placeholder =" Last Name" required/><br><span id="spanName" class="errorSpan"></span><br>
+
+                                      <input type="text" name="signupEmail" id="emailText" class="styleHeightForm" size="35" height="60" placeholder ="  Email Address" required/><br><span id="spanEmail" class="errorSpan"></span><br> 
+
+                                      <input type="password" name="signupPassword" id="textPassword" class="styleHeightForm" size="35" height="60" placeholder ="  Password" required/><br><span id="spanPassword" class="errorSpan"></span><br>
+
+                                      <input type="password" name="confirmPassword" id="confirmPassword" class="styleHeightForm" size="35" height="60" placeholder =" Confirm Password" required/><br><span id="spanConfirmPassword" class="errorSpan"></span><br>
+
+                                      <input type="submit" value="SignUp" id="signup" class="signupButton" /><br><br>
+                                 </form>
+
+                                 <p id="termscondition">
+                                      By clicking the sign up button, you agree to our <a href="#">Terms & Conditions</a>
+                                      and <a href="#">Privacy Policy</a>
+                                  </p>
+                          </div> 
                                                         
                     
                </div>     
