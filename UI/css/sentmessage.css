@@ -1,0 +1,49 @@
+
+.messageDiv{
+     	display:-webkit-box;
+		/*-webkit-box-pack:center;*/
+	    -webkit-box-orient:vertical;
+	    -webkit-box-flex:1;
+
+
+	    display:-moz-box;
+	    -webkit-box-pack:center;
+	   -moz-box-orient:vertical;
+	   -moz-box-flex:1;
+
+	    display:-o-box;
+	   -o-box-orient:vertical;
+	   -o-box-flex:1;
+
+
+
+	height: 400px;
+	background: linear-gradient(to bottom right, #212121, #039BE5, #212121);
+	margin-top: 2%;
+	margin-bottom:1%;
+}
+
+
+
+.innermessageDiv{
+        display:-webkit-box;
+		/*-webkit-box-pack:center;*/
+	    -webkit-box-orient:vertical;
+	    -webkit-box-flex:1;
+
+
+	    display:-moz-box;
+	    -webkit-box-pack:center;
+	   -moz-box-orient:vertical;
+	   -moz-box-flex:1;
+
+	    display:-o-box;
+	   -o-box-orient:vertical;
+	   -o-box-flex:1;
+	    height: 70%;
+		background: #E0E0E0;
+		margin-top: 3%;
+		margin-bottom:3%;
+		margin-left: 11%;
+		margin-right: 11%;
+}
