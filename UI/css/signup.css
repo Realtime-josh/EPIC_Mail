@@ -140,6 +140,11 @@ body{
   border-radius: 3px;
 }
 
+#forgotText{
+  height:2em;
+  border-radius: 3px;
+}
+
 #passwordText{
 	height:2em;
   border-radius: 3px;
