@@ -358,8 +358,8 @@ footer{
     flex: 1 1 calc(90% - 2rem);
   }
 
-    #footerText{
-  margin-top: 20%;
+#footerText{
+margin-top: 20%;
 }
 
     .myBtnn{
