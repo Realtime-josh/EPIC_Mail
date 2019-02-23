@@ -2,42 +2,37 @@
 // const x = document.getElementById('divinnermsg').style;
 // x.display = "none";
 
-const x = document.getElementsByClassName('innermessageDiv');
-const y = document.getElementsByClassName("myBtn")
-
-// for(let i=0;i<x.length;i++){
-// 	x[i].style.display = "none";
-// }
+const messageDivs = document.getElementsByClassName('innermessageDiv');
+const buttons = document.getElementsByClassName("myBtn");
 
 
-// displayMessage = () =>{
-// 	if(x.display === "none"){
-//         document.getElementById("divinnermsg").style.display = "block";
-//         document.getElementById("seemessage1").innerHTML = "Collapse"
-//     }else if(x.display === "block"){
-//     	document.getElementById("divinnermsg").style.display = "none";
-//     	document.getElementById("seemessage1").innerHTML = "View message"
-//     }
-// }
-
-
-displayMessage = () =>{
-	for(let i=0; i<x.length; i++){	    
-			if(x[i].style.display === "none"){
-		        document.getElementsByClassName(x[i]).style.display = "block";
-		        document.getElementById("seemessage1").innerHTML = "Collapse"
-		    }else if(x.style.display === "block"){
-		    	document.getElementsByClassName(x[i]).style.display = "none";
-		    	document.getElementById("seemessage1").innerHTML = "View message"
-		    }
-         
-	}
+for(let i=0;i<messageDivs.length;i++){
+	messageDivs[i].style.display = "none";
 }
 
 
 
 
+buttons[0].addEventListener("click", function() {
+    if(messageDivs[0].style.display === "none"){
+    	messageDivs[0].style .display = "block";
+    }else{
+         messageDivs[0].style .display = "none"
+    }
+});
 
+buttons[1].addEventListener("click", function() {
+    if(messageDivs[1].style.display === "none"){
+    	messageDivs[1].style .display = "block";
+    }else{
+         messageDivs[1].style .display = "none"
+    }
+});
 
-
-document.getElementById("seemessage1").addEventListener("click", displayMessage);
+buttons[2].addEventListener("click", function() {
+     if(messageDivs[2].style.display === "none"){
+    	messageDivs[2].style .display = "block";
+    }else{
+         messageDivs[2].style .display = "none"
+    }
+});
