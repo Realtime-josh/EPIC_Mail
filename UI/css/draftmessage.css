@@ -1,0 +1,35 @@
+
+#draftmessage{
+	text-align: center;
+}
+
+
+.dbtn{
+  display:-webkit-box;
+  -webkit-box-pack:left;
+    -webkit-box-orient:horizontal;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+    -moz-box-flex:1;
+
+    display:-o-box;
+    -o-box-orient:horizontal;
+    -o-box-flex:1;
+
+
+
+   width: 40%;
+  padding: 0.6em;
+  margin-top: 1%;
+  margin-left: 30%;
+  background: #1B5E20;
+  color:white;
+}
+
+.draftm{
+	width: 60%;
+	height:2em;
+	margin-bottom: 0.2em
+}
