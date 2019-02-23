@@ -124,11 +124,23 @@
   width: 50%;
   height: 2.8em;
   margin-left: 4.2em;
-  margin-bottom: 3%;
-  margin-top: 2%;
+  /*margin-top: 2%;*/
   /*background: linear-gradient(to bottom right,#B39DDB,#EDE7F6);*/
   background: #1B5E20;
   color:white;
+  font-size: 1.1em;
+  font-family: 'Merriweather', serif;
+}
+
+#savedraft{
+  width: 50%;
+  height: 2.8em;
+  margin-left: 4.2em;
+  margin-bottom: 4%;
+  margin-top: 2%;
+  /*background: linear-gradient(to bottom right,#B39DDB,#EDE7F6);*/
+  background: #BDBDBD;
+  color:black;
   font-size: 1.1em;
   font-family: 'Merriweather', serif;
 }
