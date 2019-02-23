@@ -24,7 +24,7 @@
 
 
 .innermessageDiv{
-       /* display:-webkit-box;
+        display:-webkit-box;
 		-webkit-box-pack:center;
 	    -webkit-box-orient:vertical;
 	    -webkit-box-flex:1;
@@ -37,7 +37,7 @@
 
 	    display:-o-box;
 	   -o-box-orient:vertical;
-	   -o-box-flex:1;*/
+	   -o-box-flex:1;
 
 		background:white;
 		margin-top: 3%;
