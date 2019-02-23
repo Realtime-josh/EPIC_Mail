@@ -1,5 +1,4 @@
 
-const electronics = document.getElementById("electronics");
 const categories1 = document.getElementById("categories1").style;
 categories1.display = "none";
 
@@ -77,13 +76,6 @@ document.getElementById("catSmallDivCart").addEventListener("mouseenter", hideSm
 document.getElementById("catSmallDivCartSent").addEventListener("mouseenter", hideSmallMenuDiv)
 document.getElementById("logoutSmallDiv").addEventListener("mouseenter", hideSmallMenuDiv)
 
-
-if(electronics){
-  electronics.onclick = () => {
-    // dialogBackgroundWindow.style.display = 'none';
-    window.location.href='./electronics.html';
-  };
-}
 
 
 
