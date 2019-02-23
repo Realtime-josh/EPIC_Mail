@@ -1,5 +1,4 @@
 
-const electronics = document.getElementById("electronics");
 const categories1 = document.getElementById("categories1").style;
 categories1.display = "none";
 
