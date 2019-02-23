@@ -3,13 +3,11 @@
 // x.display = "none";
 
 const x = document.getElementsByClassName('innermessageDiv');
+const y = document.getElementsByClassName("myBtn")
 
-for(let i=0;i<x.length;i++){
-	x[i].style.display = "none";
-}
-
-
-
+// for(let i=0;i<x.length;i++){
+// 	x[i].style.display = "none";
+// }
 
 
 // displayMessage = () =>{
@@ -24,7 +22,7 @@ for(let i=0;i<x.length;i++){
 
 
 displayMessage = () =>{
-	for(i=0; i<x.length; i++){	    
+	for(let i=0; i<x.length; i++){	    
 			if(x[i].style.display === "none"){
 		        document.getElementsByClassName(x[i]).style.display = "block";
 		        document.getElementById("seemessage1").innerHTML = "Collapse"
