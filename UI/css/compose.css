@@ -1,0 +1,17 @@
+
+.containit {
+  display:-webkit-box;
+	-webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -webkit-box-pack:center;
+   -moz-box-orient:vertical;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-flex:1;
+
+}
