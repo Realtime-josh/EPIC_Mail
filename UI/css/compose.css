@@ -85,7 +85,8 @@
 }
 
 #sendmessagehere{
-	width: 50em;
+	min-width: 50em;
+	min-height: 25em;
 	margin-left: 0.8em;
 	height: 3em;
 	margin-top: 0.3em;
