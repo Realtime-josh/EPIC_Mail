@@ -111,6 +111,15 @@
   font-family: 'Merriweather', serif;
 }
 
+#groupmail{
+  width: 80%;
+  margin-left: 0.9%;
+  height: 3em;
+  margin-top: 0.7em;
+  background:linear-gradient(to bottom right, #EEEEEE, #F5F5F5);
+  font-family: 'Merriweather', serif;
+}
+
 #sendmessagebutton{
   width: 50%;
   height: 2.8em;
