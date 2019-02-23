@@ -1,4 +1,21 @@
 
+.roo{
+   display:-webkit-box;
+	-webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -webkit-box-pack:center;
+   -moz-box-orient:vertical;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-flex:1;
+}
+
+
 .containit {
   display:-webkit-box;
 	-webkit-box-pack:center;
@@ -14,4 +31,62 @@
    -o-box-orient:vertical;
    -o-box-flex:1;
 
+}
+
+.innerDiv{
+	display:-webkit-box;
+	-webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -webkit-box-pack:center;
+   -moz-box-orient:vertical;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-flex:1;
+}
+
+.innerDiv form{
+	display:-webkit-box;
+	-webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -webkit-box-pack:center;
+   -moz-box-orient:vertical;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-flex:1;
+
+   text-align: center;
+}
+
+
+
+#sendermail{
+	width: 50em;
+	height: 3em;
+	margin-left: 1.5em;
+	margin-top: 2em;
+
+}
+
+#receivermail{
+	width: 50em;
+	margin-left: 0.8em;
+	height: 3em;
+	margin-top: 0.3em;
+}
+
+#sendmessagehere{
+	width: 50em;
+	margin-left: 0.8em;
+	height: 3em;
+	margin-top: 0.3em;
 }
