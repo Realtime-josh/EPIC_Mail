@@ -1,52 +1,110 @@
 
 .rooted{
 	display:-webkit-box;
-	-webkit-box-pack:center;
+	/*-webkit-box-pack:center;*/
     -webkit-box-orient:vertical;
     -webkit-box-flex:1;
 
 
     display:-moz-box;
-    -webkit-box-pack:center;
+    -moz-box-pack:center;
    -moz-box-orient:vertical;
    -moz-box-flex:1;
 
     display:-o-box;
    -o-box-orient:vertical;
    -o-box-flex:1;
+    width: 100%;
 }
 
 
 .imgInfo{
 	display:-webkit-box;
-	-webkit-box-pack:center;
     -webkit-box-orient:horizontal;
     -webkit-box-flex:1;
 
 
     display:-moz-box;
-    -webkit-box-pack:center;
+    -moz-box-pack:center;
    -moz-box-orient:horizontal;
    -moz-box-flex:1;
 
     display:-o-box;
    -o-box-orient:horizontal;
    -o-box-flex:1;
+   background: black;
+   width: 100%;
 }
 
-.contactinfo{
+
+#profilepicture{
 	display:-webkit-box;
-	-webkit-box-pack:center;
-    -webkit-box-orient:vertical;
-    -webkit-box-flex:1;
+    -webkit-box-orient:horizontal;
+    /*-webkit-box-flex:1;*/
 
 
     display:-moz-box;
-    -webkit-box-pack:center;
+    -moz-box-pack:center;
+   -moz-box-orient:horizontal;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:horizontal;
+   -o-box-flex:1;
+   background: black;
+
+	width: 40%
+}
+
+#userInfo{
+  display:-webkit-box;
+    -webkit-box-orient:vertical;
+    /*-webkit-box-flex:1;*/
+
+
+    display:-moz-box;
+    -moz-box-pack:center;
    -moz-box-orient:vertical;
    -moz-box-flex:1;
 
     display:-o-box;
    -o-box-orient:vertical;
    -o-box-flex:1;
+   background: black;
 }
+
+#contactnames{
+	display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-box-flex:1;
+
+
+    display:-moz-box;
+    -moz-box-pack:center;
+   -moz-box-orient:vertical;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-flex:1;
+   background: white;
+}
+
+
+#icongraphics{
+	display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-box-flex:1;
+
+
+    display:-moz-box;
+    -moz-box-pack:center;
+   -moz-box-orient:vertical;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-flex:1;
+   background: black;
+}
+
