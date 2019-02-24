@@ -53,7 +53,8 @@
    -o-box-flex:1;
    background: black;
 
-	width: 40%
+	width: 30%;
+  border-radius: 50%;
 }
 
 #userInfo{
@@ -87,10 +88,12 @@
     display:-o-box;
    -o-box-orient:vertical;
    -o-box-flex:1;
-   background: black;
+   /*background: #E0E0E0;*/
+   background: linear-gradient(to bottom right, #E0E0E0, #F5F5F5);
+
    margin-left: 1%;
-   text-align: center;
-   color: white;
+   /*text-align: center;*/
+   color: black;
 }
 
 
@@ -117,3 +120,16 @@
    text-align: center;
 }
 
+
+a{
+  color:white;
+}
+
+.destag{
+  color:#1B5E20;
+  margin-left: 3%;
+}
+
+.taginfo{
+  margin-left: 2%;
+}
