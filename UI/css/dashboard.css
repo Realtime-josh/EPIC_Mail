@@ -306,8 +306,9 @@ nav ul li a:hover{
   padding: 0.6em;
   margin-left:74%;
   margin-top: 1%;
-  background: linear-gradient(to bottom right,#01579B,#4FC3F7);
-  color:white;
+  background: #9E9E9E;
+  /*background: linear-gradient(to bottom right,#01579B,#4FC3F7);*/
+  color:black;
 }
 
 .receivedFrom{
@@ -442,13 +443,13 @@ margin-top: 20%;
 
 
 .card:nth-child(4n) h1{
-  background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
+   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
 
 
 .card:nth-child(5n) h1{
-  background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
+   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
 
