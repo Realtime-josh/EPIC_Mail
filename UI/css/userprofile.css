@@ -59,7 +59,7 @@
 #userInfo{
   display:-webkit-box;
     -webkit-box-orient:vertical;
-    /*-webkit-box-flex:1;*/
+    -webkit-box-flex:1;
 
 
     display:-moz-box;
@@ -87,7 +87,10 @@
     display:-o-box;
    -o-box-orient:vertical;
    -o-box-flex:1;
-   background: white;
+   background: black;
+   margin-left: 1%;
+   text-align: center;
+   color: white;
 }
 
 
@@ -95,6 +98,7 @@
 	display:-webkit-box;
     -webkit-box-orient:vertical;
     -webkit-box-flex:1;
+    -webkit-box-pack:center;
 
 
     display:-moz-box;
@@ -105,6 +109,11 @@
     display:-o-box;
    -o-box-orient:vertical;
    -o-box-flex:1;
-   background: black;
+
+
+   background: #1B5E20;
+   color: white;
+   margin-left: 1%;
+   text-align: center;
 }
 
