@@ -184,6 +184,20 @@ a{
 
 }
 
+@media screen and (max-width: 600px) {
+  .groups {
+    flex: 1 1 calc(30% - 2rem);
+  }
+
+}
+
+@media screen and (max-width: 350px) {
+  .groups {
+    flex: 1 1 calc(50% - 2rem);
+  }
+
+}
+
 
 
 
