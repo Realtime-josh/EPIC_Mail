@@ -1,0 +1,300 @@
+*{
+  margin:0px;
+  padding: 0px;
+}
+
+
+
+body{
+  width: 100%;
+  display:-webkit-box;
+  -webkit-box-pack:center;
+    
+    display:-moz-box;
+    /*-moz-box-pack:center;*/
+    
+    display:-o-box;
+    -o-box-pack:center;
+}
+
+
+#wrapperDiv{
+  display:-webkit-box;
+  -webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+    -webkit-box-flex:1;
+
+
+    display:-moz-box;
+    -moz-box-pack:center;
+   -moz-box-orient:vertical;
+   -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-flex:1;
+
+  /*height:600px;*/
+   
+    background: linear-gradient(to bottom right, #01579B, #039BE5);
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 2%;
+    margin-bottom: 2%
+    
+}
+
+
+#welcomeDiv{
+  display:-webkit-box;
+  -webkit-box-pack:center;
+  -webkit-box-orient:vertical;
+  -webkit-box-flex:1;
+
+     display:-moz-box;
+    -moz-box-flex:1;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-orient:vertical;
+    -o-box-flex:1;
+
+
+     width: 100%;
+     text-align:center; 
+  
+}
+
+
+.formDivv{
+  display:-webkit-box;
+  -webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+
+  display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-orient:vertical;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-pack:center;
+
+
+     width: 100%;
+     margin-bottom: 4%;
+     border-radius: 10px;
+     text-align:center; 
+     background: white;
+     background: linear-gradient(to bottom right, #2E7D32, #039BE5);
+}
+
+
+
+
+
+.formDiv{
+  display:-webkit-box;
+  -webkit-box-pack:center;
+    -webkit-box-orient:vertical;
+
+  display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-orient:vertical;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+   -o-box-pack:center;
+
+
+     width: 40%;
+     margin-left: 30%;
+     margin-bottom: 4%;
+     margin-top: 3%;
+     border-radius: 10px;
+     text-align:center; 
+     background: #F5F5F5;
+     box-shadow: rgb(117,117,117) 3px 3px;
+}
+
+
+
+.loginForm{
+  display:-webkit-box;
+  -webkit-box-pack:center;
+
+  display:-moz-box;
+    -moz-box-pack:center;
+
+    display:-o-box;
+   -o-box-orient:vertical;
+
+    
+     text-align:center; 
+     width:100%;
+     margin-top: 12%;
+     margin-bottom: 5%;
+
+}
+
+#emailText{
+  height:2em;
+  border-radius: 3px;
+}
+
+#forgotText{
+  height:2em;
+  border-radius: 3px;
+}
+
+#passwordText{
+  height:2em;
+  border-radius: 3px;
+}
+
+#NameText{
+   height:2em;
+   border-radius: 3px;
+}
+
+.styleHeightForm{
+   height:2em;
+   border-radius: 3px;
+}
+
+.submitButton{
+  width: 100%;
+  height:2.5em;
+  background: #0288D1;
+  color:white;
+  font-family: 'Merriweather', serif;
+  font-size: 1em;
+  box-shadow: rgb(208, 211, 204) 3px 3px
+}
+
+#welcomeText{
+  font-size: 1.6em;
+  color:#E0E0E0;
+}
+
+.iconid{
+  border-radius: 20%;
+}
+
+
+#dropdown{
+  width: 80%;
+  background:black;
+  color:white;
+}
+
+.errorSpan{
+    color: red;
+}
+
+#signupDiv{
+   margin-left: 2%;
+   margin-right: 5%;
+   width: 100%
+}
+
+.signupButton{
+   /*background: #2E7D32;*/
+   background: linear-gradient(to bottom right, #2E7D32, #039BE5);
+   box-shadow: rgb(208, 211, 204) 3px 3px;
+   color:#E0E0E0;
+   font-family: 'Lobster', cursive;
+   font-size: 1em;
+   height:2.5em;
+   width: 100%
+}
+
+#signupDivForm{
+  display: none;
+
+}
+
+#termscondition{
+  margin-bottom: 3%;
+  margin-right: 8%;
+  margin-left: 8%;
+  font-family: 'EB Garamond', serif;
+  color:#9E9E9E;
+}
+
+a{
+  text-decoration: none;
+  color:#A5D6A7;
+}
+
+#signupButton{
+  font-family: 'EB Garamond', serif;
+  color:#9E9E9E;
+}
+
+#forgotPassword a{
+  font-family: 'EB Garamond', serif;
+  color:#1565C0;
+}
+
+
+
+
+
+
+@media only screen and (max-width:780px){
+
+.formDiv{
+     display:-webkit-box;
+    -webkit-box-pack:center;
+
+     /*background: linear-gradient(to bottom right, #2E7D32, #039BE5);*/
+     width: 100%;
+     height: 100%;
+     margin-bottom: 0%;
+
+     /*height: 60%;*/
+     margin-left: 0%;
+     border-radius: 10px;
+     text-align:center; 
+     /*background: white;*/
+}
+
+#formDivv{
+  background: linear-gradient(to bottom right, #2E7D32, #039BE5);
+  width: 100%;
+    height: 100%
+}
+.submitButton{
+  box-shadow: none;
+}
+
+#welcomeText{
+  font-size: 2em;
+  color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
