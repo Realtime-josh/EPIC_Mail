@@ -1,0 +1,11 @@
+#deletegroup{
+  width: 50%;
+  height: 2.8em;
+  margin-left: 4.2em;
+  /*margin-top: 2%;*/
+  /*background: linear-gradient(to bottom right,#B39DDB,#EDE7F6);*/
+  background: #424242;
+  color:white;
+  font-size: 1.1em;
+  font-family: 'Merriweather', serif;
+}
