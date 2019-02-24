@@ -76,7 +76,7 @@ body{
     /*background-image: url("../img/store.jpg");*/
 }
 
-#headerMenuDiv img{
+#headerMenuDiv #menuicon{
 
 
    width:20%;
@@ -117,7 +117,7 @@ body{
     -o-box-flex:3;
 }
 
-#titleName img{
+#titleName #menuicon{
   width: 2em;
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -149,6 +149,8 @@ body{
     font-family: 'Merriweather', serif;
     font-size: 2em;
     color:white;
+    padding: 0px;
+    margin: 0px;
 }
 
 #menuList{
@@ -424,6 +426,8 @@ margin-top: 20%;
 
 
 
+
+
 @media screen and (min-width: 900px) {
   .card {
     flex: 1 1 calc(80% - 2rem);
@@ -459,7 +463,15 @@ margin-top: 20%;
 }
 
 @media screen and (min-width: 1000px) {
-  #titleName img{
+  #titleName #menuicon{
     display : none;
   }
+
+
+@media screen and (max-width: 500px) {
+   .mail{
+  display: none;
 }
+
+}
+
