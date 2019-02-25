@@ -242,7 +242,11 @@ body{
     -o-box-flex:1;
     width: 100%;
 
+<<<<<<< HEAD
     background-image: url("img/epicmailcover.jpg");
+=======
+    background-image: url("./img/epicmailcover.JPG");
+>>>>>>> bc82ee9161051d74751766f73818244beef18a9c
 }
 
 #menuLargerScreens nav{
