@@ -242,7 +242,7 @@ body{
     -o-box-flex:1;
     width: 100%;
 
-    background-image: url("../img/epicmailcover.jpg");
+    background-image: url("./img/epicmailcover.jpg");
 }
 
 #menuLargerScreens nav{
