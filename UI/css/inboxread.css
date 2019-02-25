@@ -384,15 +384,15 @@ nav ul li a:hover{
   opacity: 0.4;
 }
 
-.myBtnn{
+/*.myBtnn{
   width: 20%;
   padding: 0.6em;
   margin-left:74%;
   margin-top: 1%;
   background: #9E9E9E;
-  /*background: linear-gradient(to bottom right,#01579B,#4FC3F7);*/
+  /*background: linear-gradient(to bottom right,#01579B,#4FC3F7);
   color:black;
-}
+}*/
 
 .receivedFrom{
   font-family: 'Aleo', serif;

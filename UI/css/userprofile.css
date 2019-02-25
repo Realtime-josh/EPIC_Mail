@@ -476,10 +476,7 @@ body{
   margin-left:2%;
 }
 
-#categories1{
 
-
-}
 
 
 #categories2{
@@ -577,38 +574,6 @@ nav ul li a:hover{
   opacity: 0.4;
 }
 
-.myBtnn{
-  width: 20%;
-  padding: 0.6em;
-  margin-left:74%;
-  margin-top: 1%;
-  background: linear-gradient(to bottom right,#01579B,#4FC3F7);
-  color:white;
-}
-
-.receivedFrom{
-  font-family: 'Aleo', serif;
-
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.card {
-  margin: 1rem;
-  background: white;
-  box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: all .2s linear;
-}
-
-.card:hover {
-  box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
-  transform: translate3D(0, -2px, 0);
-}
 
 footer{
   background: black;
@@ -625,104 +590,9 @@ footer{
   max-width: 100%;
 }
 
-@media screen and (min-width: 600px) {
-  .card {
-    flex: 1 1 calc(80% - 2rem);
-  }
-
-
-}
-
-@media screen and (max-width: 600px) {
-  .card {
-    flex: 1 1 calc(90% - 2rem);
-  }
 
 #footerText{
 margin-top: 20%;
-}
-
-    .myBtnn{
-      width: 100%;
-      padding: 0.6em;
-      margin-left:0%;
-      margin-top: 1%;
-      background: linear-gradient(to bottom right,#01579B,#4FC3F7);
-      color:white;
-    }
-
-}
-
-.myBtnnn{
-  display:-webkit-box;
-  -webkit-box-pack:left;
-    -webkit-box-orient:horizontal;
-    -webkit-box-flex:1;
-
-    display:-moz-box;
-    -moz-box-orient:horizontal;
-    -moz-box-flex:1;
-
-    display:-o-box;
-    -o-box-orient:horizontal;
-    -o-box-flex:1;
-
-
-
-   width: 40%;
-  padding: 0.6em;
-  margin-top: 1%;
-  background: linear-gradient(to bottom right,#263238,#E0E0E0);
-  color:white;
-}
-
-.myBtnnnn{
-  display:-webkit-box;
-  -webkit-box-pack:left;
-    -webkit-box-orient:horizontal;
-    -webkit-box-flex:1;
-
-    display:-moz-box;
-    -moz-box-orient:horizontal;
-    -moz-box-flex:1;
-
-    display:-o-box;
-    -o-box-orient:horizontal;
-    -o-box-flex:1;
-
-
-
-   width: 40%;
-  padding: 0.6em;
-  margin-top: 1%;
-  background: #1B5E20;
-  color:white;
-}
-
-
-
-
-
-@media screen and (min-width: 900px) {
-  .card {
-    flex: 1 1 calc(80% - 2rem);
-  }
-}
-
-.card:nth-child(2n) h1{
-  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-}
-
-
-
-.card:nth-child(4n) h1{
-  background-image: linear-gradient(120deg, #ff9a9e 0%, #fecfef 100%);
-}
-
-
-
-.card:nth-child(5n) h1{
-  background-image: linear-gradient(120deg, #ffc3a0 0%, #ffafbd 100%);
 }
 
 
