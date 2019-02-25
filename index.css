@@ -309,6 +309,7 @@ nav ul li a:hover{
   background: #9E9E9E;
   /*background: linear-gradient(to bottom right,#01579B,#4FC3F7);*/
   color:black;
+  font-family: 'Lobster', cursive;
 }
 
 .receivedFrom{
@@ -399,6 +400,7 @@ margin-top: 20%;
   margin-top: 1%;
   background: linear-gradient(to bottom right,#263238,#E0E0E0);
   color:white;
+  font-family: 'Lobster', cursive;
 }
 
 .myBtnnnn{
@@ -422,6 +424,7 @@ margin-top: 20%;
   margin-top: 1%;
   background: #1B5E20;
   color:white;
+  font-family: 'Lobster', cursive;
 }
 
 
