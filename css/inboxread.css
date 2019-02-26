@@ -100,8 +100,11 @@ html {
 
 a{
   text-decoration: none;
-  color: black;
   font-size: 0.8em;
+}
+
+h1 a{
+  color: black;
 }
 
 h1{
