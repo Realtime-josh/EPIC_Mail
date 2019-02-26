@@ -1,0 +1,55 @@
+{
+  "name": "epicmail",
+  "version": "1.0.0",
+  "description": "The internet is increasingly becoming an integral part of lives. Ever since the invention of\r electronic mail by Ray Tomlinson , emails have grown to become the primary medium of\r exchanging information over the internet between two or more people, until the advent of Instant\r Messaging (IM) Apps.\r As EPIC Andelans who work towards advancing human potential and giving back to the society,\r we wish to empower others by building a web app that helps people exchange\r messages/information over the internet.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Realtime-josh/EPIC_Mail.git"
+  },
+  "author": "Joshua Frankson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Realtime-josh/EPIC_Mail/issues"
+  },
+  "homepage": "https://github.com/Realtime-josh/EPIC_Mail#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.3",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "expect": "^23.6.0",
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "save-dev": "^2.0.0",
+    "supertest": "^3.3.0",
+    "swagger-ui-express": "^4.0.1",
+    "validator": "^10.8.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "expect": "^23.6.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "supertest": "^3.3.0"
+  },
+  "engines": {
+    "node": "10.6.0"
+  }
+}
