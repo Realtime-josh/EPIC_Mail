@@ -104,7 +104,11 @@ a{
 }
 
 h1 a{
+<<<<<<< HEAD
    color: black;
+=======
+  color: black;
+>>>>>>> 277dcad5b31bd03840b570cdcf2851292d098ad4
 }
 
 h1{
