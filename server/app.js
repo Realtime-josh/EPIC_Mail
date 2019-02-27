@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 // app.use('/api/v1/products', productRouter);
 // app.use('/api/v1/sales', salesRouter);
 app.get('/', (req, res) => {
-  res.send({ message: 'Welcome to Store Manager' });
+  res.send({ message: 'Welcome to Epic Mail' });
 });
 app.use('*', (req, res) => {
   res.status(404).send({ error: 'Invalid Route' });
