@@ -12,11 +12,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 // app.use('/api/v1/', );
 // app.use('/api/v1/', );
-app.get('/', (req, res) => {
-  res.send({ message: 'Welcome to EPIC Mail Services' });
+app.get("/", (req, res) => {
+  res.send({ message: "Welcome to EPIC Mail Services" });
 });
-app.use('*', (req, res) => {
-  res.status(404).send({ error: 'Invalid Route' });
+app.use("*", (req, res) => {
+  res.status(404).send({ error: "Invalid Route" });
 });
 
 
@@ -31,8 +31,6 @@ console.log ( `Server started on port ${port}`);
 });
 
 
-
-
 module.exports = {
 	app
-}
+};
