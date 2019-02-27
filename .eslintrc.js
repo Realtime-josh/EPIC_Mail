@@ -9,11 +9,7 @@ module.exports = {
         "ecmaVersion": 2016,
         "sourceType": "module"
     },
-    "rules": {     
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
+    "rules": {  
         "quotes": [
             "error",
             "double"
