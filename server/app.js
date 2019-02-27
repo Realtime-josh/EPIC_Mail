@@ -10,10 +10,10 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-// app.use('/api/v1/products', productRouter);
-// app.use('/api/v1/sales', salesRouter);
+// app.use('/api/v1/', );
+// app.use('/api/v1/', );
 app.get('/', (req, res) => {
-  res.send({ message: 'Welcome to Store Manager' });
+  res.send({ message: 'Welcome to EPIC Mail Services' });
 });
 app.use('*', (req, res) => {
   res.status(404).send({ error: 'Invalid Route' });
@@ -26,8 +26,8 @@ app.use('*', (req, res) => {
 
 
 
-app.listen(port, ()=>{
-	console.log(`Server started on port ${port}`);
+app.listen(port, () => {
+console.log ( `Server started on port ${port}`);
 });
 
 
@@ -35,4 +35,4 @@ app.listen(port, ()=>{
 
 module.exports = {
 	app
-};
+}
