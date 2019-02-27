@@ -2,7 +2,9 @@ const {isPositiveInteger} = require("../helpers/validators");
 const {trimAllSpace} = require("../helpers/validators");
 const {filterInput} = require("../helpers/validators");
 const expect = require("expect");
-// const request = require("supertest");
+const request = require("supertest");
+const {app} = require("../app");
+const reqp = require('request-promise');
 
 
 
@@ -45,3 +47,185 @@ describe("function tests", ()=>{
    });
 
 });
+
+
+
+describe("middlewares for routes", ()=>{
+   it("should return error if user has already signed up", (done) => {
+        request(app)
+          .post("/api/v1/createaccount")
+          .send({"email" : "franksonjoshua@gmail.com",
+                  "firstName" : "Joshua",
+                  "lastName" : "Frankson",
+                  "password" : "jddhehndhr" })
+          .set("Accept", "application/json")
+          .expect(400)
+          .expect("Content-Type", /json/)
+          .end((err, res) => {
+            if (err) done(err);
+            expect(res.body.error).toContain("email already exist.");
+            expect(res.body.status).toBe(400);
+
+         });
+          done();
+      });
+
+      it("should check email validity", (done) =>{
+        request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                 "email" : "frankson#$%joshua@gmail.com",
+                  "firstName" : "Joshua",
+                  "lastName" : "Frankson",
+                  "password" : "jddhehndhr"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure username, email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+    done();
+});
+
+   
+   it("should check firstName validity", (done) =>{
+        request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "firstName" : "Joshu%^$#@a",
+                  "lastName" : "Frankson",
+                  "password" : "jddhehndhr"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure username, email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+    done();
+});
+
+
+   it("should check lastName validity", (done) =>{
+        request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "firstName" : "Joshua",
+                  "lastName" : "Fra$%#@nkson",
+                  "password" : "jddhehndhr"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure username, email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+    done();
+});
+
+   it("should check password length is greater than 6", (done) =>{
+        request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "firstName" : "Joshua",
+                  "lastName" : "Frankson",
+                  "password" : "jddhe"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure username, email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+    done();
+});
+
+
+    it("should return length of first name greater than 1", (done) =>{
+        request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "firstName" : " ",
+                  "lastName" : "Frankson",
+                  "password" : "jddhe"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure username, email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+    done();
+});
+
+  it("should return length of lastName greater than 1", (done) =>{
+        request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "firstName" : "Joshua",
+                  "lastName" : " ",
+                  "password" : "jddhe"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure username, email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+    done();
+});
+
+  it("should not return withspaces in names", (done) =>{
+        request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "firstName" : "     ",
+                  "lastName" : " ",
+                  "password" : "jddhert"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure username, email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+     done();
+  });
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+

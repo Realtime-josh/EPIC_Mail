@@ -30,6 +30,27 @@ describe("*", () => {
 });
 
 
+describe("POST /signup route", ()=>{
+   it("should successfully create user", (done)=>{
+       request(app)
+       .post("/api/v1/createaccount")
+       .send({
+                  "email" : "kellyfeller@gmail.com",
+                  "firstName" : "Kelly",
+                  "lastName" : "Feller",
+                  "password" : "jddhehndhr"               
+       })
+       .set("Accept", "application/json")
+       .expect(200)
+       .expect("Content-type", /json/)
+       .end((err,res)=>{
+          if(err) done(err);
+             expect(res.body.message).toContain("User successfully created");
+             expect(res.body.status).toBe(200);
+       });
+       done();
+   });
+});
 
 
 
