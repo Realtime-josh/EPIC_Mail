@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "./node_modules/.bin/eslint server --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "test": "mocha **/*.test.js",
+    "start": "node starter.js"
   },
   "repository": {
     "type": "git",

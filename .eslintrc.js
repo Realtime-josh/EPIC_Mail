@@ -9,11 +9,7 @@ module.exports = {
         "ecmaVersion": 2016,
         "sourceType": "module"
     },
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
+    "rules": {     
         "linebreak-style": [
             "error",
             "windows"
