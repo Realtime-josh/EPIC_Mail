@@ -19,9 +19,14 @@ contactRouter.post("/createaccount",validateUserEntry, (req, res)=>{
 
 });
 
-contactRouter.post("/signin", (req,res)=>{
-
-})
+contactRouter.post("/signin",validateUserSignIn, (req,res)=>{
+      const {accountDetails} = req;
+      res.status(200).send({
+      status : 200,
+      message : "Scuccessfully Signed In",
+      UserDetails : accountDetails
+      });
+});
 
 
 
