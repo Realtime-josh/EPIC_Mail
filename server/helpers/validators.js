@@ -127,8 +127,8 @@ const createMessage = (req,res,next) => {
                       req.messageDetails = messageDetails;
                       next();
                }
-    }else{
-            sendResponse(res,400,null,"one or more users is not registered");
+          }else{
+                sendResponse(res,401,null,"one or more users is not registered");
        }
     
 
