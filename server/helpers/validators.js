@@ -53,6 +53,30 @@ const validateUserEntry = (req,res,next) => {
 };
 
 
+const validateUserSignIn = (req,res,next) => {
+    const {email, password} = req.body; 
+    const trimEmail = trimAllSpace(email);
+    if(validator.isEmail(email) && !filterInput(trimEmail) && password.length>6){
+
+        const checkEmail = user.users.filter((result)=>{
+                  return result.email === email;
+           });
+
+        if(checkEmail.length > 0 and checkEmail[0].password === password){
+                    req.accountDetails = checkEmail[0];
+                    next();
+             }else{
+                 sendResponse(res,400,null,"email is not associated with a registered account");
+             }
+    }else{
+        sendResponse(res,400,null,"Ensure email and password are valid entries");
+    }
+
+
+
+};
+
+
 
 
 
@@ -62,5 +86,6 @@ module.exports = {
 	isPositiveInteger,
 	filterInput,
 	trimAllSpace,
-	validateUserEntry
+	validateUserEntry,
+    validateUserSignIn
 };
