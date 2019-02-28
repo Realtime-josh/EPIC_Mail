@@ -62,16 +62,15 @@ const validateUserSignIn = (req,res,next) => {
                   return result.email === email;
            });
 
-        if(checkEmail.length > 0 and checkEmail[0].password === password){
+        if(checkEmail.length > 0 && checkEmail[0].password === password){
                     req.accountDetails = checkEmail[0];
                     next();
              }else{
-                 sendResponse(res,400,null,"email is not associated with a registered account");
+                 sendResponse(res,400,null,"email and password is not associated with a registered account");
              }
     }else{
         sendResponse(res,400,null,"Ensure email and password are valid entries");
     }
-
 
 
 };
