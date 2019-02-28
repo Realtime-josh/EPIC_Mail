@@ -1,5 +1,4 @@
 const {validateUserEntry} = require("../helpers/validators");
-const {sendResponse} = require("../helpers/responses");
 const {user} = require("../models/users");
 const {validateUserSignIn} = require("../helpers/validators");
 const express = require("express");

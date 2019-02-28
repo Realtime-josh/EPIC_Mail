@@ -1,5 +1,7 @@
 const {user} = require("../models/users");
 const {usersList} = require("../models/users");
+const {mapMessages} = require("../models/messages");
+const {Message} = require("../models/messages");
 const {sendResponse} = require("./responses");
 const validator = require("validator");
 
@@ -72,8 +74,67 @@ const validateUserSignIn = (req,res,next) => {
         sendResponse(res,400,null,"Ensure email and password are valid entries");
     }
 
+};
+
+
+
+const createMessage = (req,res,next) => {
+    const {senderId, receiverId, subject, message, status} = req.body;
+    // const senderId = 1;
+    // const receiverId =2;
+    const verifyUsersExist = user.users.filter((result)=>{
+        return (result.userId === senderId || result.userId === receiverId);
+    });
+
+    const verifyParentMessage = Message.messages.filter((result)=>{
+        return (result.senderId === senderId && result.receiverId === receiverId) || 
+                (result.senderId === receiverId && result.receiverId === senderId);
+    });
+
+
+    if(verifyUsersExist.length > 1){
+            if(verifyParentMessage.length > 0){
+                 const getParentMessage = verifyParentMessage[0].parentMessageId;
+                 const messageDetails = {
+                             messageId : Message.lastMessageId + 1,
+                             senderId : senderId,
+                             receiverId : receiverId,
+                             parentMessageId : getParentMessage,
+                             subject : subject,
+                             message : message,
+                             status : status,
+                             createdOn : new Date()
+                 };
+                  Message.lastMessageId += 1;
+                  mapMessages.set(String(messageDetails.messageId),messageDetails);
+                  req.messageDetails = messageDetails;
+                  next();
+            }else{
+                        const createParentMessageId = Message.lastParentMessageId + 1;
+                        const messageDetails = {
+                                 messageId : Message.lastMessageId + 1,
+                                 senderId : senderId,
+                                 receiverId : receiverId,
+                                 parentMessageId : createParentMessageId,
+                                 subject : subject,
+                                 message : message,
+                                 status : status,
+                                 createdOn : new Date()
+                     };
+                       Message.lastMessageId += 1;
+                       Message.lastParentMessageId += 1;
+                       mapMessages.set(String(messageDetails.messageId),messageDetails);
+                      req.messageDetails = messageDetails;
+                      next();
+               }
+          }else{
+                sendResponse(res,401,null,"one or more users is not registered");
+       }
+    
 
 };
+
+// createMessage();
 
 
 
@@ -86,5 +147,6 @@ module.exports = {
 	filterInput,
 	trimAllSpace,
 	validateUserEntry,
-    validateUserSignIn
+    validateUserSignIn,
+    createMessage
 };
