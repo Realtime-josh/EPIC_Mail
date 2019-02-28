@@ -214,6 +214,79 @@ describe("middlewares for routes", ()=>{
   });
 
 
+  it("should return error for an unregistered email account", (done) =>{
+        request(app)
+       .post("/api/v1/signin")
+       .send({
+                 "email" : "franksonjos@gmail.com",
+                  "password" : "yettiyea"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("email and password is not associated with a registered account");
+      expect(res.body.status).toBe(400);
+    });
+     done();
+  });
+
+   it("should return error for an invalid email address", (done) =>{
+        request(app)
+       .post("/api/v1/signin")
+       .send({
+                 "email" : "frankson$%#@jos@gmail.com",
+                  "password" : "yettiyea"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+     done();
+  });
+
+   it("should return error for a wrong password", (done) =>{
+        request(app)
+       .post("/api/v1/signin")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "password" : "yettdhtes"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("email and password is not associated with a registered account");
+      expect(res.body.status).toBe(400);
+    });
+     done();
+  });
+
+   it("should return error for an invalid password length", (done) =>{
+        request(app)
+       .post("/api/v1/signin")
+       .send({
+                 "email" : "franksonjoshua@gmail.com",
+                  "password" : "yet"
+       })
+      .set("Accept", "application/json")
+      .expect(400)
+      .expect("Content-Type", /json/)
+      .end((err,res)=>{
+      if(err) done(err);
+      expect(res.body.error).toContain("Ensure email and password are valid entries");
+      expect(res.body.status).toBe(400);
+    });
+     done();
+  });
+
+
 
 });
 
