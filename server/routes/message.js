@@ -63,16 +63,16 @@ messageRouter.get("/sentemails/:id", (req,res)=>{
                   const getName = usersList.get(parseInt(id));
                    res.status(200).send({
                    status : 200,
-                   message : `All received messages for ${getName.fullName}`,
+                   message : `All Sent messages for ${getName.fullName}`,
                    sentmessages : sentMessages
                });
             }else{
                     sendResponse(res,200,"No messages found for user",null);
                }
      }else{
-                sendResponse(res,404,null,"Not Found");
+               sendResponse(res,404,null,"Not Found");
          }
-
+ 
 });
 
 

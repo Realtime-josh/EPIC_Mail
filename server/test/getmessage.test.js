@@ -4,7 +4,7 @@ const {app} = require("../app");
 
 
 
-describe("GET /receivedmessages", ()=>{
+describe("GET /messages", ()=>{
   it("should respond with all received messages", ()=>{
     request(app)
     .get("/api/v1/message/receivedmessages/2")
@@ -27,8 +27,37 @@ describe("GET /receivedmessages", ()=>{
 
   });
 
+   it("should respond with all sent messages", ()=>{
+    request(app)
+    .get("/api/v1/message/sentemails/1")
+    .set("Accept", "application/json")
+    .expect(200)
+    .then((response)=>{
+      expect(response.body.message).toContain("All Sent messages for Joshua Frankson");
+    });
+
+  });
+
+
+   it("should respond with all sent messages", ()=>{
+    request(app)
+    .get("/api/v1/message/sentemails/2")
+    .set("Accept", "application/json")
+    .expect(200)
+    .then((response)=>{
+      expect(response.body.message).toContain("No messages found for user");
+    });
+
+  });
 
 });
+
+
+
+
+
+
+
         
 
  
