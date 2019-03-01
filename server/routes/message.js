@@ -76,6 +76,33 @@ messageRouter.get("/sentemails/:id", (req,res)=>{
 });
 
 
+messageRouter.get("/unreadmails/:id", (req,res)=>{
+        const {id} = req.params;
+        const verifyUser = user.users.filter((result)=>{
+               return result.userId === parseInt(id);
+    });
+
+      if(verifyUser.length > 0){
+            const unreadMessages = Message.messages.filter((result)=>{
+                                         return result.receiverId === parseInt(id) && result.status === "unread";
+                                     });
+            if(unreadMessages.length > 0){
+                  const getName = usersList.get(parseInt(id));
+                   res.status(200).send({
+                   status : 200,
+                   message : `All unread messages for ${getName.fullName}`,
+                   unreadmessages : unreadMessages
+               });
+            }else{
+                    sendResponse(res,200,"No messages found for user",null);
+               }
+      }else{
+         sendResponse(res,404,null,"Not Found");
+      }
+
+});
+
+
 
 
 

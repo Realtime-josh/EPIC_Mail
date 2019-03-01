@@ -39,7 +39,7 @@ describe("GET /messages", ()=>{
   });
 
 
-   it("should respond with all sent messages", ()=>{
+   it("should respond with no record of sent messages", ()=>{
     request(app)
     .get("/api/v1/message/sentemails/2")
     .set("Accept", "application/json")
@@ -49,6 +49,30 @@ describe("GET /messages", ()=>{
     });
 
   });
+
+    it("should respond with no record of unread messages", ()=>{
+    request(app)
+    .get("/api/v1/message/unreadmails/3")
+    .set("Accept", "application/json")
+    .expect(200)
+    .then((response)=>{
+      expect(response.body.message).toContain("No messages found for user");
+    });
+
+  });
+
+    it("should respond with record of unread messages", ()=>{
+    request(app)
+    .get("/api/v1/message/unreadmails/2")
+    .set("Accept", "application/json")
+    .expect(200)
+    .then((response)=>{
+      expect(response.body.message).toContain("All unread messages for Sally Marcus");
+    });
+
+  });
+
+
 
 });
 
