@@ -113,6 +113,7 @@ messageRouter.get("/email/:id", (req,res)=>{
        if(verifyUser.length > 0){
              const  getEmail = verifyUser[0].email;
               res.status(200).send({
+                   status : 200,
                    message : "Email found",
                    email : getEmail
               });
