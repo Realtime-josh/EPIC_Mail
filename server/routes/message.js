@@ -104,6 +104,26 @@ messageRouter.get("/unreadmails/:id", (req,res)=>{
 
 
 
+messageRouter.get("/email/:id", (req,res)=>{
+      const {id} = req.params;
+      const verifyUser = user.users.filter((result)=>{
+               return result.userId === parseInt(id);
+    });
+
+       if(verifyUser.length > 0){
+             const  getEmail = verifyUser[0].email;
+              res.status(200).send({
+                   message : "Email found",
+                   email : getEmail
+              });
+       }else{
+          sendResponse(res,404,null,"Not Found");
+       }
+});
+
+
+
+
 
 
 
