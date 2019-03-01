@@ -18,6 +18,11 @@ messageRouter.post("/sendmessage",createMessage,(req,res)=>{
 });
 
 
+messageRouter.get("/receivedmessages", (req,res)=>{
+       
+});
+
+
 
 
 
