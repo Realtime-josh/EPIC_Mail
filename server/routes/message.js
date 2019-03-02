@@ -21,6 +21,15 @@ messageRouter.post("/sendmessage",createMessage,(req,res)=>{
 });
 
 
+
+messageRouter.get("/allreceivedmails", (req,res)=>{
+      res.status(200).send({
+          status :200,
+          messageDetails : Message.messages
+      });
+});
+
+
 messageRouter.get("/receivedmessages/:id", (req,res)=>{
 	const {id} = req.params;
     const verifyUser = user.users.filter((result)=>{
@@ -120,6 +129,51 @@ messageRouter.get("/email/:id", (req,res)=>{
        }else{
           sendResponse(res,404,null,"Not Found");
        }
+});
+
+
+
+
+
+messageRouter.delete("/email/:id", (req,res)=>{
+       const {userMessageId} = req.query;
+       const {id} = req.params;
+       const verifyUser = user.users.filter((result)=>{
+               return result.userId === parseInt(id);
+    });
+
+        if(verifyUser.length > 0){
+
+              const messageToDelete = Message.messages.filter((result)=>{
+                       return result.receiverId === parseInt(id);
+              });
+
+              if(messageToDelete.length > 0){
+                      const getSpecificMail = messageToDelete.filter((result)=>{
+                             return result.messageId === parseInt(userMessageId);
+                      });
+
+                      if(getSpecificMail.length > 0){
+                            const getSpecificMailId = getSpecificMail[0];
+                            Message.messages.splice(Message.messages.indexOf(getSpecificMailId),1);
+                            res.status(200).send({
+                                status :200,
+                                message : "Email successfully deleted",
+                                messageDetails : getSpecificMail
+                            });
+                      }else{
+                         sendResponse(res,200,"no email to be deleted", null);
+                      }
+
+                      
+              }else{
+                 sendResponse(res,200,"no email found", null);
+              }
+
+        }else{
+           sendResponse(res,404,null,"Not Found");
+        }
+
 });
 
 

@@ -84,6 +84,29 @@ describe("GET /messages", ()=>{
 
   });
 
+
+    it("should delete email from inbox", ()=>{
+    request(app)
+    .delete("/api/v1/message/email/2?userMessageId=1")
+    .set("Accept", "application/json")
+    .expect(200)
+    .then((response)=>{
+      expect(response.body.message).toContain("Email successfully deleted");
+    });
+
+  });
+
+    it("should return message for delete request without email", ()=>{
+    request(app)
+    .delete("/api/v1/message/email/1?userMessageId=1")
+    .set("Accept", "application/json")
+    .expect(200)
+    .then((response)=>{
+      expect(response.body.message).toContain("no email found");
+    });
+
+  });
+
 });
 
 
