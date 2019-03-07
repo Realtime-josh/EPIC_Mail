@@ -287,8 +287,21 @@ nav ul li a:hover{
 }
 
 #roott{
-   background-image: url("img/epicmailcover.jpg");
+   display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-flex:1;
+
+    display:-o-box;
+    -o-box-pack:center;
+    -o-box-flex:1;
+
+   /*background-image: url("img/epicmailcover.jpg");*/
    height: 430px; /* You must set a specified height */
+   width: 100%;
    
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
@@ -296,10 +309,41 @@ nav ul li a:hover{
 }
 
 #containerr{
+  display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-flex:1;
+
+    display:-o-box;
+    -o-box-pack:center;
+    -o-box-flex:1;
+
   height: 100%;
+  width: 100%;
   background:green;
-  opacity: 0.4;
+  /*opacity: 0.4;*/
 }
+
+#containerr img{
+   display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-flex:1;
+
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-flex:1;
+
+    display:-o-box;
+    -o-box-pack:center;
+    -o-box-flex:1;
+    width: 100%;
+
+}
+
+
 
 .myBtnn{
   width: 20%;
