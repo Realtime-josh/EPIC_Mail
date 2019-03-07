@@ -67,7 +67,7 @@
   margin-top: 1%;
   background: linear-gradient(to bottom right,#263238,#E0E0E0);
   color:white;
-  font-family: 'Lobster', cursive;
+ font-family: 'Aleo', serif;
 }
 
 
@@ -410,6 +410,7 @@ nav ul li a:hover{
 .container {
   display: flex;
   flex-wrap: wrap;
+  background: linear-gradient(to bottom right,#E0E0E0,#F5F5F5);
 }
 
 .card {

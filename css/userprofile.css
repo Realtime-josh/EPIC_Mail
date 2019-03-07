@@ -94,7 +94,7 @@
    -o-box-flex:1;
    /*background: #E0E0E0;*/
    background: linear-gradient(to bottom right, #E0E0E0, #F5F5F5);
-
+   /*background: linear-gradient(to bottom right, #689F38, #689F38, #DCEDC8);*/
    margin-left: 1%;
    margin-top: 2%;
    /*text-align: center;*/
@@ -119,7 +119,8 @@
    -o-box-flex:1;
 
 
-   background: #1B5E20;
+   /*background: linear-gradient(to bottom right, #689F38, #689F38, #DCEDC8);*/
+   background: linear-gradient(to bottom right, #80DEEA, #212121);
    color: white;
    margin-left: 1%;
    text-align: center;
@@ -131,6 +132,7 @@
 a{
   color:white;
   font-size: 0.8em;
+  font-family: 'Aleo', serif;
 }
 
 .glyphy{
@@ -144,9 +146,8 @@ a{
 }
 
 .taginfo{
-  font-family: 'Slabo 27px', serif;
-  font-family: 'Acme', sans-serif;
-}
+  font-family: 'Aleo', serif;
+  }
 
 
 
@@ -163,6 +164,7 @@ a{
   border-radius: 12px;
   overflow: hidden;
   transition: all .2s linear;
+  padding: 0.43em;
 }
 
 .groups:hover {
@@ -176,7 +178,7 @@ a{
 
 .groupForums{
   width: 100%;
-   font-family: 'Quattrocento', serif;
+  font-family: 'Aleo', serif;
 }
 
 
