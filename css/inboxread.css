@@ -516,6 +516,7 @@ margin-top: 20%;
   padding: 0.6em;
   margin-top: 1%;
   background: #1B5E20;
+  /*background: linear-gradient(to bottom right, #689F38, #689F38, #DCEDC8);*/
   color:white;
   font-family: 'Aleo', serif;
   font-size: 1em;
