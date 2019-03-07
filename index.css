@@ -20,7 +20,7 @@ a{
 }
 
 h1{
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
 
@@ -303,17 +303,19 @@ nav ul li a:hover{
 
 .myBtnn{
   width: 20%;
-  padding: 0.6em;
+  padding: 0.2em;
   margin-left:74%;
-  margin-top: 1%;
-  background: #9E9E9E;
-  /*background: linear-gradient(to bottom right,#01579B,#4FC3F7);*/
-  color:black;
+  margin-top: 0.7em;
+  background: linear-gradient(to bottom right,#01579B,#4FC3F7);
+  color:white;
   font-family: 'Lobster', cursive;
+  font-size: 1em;
+  border-radius: 10%;
 }
 
 .receivedFrom{
   font-family: 'Aleo', serif;
+  font-size: 0.9em;
 
 }
 
@@ -330,6 +332,7 @@ nav ul li a:hover{
   border-radius: 12px;
   overflow: hidden;
   transition: all .2s linear;
+  padding: 0.73em;
 }
 
 .card:hover {
@@ -401,7 +404,7 @@ margin-top: 20%;
   margin-top: 1%;
   background: linear-gradient(to bottom right,#263238,#E0E0E0);
   color:white;
-  font-family: 'Lobster', cursive;
+  font-family: 'Aleo', serif;;
 }
 
 .myBtnnnn{
@@ -425,7 +428,7 @@ margin-top: 20%;
   margin-top: 1%;
   background: #1B5E20;
   color:white;
-  font-family: 'Lobster', cursive;
+  font-family: 'Aleo', serif;;
 }
 
 
@@ -440,7 +443,7 @@ margin-top: 20%;
   }
 }
 
-.card:nth-child(2n) h1{
+/*.card:nth-child(2n) h1{
   background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
@@ -454,7 +457,7 @@ margin-top: 20%;
 
 .card:nth-child(5n) h1{
    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-}
+}*/
 
 
 
