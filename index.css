@@ -320,6 +320,7 @@ nav ul li a:hover{
 .container {
   display: flex;
   flex-wrap: wrap;
+  background: linear-gradient(to bottom right,#E0E0E0,#F5F5F5);
 }
 
 .card {
