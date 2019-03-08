@@ -1,7 +1,7 @@
 
 .roo{
    display:-webkit-box;
-	-webkit-box-pack:center;
+  -webkit-box-pack:center;
     -webkit-box-orient:vertical;
     -webkit-box-flex:1;
 
@@ -18,7 +18,7 @@
 
 .containit {
   display:-webkit-box;
-	-webkit-box-pack:center;
+  -webkit-box-pack:center;
     -webkit-box-orient:vertical;
     -webkit-box-flex:1;
 
@@ -36,8 +36,8 @@
 }
 
 .innerDiv{
-	display:-webkit-box;
-	-webkit-box-pack:center;
+  display:-webkit-box;
+  -webkit-box-pack:center;
     -webkit-box-orient:vertical;
     -webkit-box-flex:1;
 
@@ -54,8 +54,8 @@
 }
 
 .innerDiv form{
-	display:-webkit-box;
-	-webkit-box-pack:center;
+  display:-webkit-box;
+  -webkit-box-pack:center;
     -webkit-box-orient:vertical;
     -webkit-box-flex:1;
 
@@ -82,10 +82,10 @@
 
 
 #sendermail{
-	width: 80%;
-	height: 3em;
-	margin-left: 1.2%;
-	margin-top: 2em;
+  width: 80%;
+  height: 3em;
+  margin-left: 1.2%;
+  margin-top: 2em;
   background:linear-gradient(to bottom right, #EEEEEE, #F5F5F5);
   /*font-size: 0.9em;*/
   font-family: 'Merriweather', serif;
@@ -93,20 +93,20 @@
 }
 
 #receivermail{
-	width: 80%;
-	margin-left: 0.9%;
-	height: 3em;
-	margin-top: 0.7em;
+  width: 80%;
+  margin-left: 0.9%;
+  height: 3em;
+  margin-top: 0.7em;
   background:linear-gradient(to bottom right, #EEEEEE, #F5F5F5);
   font-family: 'Merriweather', serif;
 }
 
 #sendmessagehere{
-	width: 60%;
-	min-height: 25em;
-	margin-left: 5.8%;
-	height: 3em;
-	margin-top: 0.9em;
+  width: 60%;
+  min-height: 25em;
+  margin-left: 5.8%;
+  height: 3em;
+  margin-top: 0.9em;
   background:linear-gradient(to bottom right, #EEEEEE, #F5F5F5);
   font-family: 'Merriweather', serif;
 }
@@ -130,6 +130,7 @@
   color:white;
   font-size: 1.1em;
   font-family: 'Merriweather', serif;
+  margin-bottom: 2%;
 }
 
 #savedraft{
@@ -137,7 +138,7 @@
   height: 2.8em;
   margin-left: 4.2em;
   margin-bottom: 4%;
-  margin-top: 2%;
+  margin-top: 0.35em;
   /*background: linear-gradient(to bottom right,#B39DDB,#EDE7F6);*/
   background: #BDBDBD;
   color:black;
@@ -188,6 +189,69 @@
 }
 
 
+#footerText{
+  color :white;
+}
+
+
+@media screen and (max-width: 600px) {
+  #deletegroup{
+  width: 100%;
+  height: 2.8em;
+   margin-left: 0px;
+  background: #424242;
+  color:white;
+  font-size: 1.1em;
+  font-family: 'Aleo', serif;
+  margin-bottom: 2%;
+}
+
+#sendmessagebutton{
+  width: 100%;
+  height: 2.8em;
+   margin-left: 0px;
+  /*margin-top: 2%;*/
+  /*background: linear-gradient(to bottom right,#B39DDB,#EDE7F6);*/
+  background: #1B5E20;
+  color:white;
+  font-size: 1.1em;
+  font-family: 'Aleo', serif;
+}
+
+#savedraft{
+  width: 100%;
+  height: 2.8em;
+  margin-left: 0px;
+  margin-bottom: 4%;
+  margin-top: 2%;
+  /*background: linear-gradient(to bottom right,#B39DDB,#EDE7F6);*/
+  background: #BDBDBD;
+  color:black;
+  font-size: 1.1em;
+  font-family: 'Aleo', serif;
+}
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -211,11 +275,11 @@ html {
   background: #F6F6F6;
 }
 
-a{
+/*a{
   text-decoration: none;
   color: black;
   font-size: 0.8em;
-}
+}*/
 
 h1{
   font-size: 1.1em;
