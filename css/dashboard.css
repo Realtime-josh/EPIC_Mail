@@ -141,13 +141,14 @@ body{
 }
 
 .textWelcome{
-     font-family: 'Dancing Script', cursive;
+    font-family: 'Aleo', serif;
     font-size: 1em;
     color:white;
 }
 
 #titleText{
-    font-family: 'Merriweather', serif;
+    /*font-family: 'Merriweather', serif;*/
+    font-family: 'Aleo', serif;
     font-size: 2em;
     color:white;
     padding: 0px;

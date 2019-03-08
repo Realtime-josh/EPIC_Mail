@@ -53,6 +53,7 @@ html {
     margin-top: 2%;
     margin-bottom: 2%;
     width: 30%;
+    padding:0.78em;
     background: linear-gradient(to bottom right,#F5F5F5,#F5F5F5);
 }
 
@@ -207,6 +208,17 @@ html {
 
 }
 
+.epicc{
+    padding: 0.89em;
+}
+
+.epicwritten{
+    margin-top:3%;
+}
+
+
+
+
 
 @media screen and (max-width: 800px) {
   .infoSection{
@@ -253,6 +265,16 @@ html {
 	background: linear-gradient(to bottom right,#E0E0E0,#E0E0E0);
 	color: #EEEEEE;
 
+}
+
+
+#roott{
+
+   /*background-image: url("img/epicmailcover.jpg");*/
+   height: 330px; /* You must set a specified height */
+   width: 100%;
+   
+  
 }
 
 
