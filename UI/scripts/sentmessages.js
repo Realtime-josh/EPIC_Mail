@@ -13,10 +13,10 @@ for(let i=0; i<messageDivs.length; i++){
 	buttons[i].addEventListener("click", function() {
     if(messageDivs[i].style.display === "none"){
         messageDivs[i].style .display = "block";
-        buttons[i].innerHTML = "Collapse"
+        buttons[i].innerHTML = "Collapse";
     }else{
-         messageDivs[i].style .display = "none"
-         buttons[i].innerHTML = "View Message"
+         messageDivs[i].style .display = "none";
+         buttons[i].innerHTML = "View Message";
     }
 });
 
@@ -38,7 +38,7 @@ const continueView = document.getElementById("continue");
 
 
 
-modal.style.display = "none"
+modal.style.display = "none";
 
 
 
@@ -46,20 +46,20 @@ modal.style.display = "none"
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
-}
+};
 
 // When the user clicks on the button, open the modal 
 for(let i=0;i<btn.length;i++){
         btn[i].onclick = function() {
       modal.style.display = "block";
-    }
+    };
 }
 
 
 
 continueView.onclick = function(){
     modal.style.display = "none";
-}
+};
 
 
 // When the user clicks anywhere outside of the modal, close it
@@ -67,12 +67,16 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
+
+document.getElementById("continue").addEventListener("click", function(){
+  window.location.href='./sentmessages.html';
+});
 
 document.getElementById("allmessages").addEventListener("click", function(){
-  window.location.href='./dashboard.html';
-})
+  window.location.href='./home.html';
+});
 
 
 

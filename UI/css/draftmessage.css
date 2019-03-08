@@ -1,6 +1,7 @@
 
 #draftmessage{
-	text-align: center;
+  text-align: center;
+  margin-bottom: 0.73em
 }
 
 
@@ -29,7 +30,7 @@
 }
 
 .draftm{
-	width: 60%;
-	height:2em;
-	margin-bottom: 0.2em
+  width: 60%;
+  height:2em;
+  margin-bottom: 0.2em
 }
