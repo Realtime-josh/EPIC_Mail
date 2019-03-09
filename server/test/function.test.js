@@ -1,9 +1,9 @@
-const {isPositiveInteger} = require("../helpers/validators");
-const {trimAllSpace} = require("../helpers/validators");
-const {filterInput} = require("../helpers/validators");
-const expect = require("expect");
-const request = require("supertest");
-const {app} = require("../app");
+import {isPositiveInteger} from "../helpers/validators";
+import {trimAllSpace} from "../helpers/validators";
+import {filterInput} from "../helpers/validators";
+import expect from "expect";
+import request from "supertest";
+import app from "../app";
 
 
 

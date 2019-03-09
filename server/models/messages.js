@@ -46,9 +46,9 @@ const Message = {
 
 
 
-  module.exports = {
+export {
     mapMessages,
     mapGroup,
     Message
-  };
+};
 

@@ -1,7 +1,10 @@
-const {validateUserEntry} = require("../helpers/validators");
-const {user} = require("../models/users");
-const {validateUserSignIn} = require("../helpers/validators");
-const express = require("express");
+import {validateUserEntry} from "../helpers/validators";
+import {user} from "../models/users";
+import {validateUserSignIn} from "../helpers/validators";
+import express from "express";
+
+
+
 const contactRouter = express.Router();
 
 
@@ -35,6 +38,6 @@ contactRouter.post("/signin",validateUserSignIn, (req,res)=>{
 
 
 
-module.exports = {
+export {
 contactRouter
 };

@@ -89,7 +89,7 @@ user.users.forEach((contactItem)=>{
 
 
 
-module.exports = {
+export {
   user,
   usersList
 };
