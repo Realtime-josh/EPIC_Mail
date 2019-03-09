@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.com/Realtime-josh/EPIC_Mail.svg?branch=develop)](https://travis-ci.com/Realtime-josh/EPIC_Mail)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a0486eea2f1e5fa4df8e/maintainability)](https://codeclimate.com/github/Realtime-josh/EPIC_Mail)
 [![Coverage Status](https://coveralls.io/repos/github/Realtime-josh/EPIC_Mail/badge.svg?branch=develop)](https://coveralls.io/github/Realtime-josh/EPIC_Mail?branch=develop)
-[![Coverage Status](https://coveralls.io/repos/github/Realtime-josh/EPIC_Mail/badge.svg)](https://coveralls.io/github/Realtime-josh/EPIC_Mail)
 # EPIC_MAIL
 EPIC Mail is an internet web based messaging application designed to serve user needs. It allows users to send messages to individuals signed up to its platform and encourages group messaging via mails.
 
