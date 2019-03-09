@@ -4,7 +4,7 @@
   "description": "The internet is increasingly becoming an integral part of lives. Ever since the invention of\r electronic mail by Ray Tomlinson , emails have grown to become the primary medium of\r exchanging information over the internet between two or more people, until the advent of Instant\r Messaging (IM) Apps.\r As EPIC Andelans who work towards advancing human potential and giving back to the society,\r we wish to empower others by building a web app that helps people exchange\r messages/information over the internet.",
   "main": "app.js",
   "scripts": {
-    "test": "mocha dist/**/*.test.js",
+    "test": "npm run build && nyc --reporter=lcov --reporter=text --cache mocha dist/test/*.test.js --sort --exit --timeout=20000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "start": "node starter",
