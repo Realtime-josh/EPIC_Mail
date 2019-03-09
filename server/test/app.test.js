@@ -1,6 +1,6 @@
-const {app} = require("../app");
-const expect = require("expect");
-const request = require("supertest");
+import app from "../app";
+import expect from "expect";
+import request from "supertest";
 
 
 describe("GET /", ()=>{

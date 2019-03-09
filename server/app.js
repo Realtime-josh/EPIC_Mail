@@ -1,8 +1,8 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const {sendResponse} = require("./helpers/responses");
-const {contactRouter} = require("./routes/contacts");
-const {messageRouter} = require("./routes/message");
+import express from "express";
+import bodyParser from "body-parser";
+// import {sendResponse} from "./helpers/responses";
+import {contactRouter} from "./routes/contacts";
+import {messageRouter} from "./routes/message";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -26,6 +26,5 @@ console.log ( `Server started on port ${port}`);
 });
 
 
-module.exports = {
-	app
-};
+export default app;
+

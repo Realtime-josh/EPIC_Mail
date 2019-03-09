@@ -1,10 +1,11 @@
-const express = require("express");
+import express from "express";
+import {createMessage} from "../helpers/validators";
+import {Message} from "../models/messages";
+import {usersList} from "../models/users";
+import {user} from "../models/users";
+import {sendResponse} from "../helpers/responses";
+
 const messageRouter = express.Router();
-const {createMessage} = require("../helpers/validators");
-const {Message}  = require("../models/messages");
-const {usersList} = require("../models/users");
-const {user} = require("../models/users");
-const {sendResponse} = require("../helpers/responses");
 
 
 
@@ -186,6 +187,6 @@ messageRouter.delete("/email/:id", (req,res)=>{
 
 
 
-module.exports = {
+export {
 	messageRouter
 };

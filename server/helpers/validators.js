@@ -1,9 +1,9 @@
-const {user} = require("../models/users");
-const {usersList} = require("../models/users");
-const {mapMessages} = require("../models/messages");
-const {Message} = require("../models/messages");
-const {sendResponse} = require("./responses");
-const validator = require("validator");
+import {user} from "../models/users";
+import {usersList} from "../models/users";
+import {mapMessages} from "../models/messages";
+import {Message} from "../models/messages";
+import {sendResponse} from "./responses";
+import validator from "validator";
 
 
 const isPositiveInteger = s => /^\+?[1-9][\d]*$/.test(s);
@@ -142,7 +142,7 @@ const createMessage = (req,res,next) => {
 
 
 
-module.exports = {
+export {
 	isPositiveInteger,
 	filterInput,
 	trimAllSpace,
