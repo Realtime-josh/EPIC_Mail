@@ -166,7 +166,7 @@ body{
 	height:2.5em;
 	background: #0288D1;
 	color:white;
-  font-family: 'Merriweather', serif;
+  font-family: 'Aleo', serif;
   font-size: 1em;
   box-shadow: rgb(208, 211, 204) 3px 3px
 }
@@ -202,7 +202,7 @@ body{
    background: linear-gradient(to bottom right, #2E7D32, #039BE5);
    box-shadow: rgb(208, 211, 204) 3px 3px;
    color:#E0E0E0;
-   font-family: 'Lobster', cursive;
+   font-family: 'Aleo', serif;
    font-size: 1em;
    height:2.5em;
    width: 100%

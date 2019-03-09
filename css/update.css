@@ -7,7 +7,7 @@
   background: #424242;
   color:white;
   font-size: 1.1em;
-  font-family: 'Merriweather', serif;
+  font-family: 'Aleo', serif;
   margin-bottom: 2%;
 }
 
@@ -20,20 +20,21 @@
   background: #424242;
   color:white;
   font-size: 1.1em;
-  font-family: 'Merriweather', serif;
+  font-family: 'Aleo', serif;
   margin-bottom: 2%;
 }
 
 #sendmessagebutton{
-  width: 100%;
+  width: 90%;
   height: 2.8em;
-   margin-left: 0px;
+   margin-left: 10px;
+   margin-right: 10px;
   /*margin-top: 2%;*/
   /*background: linear-gradient(to bottom right,#B39DDB,#EDE7F6);*/
   background: #1B5E20;
   color:white;
   font-size: 1.1em;
-  font-family: 'Merriweather', serif;
+ font-family: 'Aleo', serif;
 }
 
   

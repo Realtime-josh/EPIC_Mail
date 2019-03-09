@@ -114,6 +114,14 @@ h1{
   font-size: 1.3em;
 }
 
+.nowReadUnread{
+  color:#BDBDBD;
+}
+
+.nowPPage{
+  color:#BDBDBD;
+}
+
 
 body{
   width: 100%;

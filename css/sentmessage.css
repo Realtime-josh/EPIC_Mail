@@ -169,6 +169,10 @@ h1{
   font-size: 1.3em;
 }
 
+#nowSent{
+  color:#BDBDBD;
+}
+
 
 body{
 	width: 100%;
