@@ -510,7 +510,12 @@ font-family: 'Aleo', serif;
   background: #E0E0E0;
   margin-left: 18%;
   margin-bottom: 4%;
+  box-shadow: none;
 }
+
+input {-webkit-appearance: none; box-shadow: none; border-style:none; !important; }
+
+textarea{-webkit-appearance: none; box-shadow: none; border-style:none; !important;}
 
 .getInputsGrp{
   min-width: 70%;
