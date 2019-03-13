@@ -8,7 +8,7 @@
       <title>Inbox</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-      <link rel="stylesheet" href = "index.css" />
+      <link rel="stylesheet" href = "inbox.css" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   </head>
 
@@ -34,12 +34,13 @@
             </div><!--ends header div-->
 
             <div class="bodyDiv" id="bodyDiv"><!--begins body div-->
+
                 <div class="sectionDiv" id="sectionDivBiggerScreen"><!--bigger screen menu-->
                    <div class="listedSectionDiv" id="listedSectionDiv">
                          <p class="nowOnline">Today, 9.15am</p>
                    </div>
                    <div class="menuListDiv">
-                       <button class="addNewGroup"><a href="#"><img src="images/icons/add.png"></a> Create Group</button>
+                       <button id="createGroup" class="addNewGroup"><a href="#"><img src="images/icons/add.png"></a> Create Group</button>
                        <table class="listMenuTable">
                           <tr>
                             <td><img src="images/icons/composee.png"></td>
@@ -80,6 +81,20 @@
                       </div>                   
                 </div>  <!--Menu div for bigger screens-->
 
+                <div id="myModal" class="modal">
+                             <!-- Modal content -->
+                             <div class="modal-content">
+                                <span id="close">&times;</span><br><br>
+                                  <form id="formInput" class="formInput">
+                                    <br>
+                                    <input class="getInputsGrp" type="text" placeholder=" Enter Group Name" /><br><br>
+                                    <input class="getInputsGrp" type="text" placeholder=" Enter Group Title" /><br><br>
+                                    <textarea class="getInputsGrpp" placeholder=" Description"></textarea>
+                                    <button id="continue">Create Group</button>
+                                    </form>
+                             </div>
+                          </div>
+
                 
 
                 <div class="mailsSectionDiv" id="listedSectionDiv"><!-- Begin Div for smaller screens-->
@@ -88,7 +103,7 @@
                             <p class="nowOnline">Today, 9.15am</p>
                         </div>
                         <div class="menuListDiv">
-                             <button class="addNewGroup"><a href="#"><img src="images/icons/add.png"></a> Create Group</button>
+                             <button id="smallCreateGrp" class="addNewGroup"><a href="#"><img src="images/icons/add.png"></a> Create Group</button>
                            <table class="listMenuTable">
                               <tr>
                                   <td><img src="images/icons/composee.png"></td>
@@ -129,6 +144,7 @@
 
                    </div><!--end div for smaller screens-->
                        <div class="lorem">
+
                            <table class="messageTable" id="messageTable">
                                 <tr class="messageRows">
                                    <td class="messagesListed">Emilly Jill</td>

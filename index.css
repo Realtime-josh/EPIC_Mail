@@ -153,7 +153,7 @@ body{
  width: 30%;
 }
 
-form input::placeholder {
+.searchPeople input::placeholder {
   color:#BDBDBD;
   background: #3F51B5;
   border: 1px solid #3F51B5;
@@ -424,14 +424,120 @@ footer{
 }
 
 
-
-/*@media screen and (max-width: 600px) {
-  .footerText{
-     margin-top: 20%;
+/* The Modal (background) */
+.modal {
+  /*display: none;*/ /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color*/
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 
-}*/
+/* Modal Content/Box */
+.modal-content {
+  /*background-color: #fefefe;*/
+  background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
+  margin: 8% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+#continue{
+width:70%;
+padding: 0.7em;
+font-size: 0.9em;
+border-radius: 4px;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+margin-bottom: 2%;
+}
+
+#allmessages{
+width:40%;
+padding: 0.7em;
+background:#1B5E20;
+color: white;
+font-family: 'Aleo', serif;
+}
+
+.successmessage{
+  color: white;
+}
+
+.formInput{
+  width: 70%;
+  background: red;
+  text-align: center;
+  background: #E0E0E0;
+  margin-left: 18%;
+  margin-bottom: 4%;
+}
+
+.getInputsGrp{
+  min-width: 70%;
+  min-height: 3.4em;
+  border-radius:0.4em;
+  padding: 3px;
+}
+
+.getInputsGrpp{
+  min-width: 70%;
+  min-height: 6.6em;
+  border-radius:0.4em;
+}
+
+.formInput input::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+.formInput textarea::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media screen and (max-width: 870px) {
@@ -511,3 +617,238 @@ footer{
 
 
 }
+
+
+
+
+
+/*for modal boxes*/
+
+@media screen and (max-width: 670px) {
+/* The Modal (background) */
+.modal {
+  /*display: none;*/ /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color*/
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  /*background-color: #fefefe;*/
+  background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
+  /*margin: 8% auto;*/ /* 15% from the top and centered */
+  /*padding: 20px;*/
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+#continue{
+width:90%;
+padding: 0.7em;
+font-size: 0.9em;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+/*margin-bottom: 2%;*/
+}
+
+#allmessages{
+width:40%;
+padding: 0.7em;
+background:#1B5E20;
+color: white;
+font-family: 'Aleo', serif;
+}
+
+.successmessage{
+  color: white;
+}
+
+.formInput{
+  width: 70%;
+  text-align: center;
+  /*background: #E0E0E0;*/
+  /*margin-left: 18%;
+  margin-bottom: 4%;*/
+}
+
+.getInputsGrp{
+  min-width: 100%;
+  min-height: 3.4em;
+  border-radius:0.4em;
+  padding: 3px;
+}
+
+.getInputsGrpp{
+  min-width: 100%;
+  min-height: 6.6em;
+  border-radius:0.4em;
+}
+
+.formInput input::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+.formInput textarea::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+}
+
+
+
+
+
+/*for modal boxes 470px*/
+
+@media screen and (max-width: 470px) {
+/* The Modal (background) */
+.modal {
+  /*display: none;*/ /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color*/
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  /*background-color: #fefefe;*/
+  background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
+  /*margin: 8% auto;*/ /* 15% from the top and centered */
+  /*padding: 20px;*/
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#close:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+#continue{
+width:90%;
+padding: 0.7em;
+font-size: 0.8em;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+/*margin-bottom: 2%;*/
+}
+
+#allmessages{
+width:40%;
+padding: 0.7em;
+background:#1B5E20;
+color: white;
+font-family: 'Aleo', serif;
+}
+
+.successmessage{
+  color: white;
+}
+
+.formInput{
+  width: 70%;
+  text-align: center;
+  /*background: #E0E0E0;*/
+  /*margin-left: 18%;
+  margin-bottom: 4%;*/
+}
+
+.getInputsGrp{
+  min-width: 100%;
+  min-height: 3.4em;
+  border-radius:0.4em;
+  padding: 3px;
+}
+
+.getInputsGrpp{
+  min-width: 100%;
+  min-height: 6.6em;
+  border-radius:0.4em;
+}
+
+.formInput input::placeholder{
+  font-size: 1.1em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+.formInput textarea::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
