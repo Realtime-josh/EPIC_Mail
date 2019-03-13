@@ -20,6 +20,8 @@ const trimAllSpace = (str) =>{
 
 
 
+
+
 const validateUserEntry = (req,res,next) => {
 	const {email,firstName,lastName,password} = req.body;
 
@@ -53,6 +55,8 @@ const validateUserEntry = (req,res,next) => {
 		sendResponse(res,400,null,"Ensure username, email and password are valid entries");
 	}
 };
+
+
 
 
 const validateUserSignIn = (req,res,next) => {

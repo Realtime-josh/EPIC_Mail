@@ -12,7 +12,7 @@ for(let i=0;i<messageDivs.length;i++){
 for(let i=0; i<messageDivs.length; i++){
 	buttons[i].addEventListener("click", function() {
     if(messageDivs[i].style.display === "none"){
-        messageDivs[i].style .display = "block";
+        messageDivs[i].style.display = "block";
         buttons[i].innerHTML = "Collapse";
     }else{
          messageDivs[i].style .display = "none";

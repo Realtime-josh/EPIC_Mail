@@ -454,6 +454,11 @@ margin-top: 20%;
 
 
 
+
+
+
+
+
 @media screen and (max-width: 1000px) {
   #welcomeText{
     display : none;
@@ -463,6 +468,9 @@ margin-top: 20%;
     display: none;
   }
 }
+
+
+
 
 @media screen and (min-width: 1000px) {
   #titleName #menuicon{

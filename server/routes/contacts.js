@@ -5,12 +5,12 @@ import express from "express";
 
 
 
-const contactRouter = express.Router();
+const authRouter = express.Router();
 
 
 
 
-contactRouter.post("/createaccount",validateUserEntry, (req, res)=>{
+authRouter.post("/signup",validateUserEntry, (req, res)=>{
      const {contactItem} = req;
      user.users.push(contactItem);
      res.status(200).send({
@@ -21,7 +21,7 @@ contactRouter.post("/createaccount",validateUserEntry, (req, res)=>{
 
 });
 
-contactRouter.post("/signin",validateUserSignIn, (req,res)=>{
+authRouter.post("/login",validateUserSignIn, (req,res)=>{
       const {accountDetails} = req;
       res.status(200).send({
       status : 200,
@@ -39,5 +39,5 @@ contactRouter.post("/signin",validateUserSignIn, (req,res)=>{
 
 
 export {
-contactRouter
+authRouter
 };

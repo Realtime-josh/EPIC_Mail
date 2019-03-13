@@ -11,7 +11,7 @@ const messageRouter = express.Router();
 
 
 
-messageRouter.post("/sendmessage",createMessage,(req,res)=>{
+messageRouter.post("/messages",createMessage,(req,res)=>{
       const {messageDetails} = req;
       Message.messages.push(messageDetails);
       res.status(200).send({
@@ -23,7 +23,7 @@ messageRouter.post("/sendmessage",createMessage,(req,res)=>{
 
 
 
-messageRouter.get("/allreceivedmails", (req,res)=>{
+messageRouter.get("/messages", (req,res)=>{
       res.status(200).send({
           status :200,
           messageDetails : Message.messages
@@ -31,10 +31,10 @@ messageRouter.get("/allreceivedmails", (req,res)=>{
 });
 
 
-messageRouter.get("/receivedmessages/:id", (req,res)=>{
+messageRouter.get("/messages/:id", (req,res)=>{
 	const {id} = req.params;
     const verifyUser = user.users.filter((result)=>{
-               return result.userId === parseInt(id)
+               return result.userId === parseInt(id);
     });
 
     if(verifyUser.length > 0){
@@ -59,7 +59,7 @@ messageRouter.get("/receivedmessages/:id", (req,res)=>{
 });
 
 
-messageRouter.get("/sentemails/:id", (req,res)=>{
+messageRouter.get("/messages/sent/:id", (req,res)=>{
      const {id} = req.params;
      const verifyUser = user.users.filter((result)=>{
                return result.userId === parseInt(id);
@@ -86,7 +86,7 @@ messageRouter.get("/sentemails/:id", (req,res)=>{
 });
 
 
-messageRouter.get("/unreadmails/:id", (req,res)=>{
+messageRouter.get("/messages/unread/:id", (req,res)=>{
         const {id} = req.params;
         const verifyUser = user.users.filter((result)=>{
                return result.userId === parseInt(id);
@@ -94,8 +94,8 @@ messageRouter.get("/unreadmails/:id", (req,res)=>{
 
       if(verifyUser.length > 0){
             const unreadMessages = Message.messages.filter((result)=>{
-                                         return result.receiverId === parseInt(id) && result.status === "unread";
-                                     });
+                return result.receiverId === parseInt(id) && result.status === "unread";
+            });
             if(unreadMessages.length > 0){
                   const getName = usersList.get(parseInt(id));
                    res.status(200).send({
@@ -136,7 +136,7 @@ messageRouter.get("/email/:id", (req,res)=>{
 
 
 
-messageRouter.delete("/email/:id", (req,res)=>{
+messageRouter.delete("/messages/:id", (req,res)=>{
        const {userMessageId} = req.query;
        const {id} = req.params;
        const verifyUser = user.users.filter((result)=>{
