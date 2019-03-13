@@ -29,7 +29,7 @@
 
                 <div class="IconsProfileImage" id="IconsProfileImage">
                     <!-- <p class="fontImages id="fontImages"><i class='far fa-user'></i></i></p> -->
-                    <img id="epicmailppx" src="images/epicmaleprofile.jpg" alt="profile photo" title="profilePix" />
+                    <!-- <img id="epicmailppx" src="images/epicmaleprofile.jpg" alt="profile photo" title="profilePix" /> -->
                 </div>
             </div><!--ends header div-->
 
@@ -44,7 +44,7 @@
                        <table class="listMenuTable">
                           <tr>
                             <td><img src="images/icons/composee.png"></td>
-                            <td ><a class="hoverable" href="#">Compose</a></td>
+                            <td ><a class="hoverablee" href="#">Compose</a></td>
                           </tr>
                           <tr>
                             <td><img src="images/icons/inbox.png"></td>
@@ -80,20 +80,40 @@
                           
                       </div>                   
                 </div>  <!--Menu div for bigger screens-->
-
+                
+                <!-- Modal for creating group -->
                 <div id="myModal" class="modal">
-                             <!-- Modal content -->
-                             <div class="modal-content">
-                                <span id="close">&times;</span><br><br>
-                                  <form id="formInput" class="formInput">
-                                    <br>
-                                    <input class="getInputsGrp" type="text" placeholder=" Enter Group Name" /><br><br>
-                                    <input class="getInputsGrp" type="text" placeholder=" Enter Group Title" /><br><br>
-                                    <textarea class="getInputsGrpp" placeholder=" Description"></textarea>
-                                    <button id="continue">Create Group</button>
-                                    </form>
-                             </div>
-                          </div>
+                   <!-- Modal content -->
+                   <div class="modal-content">
+                      <span id="close">&times;</span><br><br>
+                        <form id="formInput" class="formInput">
+                          <br>
+                          <input class="getInputsGrp" type="text" placeholder=" Enter Group Name" /><br><br>
+                          <input class="getInputsGrp" type="text" placeholder=" Enter Group Title" /><br><br>
+                          <textarea class="getInputsGrpp" placeholder=" Description"></textarea>
+                          <button id="continue">Create Group</button>
+                          </form>
+                   </div>
+                </div>
+
+                <!-- modal for creating messages -->
+                <div id="myModall" class="modall">
+                   <!-- Modal content -->
+                   <div class="modal-contentt">
+                      <span id="closee">&times;</span><br><br>
+                        <form id="formInputt" class="formInput">
+                          <br>
+                          <input class="getInputsGrpp" type="text" placeholder=" Receiver Email" /><br><br>
+                          <input class="getInputsGrpp" type="text" placeholder=" Message Title" /><br><br>
+                          <textarea class="getInputsGrppp" placeholder=" Your Message Here"></textarea>
+                          <button id="continuee">Send Message</button>
+                          </form>
+                   </div>
+                </div>
+
+
+
+
 
                 
 
@@ -107,7 +127,7 @@
                            <table class="listMenuTable">
                               <tr>
                                   <td><img src="images/icons/composee.png"></td>
-                                  <td ><a class="hoverable" href="#">Compose</a></td>
+                                  <td id="smallComposeGrp"><a class="hoverablee" href="#">Compose</a></td>
                               </tr>
                               <tr>
                                   <td><img src="images/icons/inbox.png"></td>
@@ -253,19 +273,11 @@
                <p class="footerText">Copyright Joshua Frankson. All rights reserved</p>
 
             </footer> 
-
-
- 
-
-
         </div><!--end of web div-->    
 
 
   </body>
 
-
-
-
    <script src="buildout.js" type="text/javascript"></script>
-  </body>
+</body>
 </html>

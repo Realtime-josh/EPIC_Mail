@@ -44,12 +44,10 @@ continueView.onclick = function(){
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }else if(event.target == modall){
+    modall.style.display = "none";
   }
 }
-
-
-
-
 
 
 
@@ -70,41 +68,36 @@ const removeDivSmallScreen = () => {
 
 
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+
+
+
+
+
+//script for running send message
+
+// Get the modal
+const modall = document.getElementById('myModall');
+
+// Get the button that opens the modal
+const btnn = document.getElementsByClassName("hoverablee");
+
+// Get the <span> element that closes the modal
+const spann = document.getElementById("closee");
+
+modall.style.display = "none"
+
+spann.onclick = function() {
+  modall.style.display = "none";
 }
 
 // When the user clicks on the button, open the modal 
-for(let i=0;i<btn.length;i++){
-        btn[i].onclick = function() {
-      modal.style.display = "block";
+for(let i=0;i<btnn.length;i++){
+        btnn[i].onclick = function() {
+      modall.style.display = "block";
     }
 }
 
 
-
-continueView.onclick = function(){
-    modal.style.display = "none";
-}
-
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-
-
-
-// btn.addEventListener("click", function() {
-//     if(modal.style.display === "none"){
-//         modal.style .display = "block";
-//     }else{
-//          modal.style.display = "none"
-//     }
-// });
 
 
 
@@ -112,5 +105,5 @@ window.onclick = function(event) {
 
 
 document.getElementById("menutoggler").addEventListener("click", showDivSmallScreen);
-
 document.getElementById("smallCreateGrp").addEventListener("click", removeDivSmallScreen);
+document.getElementById("smallComposeGrp").addEventListener("click", removeDivSmallScreen);

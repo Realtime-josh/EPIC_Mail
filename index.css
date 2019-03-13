@@ -349,10 +349,15 @@ body{
 
 .listMenuTable tr, td { padding: 0px; }
 
+.listMenuTable tr:hover {
+  box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+  transform: translate3D(0, -2px, 0);
+}
 
 .listMenuTable tr {
   height: 70px;
 }
+
 
 .hoverable{
   color:#BDBDBD;
@@ -362,9 +367,17 @@ body{
    color: white; 
 }
 
+.hoverablee{
+  color:#BDBDBD;
+}
+
+.hoverablee:hover{
+   color: white; 
+}
+
 
 #sectionFloatDiv{
-    width: 80%;
+    width: 100%;
     float: left;
     z-index: 100;
     position:absolute;
@@ -439,7 +452,7 @@ footer{
 }
 
 
-/* Modal Content/Box */
+/* Modal Content/Box  for compose message*/
 .modal-content {
   /*background-color: #fefefe;*/
   background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
@@ -520,6 +533,97 @@ font-family: 'Aleo', serif;
 }
 
 .formInput textarea::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+
+
+/*modal content for send messages*/
+.modall {
+  /*display: none;*/ /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color*/
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-contentt {
+  /*background-color: #fefefe;*/
+  background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
+  margin: 8% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#closee {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#closee:hover,
+#close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+#continuee{
+width:70%;
+padding: 0.7em;
+font-size: 0.9em;
+border-radius: 4px;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+margin-bottom: 2%;
+}
+
+
+.formInputt{
+  width: 70%;
+  background: red;
+  text-align: center;
+  background: #E0E0E0;
+  margin-left: 18%;
+  margin-bottom: 4%;
+}
+
+.getInputsGrpp{
+  min-width: 70%;
+  min-height: 3.4em;
+  border-radius:0.4em;
+  padding: 3px;
+}
+
+.getInputsGrppp{
+  min-width: 70%;
+  min-height: 6.6em;
+  border-radius:0.4em;
+}
+
+.formInputt input::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+.formInputt textarea::placeholder{
   font-size: 1.3em;
   font-family: 'Aleo', serif;
   margin-left: 3px;
@@ -828,7 +932,7 @@ font-family: 'Aleo', serif;
 }
 
 .formInput textarea::placeholder{
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-family: 'Aleo', serif;
   margin-left: 3px;
   line-height: 1em;
@@ -838,17 +942,97 @@ font-family: 'Aleo', serif;
 
 
 
+/*for modal boxes compose messages*/
+
+@media screen and (max-width: 670px) {
+/* The Modal (background) */
+.modall {
+  /*display: none;*/ /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color*/
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-contentt {
+  /*background-color: #fefefe;*/
+  background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
+  /*margin: 8% auto;*/ /* 15% from the top and centered */
+  /*padding: 20px;*/
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#closee {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#closee:hover,
+#closee:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
 
+#continuee{
+width:90%;
+padding: 0.7em;
+font-size: 0.9em;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+/*margin-bottom: 2%;*/
+}
 
 
+.formInputt{
+  width: 70%;
+  text-align: center;
+  /*background: #E0E0E0;*/
+  /*margin-left: 18%;
+  margin-bottom: 4%;*/
+}
 
+.getInputsGrpp{
+  min-width: 100%;
+  min-height: 3.4em;
+  border-radius:0.4em;
+  padding: 3px;
+}
 
+.getInputsGrppp{
+  min-width: 100%;
+  min-height: 6.6em;
+  border-radius:0.4em;
+}
 
+.formInputt input::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
 
+.formInputt textarea::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
 
-
-
-
+}
 
