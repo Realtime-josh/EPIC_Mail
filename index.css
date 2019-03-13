@@ -26,9 +26,9 @@ html {
 }
 
 body{
-  
-  display:-webkit-box;
-  -webkit-box-pack:center;
+	
+	display:-webkit-box;
+	-webkit-box-pack:center;
     
     display:-moz-box;
     -moz-box-pack:center;
@@ -40,8 +40,8 @@ body{
 }
 
 .wrapper{
-  display:-webkit-box;
-  -webkit-box-pack:center;
+	display:-webkit-box;
+	-webkit-box-pack:center;
     -webkit-box-orient:vertical;
     -webkit-box-flex:1;
 
@@ -59,7 +59,7 @@ body{
 }
 
 .headerDiv{
-  display:-webkit-box;
+	display:-webkit-box;
     -webkit-box-orient:horizontal;
     -webkit-box-flex:1;
 
@@ -77,7 +77,7 @@ body{
 }
 
 .textIconSearch{
-  display:-webkit-box;
+	display:-webkit-box;
     -webkit-box-orient:horizontal;
     -webkit-box-flex:1;
 
@@ -97,7 +97,7 @@ body{
 }
 
 .searchPeople{
-  display:-webkit-box;
+	display:-webkit-box;
   -webkit-box-flex:1;
 
   display:-moz-box;
@@ -108,12 +108,12 @@ body{
 
 
   margin-right: 15%;
-  border-radius: 5px;
-  width: 30%;
-  font-family: 'Aleo', serif;
-  padding: 0.1em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+	border-radius: 5px;
+	width: 30%;
+	font-family: 'Aleo', serif;
+	padding: 0.1em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
   background: #3F51B5;
   border: 1px solid #3F51B5;
 }
@@ -162,7 +162,7 @@ body{
 }
 
 .headerText{
-  display:-webkit-box;
+	display:-webkit-box;
     -webkit-box-flex:1;
 
     display:-moz-box;
@@ -179,7 +179,7 @@ body{
 }
 
 .IconsProfileImage{
-  display:-webkit-box;
+	display:-webkit-box;
     -webkit-box-orient:horizontal;
     -webkit-box-flex:1;
 
@@ -196,7 +196,7 @@ body{
 }
 
 .fontImages{
-  color: white;
+	color: white;
   margin-top: 4%;
 }
 
@@ -1035,4 +1035,3 @@ font-family: 'Aleo', serif;
 }
 
 }
-
