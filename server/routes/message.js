@@ -147,8 +147,6 @@ messageRouter.get('/messages/specificmail/:id', (req, res) => {
 
   if (verifyUser.length > 0) {
     const messageToGet = Message.messages.filter(result => result.receiverId === parseInt(userId));
-  
-
     if (messageToGet.length > 0) {
       const getSpecificMail = messageToGet.filter(result => result.messageId === parseInt(id));
 
