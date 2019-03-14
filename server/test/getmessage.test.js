@@ -97,7 +97,7 @@ describe('GET /messages', () => {
     done();
   });
 
-  it('should return message for a specific email request', () => {
+  it('should return message for a specific email request', (done) => {
     request(app)
       .get('/api/v1/message/messages/specificmail/1?userId=2')
       .set('Accept', 'application/json')
@@ -105,6 +105,7 @@ describe('GET /messages', () => {
       .then((response) => {
         expect(response.body.message).toContain('Email successfully fetched');
       });
+    done();
   });
 
 });

@@ -21,7 +21,7 @@ authRouter.post('/login', validateUserSignIn, (req, res) => {
   const { accountDetails } = req;
   res.status(200).send({
     status: 200,
-    message: 'Scuccessfully Signed In',
+    message: 'Successfully Signed In',
     UserDetails: accountDetails,
   });
 });
