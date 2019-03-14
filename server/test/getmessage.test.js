@@ -82,29 +82,6 @@ describe('GET /messages', () => {
   });
 
 
-  it('should delete email from inbox', (done) => {
-    request(app)
-      .delete('api/v1/message/messages/1/?userId=2')
-      .set('Accept', 'application/json')
-      .expect(200)
-      .then((response) => {
-        expect(response.body.message).toContain('Email successfully deleted');
-      });
-    done();
-  });
-
-
-  it('should return message for delete request without email', (done) => {
-    request(app)
-      .delete('/api/v1/message/messages/1?userId=1')
-      .set('Accept', 'application/json')
-      .expect(200)
-      .then((response) => {
-        expect(response.body.message).toContain('no email found');
-      });
-    done();
-  });
-
   it('should return message for a specific email request', (done) => {
     request(app)
       .get('/api/v1/message/messages/specificmail/1?userId=2')
@@ -119,6 +96,29 @@ describe('GET /messages', () => {
   it('should return message for specific email request not found but valid', (done) => {
     request(app)
       .get('/api/v1/message/messages/specificmail/1?userId=1')
+      .set('Accept', 'application/json')
+      .expect(200)
+      .then((response) => {
+        expect(response.body.message).toContain('no email found');
+      });
+    done();
+  });
+
+ it('should delete email from inbox', (done) => {
+    request(app)
+      .delete('api/v1/message/messages/1/?userId=2')
+      .set('Accept', 'application/json')
+      .expect(200)
+      .then((response) => {
+        expect(response.body.message).toContain('Email successfully deleted');
+      });
+    done();
+  });
+
+
+  it('should return message for delete request without email', (done) => {
+    request(app)
+      .delete('/api/v1/message/messages/1?userId=1')
       .set('Accept', 'application/json')
       .expect(200)
       .then((response) => {
