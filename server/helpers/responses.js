@@ -8,4 +8,4 @@ const sendResponse = (res, status, message, error) => {
 };
 
 
-export {sendResponse};
+export { sendResponse };

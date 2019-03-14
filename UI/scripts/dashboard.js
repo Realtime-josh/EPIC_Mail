@@ -11,46 +11,46 @@ divBiggerScreens.display = "none";
 
 
 //Functions
-showDivSmallScreen = () => {
+const showDivSmallScreen = () => {
     if(categories1.display === "none"){
         document.getElementById("categories1").style.display = "block";
     }else{
         document.getElementById("categories1").style.display = "none";
         document.getElementById("categories2").style.display = "none";
-    };
-}
+    }
+};
 
 
-toggleBigMenuDiv = () =>{
+const toggleBigMenuDiv = () =>{
 	if(divBiggerScreens.display === "none"){
         document.getElementById("menuLargerScreens").style.display = "block";
     }
-}
+};
 
-hideBigMenuDiv = () =>{
+const hideBigMenuDiv = () =>{
 	if(divBiggerScreens.display === "block"){
         document.getElementById("menuLargerScreens").style.display = "none";
     }
-}
+};
 
-showSmallMenuDiv = () =>{
+const showSmallMenuDiv = () =>{
 	if(categories2.display === "none"){
         document.getElementById("categories2").style.display = "block";
     }
-}
+};
 
-hideSmallMenuDiv = () =>{
+const hideSmallMenuDiv = () =>{
 	if(categories2.display === "block"){
         document.getElementById("categories2").style.display = "none";
     }
-}
+};
 
-hideSmallMenuDivs = () =>{
+const hideSmallMenuDivs = () =>{
 	if(categories1.display === "block" || categories2.display === "block"){
         document.getElementById("categories1").style.display = "none";
         document.getElementById("categories2").style.display = "none";
     }
-}
+};
 
 
 
@@ -63,7 +63,7 @@ document.getElementById("composeBiggerScreens").addEventListener("mouseenter", h
 document.getElementById("profileBiggerScreens").addEventListener("mouseenter", hideBigMenuDiv);
 document.getElementById("sentBiggerScreens").addEventListener("mouseenter", hideBigMenuDiv);
 document.getElementById("logoutBiggerScreens").addEventListener("mouseenter", hideBigMenuDiv);
-document.getElementById("menuLargerScreens").addEventListener("mouseleave", hideBigMenuDiv)
+document.getElementById("menuLargerScreens").addEventListener("mouseleave", hideBigMenuDiv);
 document.getElementById("headerMenuDiv").addEventListener("click", hideBigMenuDiv);
 document.getElementById("roott").addEventListener("mouseenter", hideBigMenuDiv);
 document.getElementById("menuicon").addEventListener("click", showDivSmallScreen);
@@ -72,9 +72,9 @@ document.getElementById("categories2").addEventListener("mouseleave", hideSmallM
 document.getElementById("menuList1").addEventListener("click", hideSmallMenuDivs);
 document.getElementById("catSmallDivDash").addEventListener("mouseenter", hideSmallMenuDiv);
 document.getElementById("catSmallDivProf").addEventListener("mouseenter", hideSmallMenuDiv);
-document.getElementById("catSmallDivCart").addEventListener("mouseenter", hideSmallMenuDiv)
-document.getElementById("catSmallDivCartSent").addEventListener("mouseenter", hideSmallMenuDiv)
-document.getElementById("logoutSmallDiv").addEventListener("mouseenter", hideSmallMenuDiv)
+document.getElementById("catSmallDivCart").addEventListener("mouseenter", hideSmallMenuDiv);
+document.getElementById("catSmallDivCartSent").addEventListener("mouseenter", hideSmallMenuDiv);
+document.getElementById("logoutSmallDiv").addEventListener("mouseenter", hideSmallMenuDiv);
 
 
 
