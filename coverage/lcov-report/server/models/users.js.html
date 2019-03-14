@@ -131,15 +131,8 @@
 <a name='L83'></a><a href='#L83'>83</a>
 <a name='L84'></a><a href='#L84'>84</a>
 <a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L86'></a><a href='#L86'>86</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -223,101 +216,90 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 const user = {
-  users : [
-            {
-              userId : 1,
-              email : "franksonjoshua@gmail.com",
-              firstName : "Joshua",
-              lastName :  "Frankson",
-              fullName : "Joshua Frankson",
-              password  : "yettiyea",
+  users: [
+    {
+      userId: 1,
+      email: 'franksonjoshua@gmail.com',
+      firstName: 'Joshua',
+      lastName: 'Frankson',
+      fullName: 'Joshua Frankson',
+      password: 'yettiyea',
 &nbsp;
-  contacts : [
-               {
-                 id : 1,
-                 email : "candreva@gmail.com",
-                 firstName : "Candreva",
-                 lastName :  "Rodriguez",
-                 fullName : "Joshua Frankson"
+      contacts: [
+        {
+          id: 1,
+          email: 'candreva@gmail.com',
+          firstName: 'Candreva',
+          lastName: 'Rodriguez',
+          fullName: 'Joshua Frankson',
 &nbsp;
-                }
-                  ],
+        },
+      ],
 &nbsp;
-                    lastContactId : 1
-                  },
+      lastContactId: 1,
+    },
 &nbsp;
-               {
-                 userId : 2,
-                 email : "sall@gmail.com",
-                 firstName : "Sally",
-                 lastName :  "Marcus",
-                 fullName : "Sally Marcus",
-                 password  : "yettiyea",
+    {
+      userId: 2,
+      email: 'sall@gmail.com',
+      firstName: 'Sally',
+      lastName: 'Marcus',
+      fullName: 'Sally Marcus',
+      password: 'yettiyea',
 &nbsp;
-  
-       contacts : [
-                    {
-                      id : 1,
-                      email : "candreva@gmail.com",
-                      firstName : "Candreva",
-                      lastName :  "Rodriguez",
-                      fullName : "Joshua Frankson"
 &nbsp;
-                        }
-                  ],
+      contacts: [
+        {
+          id: 1,
+          email: 'candreva@gmail.com',
+          firstName: 'Candreva',
+          lastName: 'Rodriguez',
+          fullName: 'Joshua Frankson',
 &nbsp;
-                    lastContactId : 1
-                   },
+        },
+      ],
 &nbsp;
-                   {
-                      userId : 3,
-                      email : "ben@gmail.com",
-                      firstName : "Ben",
-                      lastName :  "Marcus",
-                      fullName : "Ben Marcus",
-                      password  : "yettiyea",
+      lastContactId: 1,
+    },
 &nbsp;
-  
-       contacts : [
-                    {
-                      id : 1,
-                      email : "candreva@gmail.com",
-                      firstName : "Candreva",
-                      lastName :  "Rodriguez",
-                      fullName : "Joshua Frankson"
-                    }
-                  ],
-                    lastContactId : 1
-              }
-            ],
- 
-                  lastUserId : 3
+    {
+      userId: 3,
+      email: 'ben@gmail.com',
+      firstName: 'Ben',
+      lastName: 'Marcus',
+      fullName: 'Ben Marcus',
+      password: 'yettiyea',
 &nbsp;
-        };
 &nbsp;
+      contacts: [
+        {
+          id: 1,
+          email: 'candreva@gmail.com',
+          firstName: 'Candreva',
+          lastName: 'Rodriguez',
+          fullName: 'Joshua Frankson',
+        },
+      ],
+      lastContactId: 1,
+    },
+  ],
+&nbsp;
+  lastUserId: 3,
+&nbsp;
+};
 &nbsp;
 &nbsp;
 const usersList = new Map();
-user.users.forEach((contactItem)=&gt;{
-	usersList.set(contactItem.userId, contactItem);
+user.users.forEach((contactItem) =&gt; {
+  usersList.set(contactItem.userId, contactItem);
 });
-&nbsp;
-// console.log(usersList)
-&nbsp;
-&nbsp;
-&nbsp;
 &nbsp;
 &nbsp;
 export {
   user,
-  usersList
+  usersList,
 };
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -325,7 +307,7 @@ export {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 13 2019 06:47:04 GMT+0100 (W. Central Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 14 2019 14:50:57 GMT+0100 (W. Central Africa Standard Time)
 </div>
 </div>
 <script src="..\..\prettify.js"></script>
