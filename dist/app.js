@@ -28,9 +28,9 @@ app.use('/api/v1/message', _message.messageRouter);
 app.get('/', function (req, res) {
   res.send({ message: 'Welcome to EPIC Mail Services' });
 });
-app.use('*', function (req, res) {
-  res.status(404).send({ error: 'Invalid Route' });
-});
+// app.use('*', (req, res) => {
+//   res.status(404).send({ error: 'Invalid Route' });
+// });
 
 app.listen(port, function () {
   console.log('Server started on port ' + port);

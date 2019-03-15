@@ -64,20 +64,6 @@ describe('GET /messages', function () {
     done();
   });
 
-  it('should delete email from inbox', function (done) {
-    (0, _supertest2.default)(_app2.default).delete('api/v1/message/messages/1/?userId=2').set('Accept', 'application/json').expect(200).then(function (response) {
-      (0, _expect2.default)(response.body.message).toContain('Email successfully deleted');
-    });
-    done();
-  });
-
-  it('should return message for delete request without email', function (done) {
-    (0, _supertest2.default)(_app2.default).delete('/api/v1/message/messages/1?userId=1').set('Accept', 'application/json').expect(200).then(function (response) {
-      (0, _expect2.default)(response.body.message).toContain('no email found');
-    });
-    done();
-  });
-
   it('should return message for a specific email request', function (done) {
     (0, _supertest2.default)(_app2.default).get('/api/v1/message/messages/specificmail/1?userId=2').set('Accept', 'application/json').expect(200).then(function (response) {
       (0, _expect2.default)(response.body.message).toContain('Email successfully fetched');
@@ -87,6 +73,20 @@ describe('GET /messages', function () {
 
   it('should return message for specific email request not found but valid', function (done) {
     (0, _supertest2.default)(_app2.default).get('/api/v1/message/messages/specificmail/1?userId=1').set('Accept', 'application/json').expect(200).then(function (response) {
+      (0, _expect2.default)(response.body.message).toContain('no email found');
+    });
+    done();
+  });
+
+  it('should delete email from inbox', function (done) {
+    (0, _supertest2.default)(_app2.default).delete('api/v1/message/messages/1/?userId=2').set('Accept', 'application/json').expect(200).then(function (response) {
+      (0, _expect2.default)(response.body.message).toContain('Email successfully deleted');
+    });
+    done();
+  });
+
+  it('should return message for delete request without email', function (done) {
+    (0, _supertest2.default)(_app2.default).delete('/api/v1/message/messages/1?userId=1').set('Accept', 'application/json').expect(200).then(function (response) {
       (0, _expect2.default)(response.body.message).toContain('no email found');
     });
     done();
