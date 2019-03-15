@@ -1,6 +1,8 @@
 
 const smallerScreenDiv = document.getElementById("sectionFloatDiv");
 
+const tableMessages = document.getElementsByClassName("messageRowss");
+
 smallerScreenDiv.style.display = "none";
 
 // Get the modal
@@ -15,8 +17,18 @@ const span = document.getElementById("close");
 const continueView = document.getElementById("continue");
 
 
-
 modal.style.display = "none"
+
+
+for(let i=0;i<tableMessages.length;i++){
+        tableMessages[i].onclick = function() {
+        window.location.href='./chatMessages.html';
+    }
+}
+
+
+
+
 
 
 
@@ -48,6 +60,10 @@ window.onclick = function(event) {
     modall.style.display = "none";
   }
 }
+
+
+
+
 
 
 
