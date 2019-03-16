@@ -1,2 +1,4 @@
 /node_modules
 /liggghts
+.nyc_output
+/bin
