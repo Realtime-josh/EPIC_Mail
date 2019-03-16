@@ -156,7 +156,7 @@ a{
   margin-top: 4%;
 }
 
-.groups {
+.groupsCard {
   margin: 1rem;
   background: white;
   box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
@@ -166,7 +166,7 @@ a{
   padding: 0.43em;
 }
 
-.groups:hover {
+.groupsCard:hover {
   box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
   transform: translate3D(0, -2px, 0);
 }

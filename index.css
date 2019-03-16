@@ -8,7 +8,7 @@
 a {
   text-decoration: none;
   list-style: none;
-  color:white;
+  color:black;
   font-family: 'Aleo', serif;
  }
 
@@ -431,6 +431,14 @@ body{
   background: #F5F5F5;
 }
 
+.messageRowsss{
+  border-left: 9px solid white;
+  border-top: 9px solid white;
+  border-bottom: 9px solid white;
+  /*background: #E0E0E0;*/
+  background: #F5F5F5;
+}
+
 .messageImage{
   width: 7%;
   border-radius: 100%
@@ -475,15 +483,9 @@ body{
   width: 100%;
   height: 4em;
   background:white;
-  text-align: center;
+  /*text-align: center;*/
 }
 
-#quickReply{
-  min-width: 80%;
-  min-height: 80%;
-  background:#E0E0E0;
-  border-radius: 8px;
-}
 
 #quickSend{
   width: 10%;
@@ -491,6 +493,7 @@ body{
   border-radius: 8px;
   background:#3F51B5;
   color: white;
+  margin-left: 80%;
 }
 
 .messageHost p{
@@ -507,6 +510,93 @@ body{
   font-style: italic;
 }
 
+.glyphy{
+  font-size: 20px;
+}
+
+.destag{
+  color:#1B5E20;
+  margin-left: 3%;
+  font-family: 'Slabo 27px', serif;
+}
+
+.taginfo{
+  font-family: 'Aleo', serif;
+  }
+
+
+
+.groupsclass {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4%;
+}
+
+.groupsCard {
+  margin: 1rem;
+  background: #F5F5F5;
+  box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all .2s linear;
+  padding: 0.43em;
+}
+
+.groupsCard img{
+  border: 1px solid #F5F5F5;
+}
+
+.groupsCard table{
+  margin-bottom: 20px;
+}
+
+.groupsCard:hover {
+  box-shadow: 2px 8px 45px rgba(0, 0, 0, .15);
+  transform: translate3D(0, -2px, 0);
+}
+
+.groupImages{
+  max-width: 100%;
+  border-radius:70%;
+}
+
+.groupForums{
+  width: 100%;
+  font-family: 'Aleo', serif;
+}
+
+#nowProfile{
+  color:#BDBDBD;
+}
+
+.textGroups{
+  color:black;
+  font-size: 0.4em;
+}
+
+
+
+@media screen and (max-width: 1600px) {
+  .groupsCard {
+    flex: 1 1 calc(15% - 2rem);
+  }
+
+
+}
+
+@media screen and (max-width: 600px) {
+  .groupsCard {
+    flex: 1 1 calc(30% - 2rem);
+  }
+
+}
+
+@media screen and (max-width: 350px) {
+  .groupsCard {
+    flex: 1 1 calc(50% - 2rem);
+  }
+
+}
 
 
 
@@ -567,6 +657,17 @@ footer{
 
 
 #continue{
+width:70%;
+padding: 0.7em;
+font-size: 0.9em;
+border-radius: 4px;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+margin-bottom: 2%;
+}
+
+.continue{
 width:70%;
 padding: 0.7em;
 font-size: 0.9em;
@@ -666,7 +767,7 @@ textarea{-webkit-appearance: none; box-shadow: none; border-style:none; !importa
 }
 
 #closee:hover,
-#close:focus {
+#closee:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -731,6 +832,116 @@ margin-bottom: 2%;
 
 
 
+/*modal content for replying messages inbox*/
+.modalll {
+  /*display: none;*/ /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color*/
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-contenttt {
+  /*background-color: #fefefe;*/
+  background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
+  margin: 8% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 70%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+#closeee {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#closeee:hover,
+#closeee:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+#continuee{
+width:70%;
+padding: 0.7em;
+font-size: 0.9em;
+border-radius: 4px;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+margin-bottom: 2%;
+}
+
+
+.formInputtt{
+  width: 70%;
+  background: red;
+  text-align: center;
+  background: #E0E0E0;
+  margin-left: 18%;
+  margin-bottom: 4%;
+}
+
+.getInputsGrpp{
+  min-width: 70%;
+  min-height: 3.4em;
+  border-radius:0.4em;
+  padding: 3px;
+}
+
+.getInputsGrppp{
+  min-width: 70%;
+  min-height: 15.6em;
+  border-radius:0.4em;
+}
+
+.createGrpArea{
+  min-width: 70%;
+  min-height: 15.6em;
+  border-radius:0.4em;
+}
+
+.formInputt input::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+.formInputt textarea::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+.enterGroup{
+  width: 100%;
+  padding: 0.4em;
+  border-radius:10px;
+  border-style: none;
+  background: #6B69D6;
+  color:white;
+}
+
+
+
+
+
+
+
 
 
 
@@ -781,7 +992,7 @@ margin-bottom: 2%;
   margin-left: 0%;
   background:#3F51B5;
   color: #EEEEEE;
-  margin-bottom: 3%;
+  margin-bottom: 5%;
   border-radius:1.2em;
 }
 
@@ -789,14 +1000,30 @@ margin-bottom: 2%;
   width: 98%;
   background:#E0E0E0;;
   padding:1.2em;
-  margin-bottom: 3%;
+  margin-bottom: 5%;
   margin-left:0px;
   border-radius: 1.2em;
 }
 
+.typeMessageDiv{
+  width: 100%;
+  height: 4em;
+  background:white;
+  text-align: center;
+}
 
+#quickSend{
+  width: 70%;
+  height: 80%;
+  border-radius: 8px;
+  background:#3F51B5;
+  margin-left: 0%;
+  color: white;
+}
 
 }
+
+
 
 
 @media screen and (max-width: 800px) {
@@ -812,7 +1039,30 @@ margin-bottom: 2%;
   display: none;
 }
 
+.messageHost{
+  width: 98%;
+  padding:1.2em;
+  margin-left: 0%;
+  background:#3F51B5;
+  color: #EEEEEE;
+  margin-bottom: 9%;
+  border-radius:1.2em;
 }
+
+.messageGuest{
+  width: 98%;
+  background:#E0E0E0;;
+  padding:1.2em;
+  margin-bottom: 9%;
+  margin-left:0px;
+  border-radius: 1.2em;
+}
+
+
+
+}
+
+
 
 
 @media screen and (max-width: 1000px) {
@@ -1053,11 +1303,24 @@ font-family: 'Aleo', serif;
 
 
 
-/*for modal boxes compose messages*/
+/*for modal box compose messages and modal box for reply message*/
 
 @media screen and (max-width: 670px) {
 /* The Modal (background) */
 .modall {
+  /*display: none;*/ /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color*/
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modalll {
   /*display: none;*/ /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -1082,6 +1345,17 @@ font-family: 'Aleo', serif;
   width: 100%; /* Could be more or less, depending on screen size */
 }
 
+/* Modal Content/Box */
+.modal-contenttt {
+  /*background-color: #fefefe;*/
+  background: linear-gradient(to bottom right, #E0E0E0, #E0E0E0, #E0E0E0);
+  /*margin: 8% auto;*/ /* 15% from the top and centered */
+  /*padding: 20px;*/
+  border: 1px solid #888;
+  border-radius: 8px;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
 /* The Close Button */
 #closee {
   color: #aaa;
@@ -1092,6 +1366,20 @@ font-family: 'Aleo', serif;
 
 #closee:hover,
 #closee:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#closeee {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#closeee:hover,
+#closeee:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
@@ -1109,8 +1397,26 @@ font-family: 'Aleo', serif;
 /*margin-bottom: 2%;*/
 }
 
+.continue{
+width:90%;
+padding: 0.7em;
+font-size: 0.9em;
+background: linear-gradient(to bottom right,#6B69D6,#6B69D6);
+color: white;
+font-family: 'Aleo', serif;
+/*margin-bottom: 2%;*/
+}
+
 
 .formInputt{
+  width: 70%;
+  text-align: center;
+  /*background: #E0E0E0;*/
+  /*margin-left: 18%;
+  margin-bottom: 4%;*/
+}
+
+.formInputtt{
   width: 70%;
   text-align: center;
   /*background: #E0E0E0;*/
@@ -1138,7 +1444,21 @@ font-family: 'Aleo', serif;
   line-height: 1em;
 }
 
+.formInputtt input::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
 .formInputt textarea::placeholder{
+  font-size: 1.3em;
+  font-family: 'Aleo', serif;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
+.formInputtt textarea::placeholder{
   font-size: 1.3em;
   font-family: 'Aleo', serif;
   margin-left: 3px;

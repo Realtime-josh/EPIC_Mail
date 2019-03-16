@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width">
           <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
           <link href="https://fonts.googleapis.com/css?family=Aleo" rel="stylesheet">
-      <title>All Mails with Kyle</title>
+      <title>Groups</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
       <link rel="stylesheet" href = "index.css" />
@@ -44,11 +44,11 @@
                        <table class="listMenuTable">
                           <tr class="compose">
                             <td><img src="images/icons/composee.png"></td>
-                            <td ><a class="hoverablee" href="#">Compose</a></td>
+                            <td><a class="hoverablee" href="#">Compose</a></td>
                           </tr>
                           <tr class="inbox">
                             <td><img src="images/icons/inbox.png"></td>
-                            <td><a class="hoverable" href="index.html">Inbox</a></td>
+                            <td><a class="hoverable" href="#">Inbox</a></td>
                             <td><a class="hoverable" href="#">24</a></td>
                           </tr>
                           <tr class="sent">
@@ -98,7 +98,7 @@
                    </div>
                 </div>
 
-                <!-- modal for creating fresh messages -->
+                <!-- modal for creating messages -->
                 <div id="myModall" class="modall">
                    <!-- Modal content -->
                    <div class="modal-contentt">
@@ -108,26 +108,11 @@
                           <input class="getInputsGrpp" type="text" placeholder=" Receiver Email" /><br><br>
                           <input class="getInputsGrpp" type="text" placeholder=" Message Title" /><br><br>
                           <textarea class="getInputsGrppp" placeholder=" Your Message Here"></textarea>
-                          <button id="continuee" class="continue">Send Message</button>
+                          <button id="continuee">Send Message</button>
                           </form>
                    </div>
                 </div>
 
-
-                 <!-- modal for replying a message in inbox feed -->
-                <div id="myModalll" class="modalll">
-                   <!-- Modal content -->
-                   <div class="modal-contenttt">
-                      <span id="closeee">&times;</span><br><br>
-                        <form id="formInputtt" class="formInput">
-                          <br>
-                          <input class="getInputsGrpp" type="text" placeholder=" Receiver Email" /><br><br>
-                          <input class="getInputsGrpp" type="text" placeholder=" Message Title" /><br><br>
-                          <textarea class="getInputsGrppp" placeholder=" Your Message Here"></textarea>
-                          <button id="continuee" class="continue">Send Message</button>
-                          </form>
-                   </div>
-                </div>
 
 
                 
@@ -146,7 +131,7 @@
                               </tr>
                               <tr class="inbox">
                                   <td><img src="images/icons/inbox.png"></td>
-                                  <td><a class="hoverable" href="index.html">Inbox</a></td>
+                                  <td><a class="hoverable" href="#">Inbox</a></td>
                                   <td><a class="hoverable" href="#">24</a></td>
                               </tr>
                               <tr class="sent">
@@ -180,49 +165,81 @@
                    </div><!--end div for smaller screens-->
                        <div class="lorem">
 
-                           <div id="EmailDiv" class="EmailDiv">
-                                <div id="messageHost" class="messageHost">
-                                     <p><b>Hi Kyle could you kindly reach out to me on this number</b><br><span class="sentTime">
-                                       Today,9.15pm
-                                     </span></p><br>
-                                     <p>
-                                       is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an 
-                                     </p>
-                                </div> 
-
-                                <div id="messageGuest" class="messageGuest">
-                                     <p><b>Sally i have been trying to get through to you? How are you?</b><br><span class="sentTime">
-                                       Today,8.15pm
-                                     </span></p><br>
-                                     <p>
-                                       is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an 
-                                     </p>
+                           <div class="groupsclass">
+                                <div class="groupsCard">
+                                     <table>
+                                        <tr class="messageRowsss">
+                                      <td class="messagesListed"><img src="images/icons/deletegrey.png"></td>
+                                      <td class="messagesListed"><img src="images/icons/editgrey.png"></td>
+                                       </tr>
+                                     </table>
+                                     <img class="groupImages" src="img/history.jpg" />
+                                     <h1><a class="textGroups" href="hsitory.html">History</a></h1>
+                                     <button class="enterGroup">Enter</button>
                                 </div>
 
-                                <div id="messageHost" class="messageHost">
-                                     <p> <b>Loresum message</b><br><span class="sentTime">
-                                       Mar 2
-                                     </span></p><br>
-                                     <p>
-                                       is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                                     </p>
-                                </div> 
+                                <div class="groupsCard">
+                                     <table>
+                                      <tr class="messageRowsss">
+                                      <td class="messagesListed"><img src="images/icons/deletegrey.png"></td>
+                                      <td class="messagesListed"><img src="images/icons/editgrey.png"></td>
+                                       </tr>
+                                     </table>
+                                     <img class="groupImages"  src="img/fashion.jpg" />
+                                     <h1><a class="textGroups" href="">Fashion</a></h1>
+                                     <button class="enterGroup">Enter</button>
 
-
-                                <div id="messageGuest" class="messageGuest">
-                                     <p><b>Sally i have been trying to get through to you? How are you?</b><br><span class="sentTime">
-                                      Oct 6
-                                     </span></p><br>
-                                     <p>
-                                       is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                                     </p>
                                 </div>
 
-                                <div class="typeMessageDiv">
-                                       <button id="quickSend">Send Message</button>
+                                <div class="groupsCard">
+                                     <table>
+                                        <tr class="messageRowsss">
+                                      <td class="messagesListed"><img src="images/icons/deletegrey.png"></td>
+                                      <td class="messagesListed"><img src="images/icons/editgrey.png"></td>
+                                       </tr>
+                                     </table>
+                                     <img class="groupImages"  src="img/themovies.jpg" />
+                                     <h1><a class="textGroups" href="">Movies</a></h1>
+                                     <button class="enterGroup">Enter</button>
                                 </div>
-                           
-                           </div>
+
+                                <div class="groupsCard">
+                                 <table>
+                                        <tr class="messageRowsss">
+                                      <td class="messagesListed"><img src="images/icons/deletegrey.png"></td>
+                                      <td class="messagesListed"><img src="images/icons/editgrey.png"></td>
+                                       </tr>
+                                     </table>
+                                     <img class="groupImages" src="img/history.jpg" />
+                                     <h1><a class="textGroups" href="hsitory.html">History</a></h1>
+                                     <button class="enterGroup">Enter</button>
+                                </div>
+
+                                <div class="groupsCard">
+                                  <table>
+                                        <tr class="messageRowsss">
+                                      <td class="messagesListed"><img src="images/icons/deletegrey.png"></td>
+                                      <td class="messagesListed"><img src="images/icons/editgrey.png"></td>
+                                       </tr>
+                                     </table>
+                                     <img class="groupImages"  src="img/gaming.png" />
+                                     <h1><a class="textGroups" href="#">Gaming</a></h1>
+                                     <button class="enterGroup">Enter</button>
+                                </div>
+
+                                <div class="groupsCard">
+                                  <table>
+                                      <tr class="messageRowsss">
+                                      <td class="messagesListed"><img src="images/icons/deletegrey.png"></td>
+                                      <td class="messagesListed"><img src="images/icons/editgrey.png"></td>
+                                       </tr>
+                                     </table>
+                                     <img class="groupImages"  src="img/sports.png" />
+                                     <h1><a class="textGroups" href="#">Sports</a></h1>
+                                     <button class="enterGroup">Enter</button>
+                                </div>
+
+                        </div>
                        </div>
                       
                   </div>     
