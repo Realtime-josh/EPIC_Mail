@@ -261,6 +261,7 @@ body{
    -o-box-flex:1;
 
    width: 20%;
+   background:  #263238;
 
 
 }
@@ -296,6 +297,7 @@ body{
 
     width: 70%;
     background: #E0E0E0;
+
 }
 
 .lorem{
@@ -309,6 +311,7 @@ body{
   color: black;
   border-radius: 5px;
   width: 100%;
+
 }
 
 
@@ -328,7 +331,7 @@ body{
 
   background: #37474F;
   text-align: center;
-  width: 100%;
+
 }
 
 .addNewGroup{
