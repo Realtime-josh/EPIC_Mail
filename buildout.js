@@ -16,6 +16,11 @@ const span = document.getElementById("close");
 
 const continueView = document.getElementById("continue");
 
+const composeListMenu = document.getElementsByClassName("compose");
+const inboxListMenu = document.getElementsByClassName("inbox");
+const sentListMenu = document.getElementsByClassName("sent");
+const draftListMenu = document.getElementsByClassName("drafts");
+
 
 modal.style.display = "none"
 
@@ -25,6 +30,32 @@ for(let i=0;i<tableMessages.length;i++){
         window.location.href='./chatMessages.html';
     }
 }
+
+for(let i=0;i<composeListMenu.length;i++){
+        composeListMenu[i].onclick = function() {
+        window.location.href='./chatMessages.html';
+    }
+}
+
+for(let i=0;i<inboxListMenu.length;i++){
+        inboxListMenu[i].onclick = function() {
+        window.location.href='./index.html';
+    }
+}
+
+for(let i=0;i<sentListMenu.length;i++){
+        sentListMenu[i].onclick = function() {
+        window.location.href='./sentmessages.html';
+    }
+}
+
+for(let i=0;i<draftListMenu.length;i++){
+        draftListMenu[i].onclick = function() {
+        window.location.href='./draftmessage.html';
+    }
+}
+
+
 
 
 
@@ -95,7 +126,7 @@ const removeDivSmallScreen = () => {
 const modall = document.getElementById('myModall');
 
 // Get the button that opens the modal
-const btnn = document.getElementsByClassName("hoverablee");
+const btnn = document.getElementsByClassName("compose");
 
 // Get the <span> element that closes the modal
 const spann = document.getElementById("closee");
@@ -112,9 +143,6 @@ for(let i=0;i<btnn.length;i++){
       modall.style.display = "block";
     }
 }
-
-
-
 
 
 
