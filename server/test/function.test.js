@@ -1,6 +1,6 @@
 import expect from 'expect';
 import request from 'supertest';
-import { isPositiveInteger, trimAllSpace, filterInput } from '../helpers/validators';
+import { isPositiveInteger, trimAllSpace, filterInput, atEpicMail } from '../helpers/validators';
 import app from '../app';
 
 describe('function tests', () => {
@@ -37,7 +37,22 @@ describe('function tests', () => {
     expect(thridCheck).toBe(true);
     expect(fourthCheck).toBe(true);
   });
+
+  it('should check that email is epicmail', () => {
+    const firstCheck = atEpicMail('franksonjoshua@epicmail.com');
+    const secondCheck = atEpicMail('ma  & r k@ep ');
+    const thridCheck = atEpicMail('  j a <  k  e');
+    const fourthCheck = atEpicMail('Clarke@gmail.com');
+    expect(firstCheck).toBe(true);
+    expect(secondCheck).toBe(false);
+    expect(thridCheck).toBe(false);
+    expect(fourthCheck).toBe(false);
+  });
+
 });
+
+
+
 
 
 describe('middlewares for routes', () => {

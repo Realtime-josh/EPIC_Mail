@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.verifyToken = exports.validateUserSignIn = exports.validateUserEntry = exports.trimAllSpace = exports.filterInput = exports.isPositiveInteger = undefined;
+exports.atEpicMail = exports.verifyToken = exports.validateUserSignIn = exports.validateUserEntry = exports.trimAllSpace = exports.filterInput = exports.isPositiveInteger = undefined;
 
 var _validator = require('validator');
 
@@ -160,4 +160,5 @@ exports.trimAllSpace = trimAllSpace;
 exports.validateUserEntry = validateUserEntry;
 exports.validateUserSignIn = validateUserSignIn;
 exports.verifyToken = verifyToken;
+exports.atEpicMail = atEpicMail;
 //# sourceMappingURL=validators.js.map
