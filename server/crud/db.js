@@ -18,7 +18,6 @@ const getEmail = (email) => {
            const params = [email];
            client.query(sql,params)
            .then((result)=>{
-               // console.log(result.rows);
                 resolve(result.rows);
                client.end();
            }).catch((e)=>{
