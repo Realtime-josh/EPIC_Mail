@@ -2,4 +2,6 @@
 /liggghts
 /bin
 .nyc_output
+.env
 /coverage
+

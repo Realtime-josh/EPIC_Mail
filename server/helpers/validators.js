@@ -1,9 +1,12 @@
-import validator from 'validator';
-import { user } from '../models/users';
-import { usersList } from '../models/users';
-import { mapMessages } from '../models/messages';
-import { Message } from '../models/messages';
+import validator from 'validator';;
 import { sendResponse } from './responses';
+import { getEmail, insertUsers } from '../crud/db'
+import bcrypt from 'bcryptjs'
+import jwt from "jsonwebtoken"
+import dotenv from 'dotenv';
+
+dotenv.config();
+// let connectionString = process.env.DATABASE_URL;
 
 
 const isPositiveInteger = s => /^\+?[1-9][\d]*$/.test(s);
@@ -16,39 +19,63 @@ const filterInput = (input) => {
 
 const trimAllSpace = str => str.replace(/\s+/g, '');
 
+const atEpicMail = (input) => {
+  const result = input.match(/@epicmail.com/g)
+  if(result === null){
+  	return false;
+  }else if(result.length > 0){
+  	return true;
+  }
+};
+
 
 const validateUserEntry = (req, res, next) => {
   const {
     email, firstName, lastName, password,
   } = req.body;
 
-  const contactItem = { contact: [] };
-  const trimFirstName = trimAllSpace(firstName);
-  const trimLastName = trimAllSpace(lastName);
-  const trimEmail = trimAllSpace(email);
-
-  if (validator.isEmail(email) && !filterInput(trimFirstName) && trimFirstName.length > 2
-        && !filterInput(trimLastName) && trimLastName.length > 2
-		&& !filterInput(trimEmail) && password.length > 6) {
-    const checkEmail = user.users.filter(result => result.email === email);
-    if (checkEmail.length < 1) {
-      contactItem.userId = user.lastUserId + 1;
-      user.lastUserId += 1;
-      contactItem.firstName = trimFirstName;
-      contactItem.lastName = trimLastName;
-      contactItem.password = password;
-      contactItem.email = email;
-      contactItem.fullName = `${trimFirstName } ${trimLastName}`;
-      usersList.set(String(contactItem.userId), contactItem);
-      req.contactItem = contactItem;
-      next();
-    } else {
-      sendResponse(res, 400, null, 'email already exist.');
+  if(email === undefined || firstName === undefined || lastName === undefined || password === undefined){
+    sendResponse(res, 400, null, "Ensure that all fields are correctly filled out")
+  }else{
+      const trimFirstName = trimAllSpace(firstName);
+      const trimLastName = trimAllSpace(lastName);
+      const trimEmail = trimAllSpace(email);
+        if (validator.isEmail(email) && atEpicMail(trimEmail) && !filterInput(trimFirstName) && trimFirstName.length > 2
+    && !filterInput(trimLastName) && trimLastName.length > 2
+    && !filterInput(trimEmail) && password.length > 6) {
+    const {firstName, lastName, email, password} = req.body;
+    const payload = {
+      firstName,
+      lastName,
+      email
     }
-  } else {
-    sendResponse(res, 400, null, 'Ensure username, email and password are valid entries');
+    const token = jwt.sign(payload, process.env.SECRET_KEY);
+    req.token = token;
+    getEmail(email)
+   .then((result)=>{
+      if(result.length > 0){
+          sendResponse(res, 400, null, 'Not allowed to sign up');
+      }else{
+         const hashedPassword = bcrypt.genSalt(10, (err,salt)=>{
+            bcrypt.hash(password,salt,(err,hash) =>{
+              insertUsers(firstName,lastName,email,hash,token);
+              next();
+            })
+         });
+         
+      }
+   }).catch((err)=>{
+      res.send(err);
+   });
+        
+    } else {
+      sendResponse(res, 400, null, 'Ensure username, email and password are valid entries');
+    }
   }
-};
+
+} 
+
+
 
 
 const validateUserSignIn = (req, res, next) => {
@@ -69,58 +96,34 @@ const validateUserSignIn = (req, res, next) => {
 };
 
 
-const createMessage = (req, res, next) => {
-  const {
-    senderId, receiverId, subject, message, status,
-  } = req.body;
-  
-  const verifyUsersExist = user.users.filter(result => (result.userId === senderId || result.userId === receiverId));
-
-  const verifyParentMessage = Message.messages.filter(result => (result.senderId === senderId && result.receiverId === receiverId) 
-                || (result.senderId === receiverId && result.receiverId === senderId));
 
 
-  if (verifyUsersExist.length > 1) {
-    if (verifyParentMessage.length > 0) {
-      const getParentMessage = verifyParentMessage[0].parentMessageId;
-      const messageDetails = {
-        messageId: Message.lastMessageId + 1,
-        senderId,
-        receiverId,
-        parentMessageId: getParentMessage,
-        subject,
-        message,
-        status,
-        createdOn: new Date(),
-      };
-      Message.lastMessageId += 1;
-      mapMessages.set(String(messageDetails.messageId), messageDetails);
-      req.messageDetails = messageDetails;
-      next();
-    } else {
-      const createParentMessageId = Message.lastParentMessageId + 1;
-      const messageDetails = {
-        messageId: Message.lastMessageId + 1,
-        senderId,
-        receiverId,
-        parentMessageId: createParentMessageId,
-        subject,
-        message,
-        status,
-        createdOn: new Date(),
-      };
-      Message.lastMessageId += 1;
-      Message.lastParentMessageId += 1;
-      mapMessages.set(String(messageDetails.messageId), messageDetails);
-      req.messageDetails = messageDetails;
-      next();
-    }
-  } else {
-    sendResponse(res, 401, null, 'one or more users is not registered');
+//FORMAT OF TOKEN
+//Authorizarion: Bearer <access_token>
+
+//verify Token
+const verifyToken = (req, res, next) => {
+  //Get auth header value
+  const bearerHeader = req.headers['authorization'];
+
+  //check if bearer header is undefined
+  if(typeof bearerHeader !== 'undefined'){
+     //Split at the space
+     const bearer = bearerHeader.split(' ');
+
+     //Get token from array
+     const bearerToken = bearer[1];
+
+     //Set the token
+     req.token = bearerToken;
+
+     //Next middleware
+     next();
+  }else{
+    sendResponse(res,404,null, 'forbidden');
   }
-};
+}
 
-// createMessage();
 
 
 export {
@@ -129,5 +132,5 @@ export {
   trimAllSpace,
   validateUserEntry,
   validateUserSignIn,
-  createMessage,
+  verifyToken
 };
