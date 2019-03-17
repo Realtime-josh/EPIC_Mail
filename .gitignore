@@ -1,6 +1,7 @@
 /node_modules
 /liggghts
 /bin
+/coverage
 .nyc_output
-coverage
+
 
