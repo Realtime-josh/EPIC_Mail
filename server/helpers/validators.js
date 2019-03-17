@@ -127,10 +127,4 @@ const verifyToken = (req, res, next) => {
 
 
 export {
-  isPositiveInteger,
-  filterInput,
-  trimAllSpace,
-  validateUserEntry,
-  validateUserSignIn,
-  verifyToken
-};
+  isPositiveInteger,filterInput,trimAllSpace,validateUserEntry,validateUserSignIn,verifyToken,atEpicMail};

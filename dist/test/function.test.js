@@ -49,6 +49,17 @@ describe('function tests', function () {
     (0, _expect2.default)(thridCheck).toBe(true);
     (0, _expect2.default)(fourthCheck).toBe(true);
   });
+
+  it('should check that email is epicmail', function () {
+    var firstCheck = (0, _validators.atEpicMail)('franksonjoshua@epicmail.com');
+    var secondCheck = (0, _validators.atEpicMail)('ma  & r k@ep ');
+    var thridCheck = (0, _validators.atEpicMail)('  j a <  k  e');
+    var fourthCheck = (0, _validators.atEpicMail)('Clarke@gmail.com');
+    (0, _expect2.default)(firstCheck).toBe(true);
+    (0, _expect2.default)(secondCheck).toBe(false);
+    (0, _expect2.default)(thridCheck).toBe(false);
+    (0, _expect2.default)(fourthCheck).toBe(false);
+  });
 });
 
 describe('middlewares for routes', function () {
