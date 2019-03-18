@@ -15,18 +15,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _dotenv2.default.config();
 // let connectionString = process.env.DATABASE_URL;
-
 // Database connection String
 var connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
+
+var usersTable = 'users';
 
 var getEmail = function getEmail(email) {
   return new Promise(function (resolve, reject) {
     var client = new _pg.Client(connectionString);
     client.connect().then(function () {
-      var sql = 'SELECT * FROM users WHERE email=$1';
+      var sql = 'SELECT * FROM ' + usersTable + ' WHERE email=$1';
       var params = [email];
       client.query(sql, params).then(function (result) {
-        // console.log(result.rows);
         resolve(result.rows);
         client.end();
       }).catch(function (e) {
@@ -42,7 +42,7 @@ var insertUsers = function insertUsers(firstName, lastName, email, password, tok
   return new Promise(function (resolve, reject) {
     var client = new _pg.Client(connectionString);
     client.connect().then(function () {
-      var sql = 'INSERT INTO users(firstname,lastname,email,password,token)VALUES($1,$2,$3,$4,$5)';
+      var sql = 'INSERT INTO ' + usersTable + '(firstname,lastname,email,password,token)VALUES($1,$2,$3,$4,$5)';
       var params = [firstName, lastName, email, password, token];
       client.query(sql, params).then(function (result) {
         resolve(result.rows);
@@ -52,6 +52,26 @@ var insertUsers = function insertUsers(firstName, lastName, email, password, tok
       });
     }).catch(function (e) {
       reject(e);
+    });
+  });
+};
+
+var clearTable = function clearTable(tableName) {
+  return new Promise(function (resolve, reject) {
+    var client = new _pg.Client(connectionString);
+    client.connect().then(function () {
+      var sql = 'DELETE FROM ' + tableName + ';';
+      if (tableName === usersTable) {
+        sql = 'DELETE FROM ' + tableName + ' WHERE user_level != 2;';
+      }
+      client.query(sql).then(function (result) {
+        resolve(result.rowCount);
+        client.end();
+      }).catch(function (e) {
+        return reject(e);
+      });
+    }).catch(function (e) {
+      return reject(e);
     });
   });
 };

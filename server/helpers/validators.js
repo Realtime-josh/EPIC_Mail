@@ -80,19 +80,34 @@ const validateUserEntry = (req, res, next) => {
 
 const validateUserSignIn = (req, res, next) => {
   const { email, password } = req.body;
-  const trimEmail = trimAllSpace(email);
-  if (validator.isEmail(email) && !filterInput(trimEmail) && password.length > 6) {
-    const checkEmail = user.users.filter(result => result.email === email);
-
-    if (checkEmail.length > 0 && checkEmail[0].password === password) {
-      req.accountDetails = checkEmail[0];
-      next();
-    } else {
-      sendResponse(res, 400, null, 'email and password is not associated with a registered account');
-    }
+  if(typeof email === undefined && typeof password === undefined){
+    sendResponse(res,400, null, 'Something went wrong');
+  }else{
+    const trimEmail = trimAllSpace(email);
+    if (validator.isEmail(email) && atEpicMail(trimEmail) && !filterInput(trimEmail) && password.length > 6) {
+        getEmail(email)
+        .then((result)=>{
+            bcrypt.compare(password, result[0].password,(err,data)=>{
+             if(!data){      
+               sendResponse(res, 400, null, 'Password Incorrect');
+             }else{
+                  const payload = {};
+                  payload.userId = result[0].id;
+                  payload.firstName = result[0].firstname;
+                  payload.lastName  = result[0].lastname;
+                  payload.email  = result[0].email
+                  req.payload = payload;
+                  next();
+             }
+          })
+        }).catch((e)=>{
+          sendResponse(res,400, null, "unable to login this user");
+        })
+    
   } else {
     sendResponse(res, 400, null, 'Ensure email and password are valid entries');
   }
+ }
 };
 
 
@@ -107,7 +122,7 @@ const verifyToken = (req, res, next) => {
   const bearerHeader = req.headers['authorization'];
 
   //check if bearer header is undefined
-  if(typeof bearerHeader !== 'undefined'){
+  if(typeof bearerHeader !== undefined){
      //Split at the space
      const bearer = bearerHeader.split(' ');
 
@@ -120,7 +135,7 @@ const verifyToken = (req, res, next) => {
      //Next middleware
      next();
   }else{
-    sendResponse(res,404,null, 'forbidden');
+    sendResponse(res,404 ,null, 'forbidden');
   }
 }
 
