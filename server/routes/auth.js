@@ -1,8 +1,7 @@
 import express from 'express';
-import { validateUserEntry, verifyToken, hashPassword, insertUser, validateUserSignIn } from '../helpers/validators';
+import { validateUserEntry, validateUserSignIn } from '../helpers/validators';
 import { sendResponse } from '../helpers/responses';
 import jwt from "jsonwebtoken"
-import insertUsers from '../crud/db'
 const authRouter = express.Router();
 
 authRouter.post('/signup', validateUserEntry, (req, res) => {

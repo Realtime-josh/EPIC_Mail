@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import  authRouter from './routes/auth';
+import  authRouter from './routes/message';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,7 +10,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v2/auth', authRouter);
-// app.use('/api/v2/message', messageRouter);
+app.use('/api/v2/message', messageRouter);
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to EPIC Mail Services' });
 });
