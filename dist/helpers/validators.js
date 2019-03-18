@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.atEpicMail = exports.verifyToken = exports.validateUserSignIn = exports.validateUserEntry = exports.trimAllSpace = exports.filterInput = exports.isPositiveInteger = undefined;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _validator = require('validator');
 
 var _validator2 = _interopRequireDefault(_validator);
@@ -111,20 +113,31 @@ var validateUserSignIn = function validateUserSignIn(req, res, next) {
       email = _req$body3.email,
       password = _req$body3.password;
 
-  var trimEmail = trimAllSpace(email);
-  if (_validator2.default.isEmail(email) && !filterInput(trimEmail) && password.length > 6) {
-    var checkEmail = user.users.filter(function (result) {
-      return result.email === email;
-    });
-
-    if (checkEmail.length > 0 && checkEmail[0].password === password) {
-      req.accountDetails = checkEmail[0];
-      next();
-    } else {
-      (0, _responses.sendResponse)(res, 400, null, 'email and password is not associated with a registered account');
-    }
+  if ((typeof email === 'undefined' ? 'undefined' : _typeof(email)) === undefined && (typeof password === 'undefined' ? 'undefined' : _typeof(password)) === undefined) {
+    (0, _responses.sendResponse)(res, 400, null, 'Something went wrong');
   } else {
-    (0, _responses.sendResponse)(res, 400, null, 'Ensure email and password are valid entries');
+    var trimEmail = trimAllSpace(email);
+    if (_validator2.default.isEmail(email) && atEpicMail(trimEmail) && !filterInput(trimEmail) && password.length > 6) {
+      (0, _db.getEmail)(email).then(function (result) {
+        _bcryptjs2.default.compare(password, result[0].password, function (err, data) {
+          if (!data) {
+            (0, _responses.sendResponse)(res, 400, null, 'Password Incorrect');
+          } else {
+            var payload = {};
+            payload.userId = result[0].id;
+            payload.firstName = result[0].firstname;
+            payload.lastName = result[0].lastname;
+            payload.email = result[0].email;
+            req.payload = payload;
+            next();
+          }
+        });
+      }).catch(function (e) {
+        (0, _responses.sendResponse)(res, 400, null, "unable to login this user");
+      });
+    } else {
+      (0, _responses.sendResponse)(res, 400, null, 'Ensure email and password are valid entries');
+    }
   }
 };
 
