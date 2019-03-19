@@ -5,7 +5,7 @@ import { mapMessages } from '../models/messages';
 import { Message } from '../models/messages';
 import { sendResponse } from './responses';
 import  jwt  from 'jsonwebtoken'
-import { getEmail, insertUsers } from '../crud/db'
+import { getUserEmail, insertUsers } from '../crud/db'
 import bcrypt from 'bcryptjs'
 import dotenv from 'dotenv';
 
@@ -162,7 +162,7 @@ const validateUserEntryy = (req, res, next) => {
     }
     const token = jwt.sign(payload, process.env.SECRET_KEY);
     req.token = token;
-    getEmail(email)
+    getUserEmail(email)
    .then((result)=>{
       if(result.length > 0){
           sendResponse(res, 400, null, 'Not allowed to sign up');
@@ -196,7 +196,7 @@ const validateUserSignInn = (req, res, next) => {
   }else{
     const trimEmail = trimAllSpace(email);
     if (validator.isEmail(email) && atEpicMail(trimEmail) && !filterInput(trimEmail) && password.length > 6) {
-        getEmail(email)
+        getUserEmail(email)
         .then((result)=>{
             bcrypt.compare(password, result[0].password,(err,data)=>{
              if(!data){      
@@ -233,7 +233,7 @@ const verifyToken = (req, res, next) => {
       } else {
         const decrypt = jwt.verify(token, process.env.SECRET_KEY);
         req.body.decrypted = decrypt;
-        getEmail(req.body.decrypted.email)
+        getUserEmail(req.body.decrypted.email)
           .then((result) => {
             req.body.userDetails = result;
             next();
@@ -259,7 +259,7 @@ const senderItem = (req, res, next) =>{
   }else{
      const trimEmail = trimAllSpace(receiverEmail);
      if (validator.isEmail(receiverEmail) && atEpicMail(trimEmail) && !filterInput(trimEmail)) {
-         getEmail(receiverEmail)
+         getUserEmail(receiverEmail)
          .then((result)=>{
             if(result.length > 0){
               const receiverId = result[0].userid
