@@ -1,7 +1,9 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import  authRouter from './routes/auth';
-import  authRouter from './routes/message';
+import  messageRouter from './routes/message';
+
+
 
 const app = express();
 const port = process.env.PORT || 3000;

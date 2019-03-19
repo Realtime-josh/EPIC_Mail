@@ -3,9 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.atEpicMail = exports.verifyToken = exports.validateUserSignIn = exports.validateUserEntry = exports.trimAllSpace = exports.filterInput = exports.isPositiveInteger = undefined;
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+exports.senderItem = exports.atEpicMail = exports.verifyToken = exports.validateUserSignIn = exports.validateUserEntry = exports.trimAllSpace = exports.filterInput = exports.isPositiveInteger = undefined;
 
 var _validator = require('validator');
 
@@ -68,7 +66,7 @@ var validateUserEntry = function validateUserEntry(req, res, next) {
       password = _req$body.password;
 
 
-  if (email === undefined || firstName === undefined || lastName === undefined || password === undefined) {
+  if (typeof email === 'undefined' || typeof firstName === 'undefined' || typeof lastName === 'undefined' || typeof password === 'undefined') {
     (0, _responses.sendResponse)(res, 400, null, "Ensure that all fields are correctly filled out");
   } else {
     var trimFirstName = trimAllSpace(firstName);
@@ -113,7 +111,7 @@ var validateUserSignIn = function validateUserSignIn(req, res, next) {
       email = _req$body3.email,
       password = _req$body3.password;
 
-  if ((typeof email === 'undefined' ? 'undefined' : _typeof(email)) === undefined && (typeof password === 'undefined' ? 'undefined' : _typeof(password)) === undefined) {
+  if (typeof email === 'undefined' || typeof password === 'undefined') {
     (0, _responses.sendResponse)(res, 400, null, 'Something went wrong');
   } else {
     var trimEmail = trimAllSpace(email);
@@ -141,30 +139,58 @@ var validateUserSignIn = function validateUserSignIn(req, res, next) {
   }
 };
 
-//FORMAT OF TOKEN
-//Authorizarion: Bearer <access_token>
-
-//verify Token
 var verifyToken = function verifyToken(req, res, next) {
-  //Get auth header value
-  var bearerHeader = req.headers['authorization'];
-
-  //check if bearer header is undefined
-  if (typeof bearerHeader !== 'undefined') {
-    //Split at the space
-    var bearer = bearerHeader.split(' ');
-
-    //Get token from array
-    var bearerToken = bearer[1];
-
-    //Set the token
-    req.token = bearerToken;
-
-    //Next middleware
-    next();
+  var bearerHeader = req.get('Authorization');
+  if (typeof bearerHeader !== "undefined") {
+    var splitBearerHeader = bearerHeader.split(" ");
+    var token = splitBearerHeader[1];
+    _jsonwebtoken2.default.verify(token, process.env.SECRET_KEY, function (err, data) {
+      if (err) {
+        (0, _responses.sendResponse)(res, 400, null, "authentication failed!");
+      } else {
+        var decrypt = _jsonwebtoken2.default.verify(token, process.env.SECRET_KEY);
+        req.body.decrypted = decrypt;
+        (0, _db.getEmail)(req.body.decrypted.email).then(function (result) {
+          req.body.userDetails = result;
+          next();
+        }).catch(function () {
+          // console.log(e);
+          (0, _responses.sendResponse)(res, 403, null, 'Invalid user');
+        });
+      };
+    });
   } else {
-    (0, _responses.sendResponse)(res, 404, null, 'forbidden');
+    (0, _responses.sendResponse)(res, 404, null, "Cannot authenticate user");
   }
+};
+
+var senderItem = function senderItem(req, res, next) {
+  var _req$body4 = req.body,
+      receiverEmail = _req$body4.receiverEmail,
+      subject = _req$body4.subject,
+      message = _req$body4.message,
+      status = _req$body4.status;
+
+  if (typeof receiverEmail === 'undefined' || typeof subject === 'undefined' || typeof message === 'undefined' || typeof status === 'undefined') {
+    (0, _responses.sendResponse)(res, 400, "All fields must be filled out correctly");
+  } else {
+    var trimEmail = trimAllSpace(receiverEmail);
+    if (_validator2.default.isEmail(receiverEmail) && atEpicMail(trimEmail) && !filterInput(trimEmail)) {
+      (0, _db.getEmail)(receiverEmail).then(function (result) {
+        if (result.length > 0) {
+          var receiverId = result[0].userid;
+          req.receiverId = receiverId;
+          next();
+        } else {
+          (0, _responses.sendResponse)(res, 404, null, 'could not fetch email');
+        };
+      }).catch(function (e) {
+        (0, _responses.sendResponse)(res, 400, null, "unable to retrieve email");
+      });
+    } else {
+      (0, _responses.sendResponse)(res, 400, null, 'unable process');
+    };
+  };
 };
 
 exports.isPositiveInteger = isPositiveInteger;
@@ -174,4 +200,5 @@ exports.validateUserEntry = validateUserEntry;
 exports.validateUserSignIn = validateUserSignIn;
 exports.verifyToken = verifyToken;
 exports.atEpicMail = atEpicMail;
+exports.senderItem = senderItem;
 //# sourceMappingURL=validators.js.map

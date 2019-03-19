@@ -16,6 +16,10 @@ var _auth = require('./routes/auth');
 
 var _auth2 = _interopRequireDefault(_auth);
 
+var _message = require('./routes/message');
+
+var _message2 = _interopRequireDefault(_message);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
@@ -24,7 +28,7 @@ var port = process.env.PORT || 3000;
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
 app.use('/api/v2/auth', _auth2.default);
-// app.use('/api/v2/message', messageRouter);
+app.use('/api/v2/message', _message2.default);
 app.get('/', function (req, res) {
   res.send({ message: 'Welcome to EPIC Mail Services' });
 });
