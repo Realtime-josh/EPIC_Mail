@@ -4,6 +4,7 @@ import { createMessage,senderItem, verifyToken } from '../helpers/validators';
 import { sendResponse } from '../helpers/responses';
 import { Message } from '../models/messages';
 import { usersList, user } from '../models/users';
+import { getUserEmail, getMessagesById, insertMessage } from '../crud/db'
 
 
 const messageRouter = express.Router();
@@ -172,9 +173,9 @@ messageRouter.get('/messages/specificmail/:id', (req, res) => {
 
 messageRouterv2.post('/messages',senderItem, verifyToken, (req,res)=>{
      const {userDetails,receiverEmail, subject, message, status} = req.body
-     const {receiverId} = req
-     const senderId = userDetails[0].userid
-     getEmail(receiverEmail)
+     const {receiverId} = req;
+     const senderId = userDetails[0].userid;
+     getUserEmail(receiverEmail)
      .then((result)=>{
       if(result.length > 0){
         const receiverId = result[0].userid;
@@ -185,10 +186,30 @@ messageRouterv2.post('/messages',senderItem, verifyToken, (req,res)=>{
         sendResponse(res,400,null, 'Could not retrieve email');
       }
      }).catch((e)=>{
-      sendResponse(res,400,null,'cannot process request')
+       sendResponse(res,400,null, 'something went wrong'); 
      })
      
 });
+
+messageRouterv2.get('/messages', verifyToken, (req,res)=>{
+   const {userDetails} = req.body
+   const userId = userDetails[0].userid
+   getMessagesById(userId)
+   .then((result)=>{
+      if(result.length > 0){
+         const messageDetails = result
+         sendResponse(res,200,messageDetails,null)
+      }else{
+        res.status(404).send({
+        status,
+        message: `No messages found for ${userDetails[0].firstname}`,
+      })
+      }
+   }).catch((e)=>{
+     sendResponse(res,400, null, 'unable to fetch user data');
+   })
+
+})
 
 
 

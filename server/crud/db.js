@@ -7,9 +7,10 @@ dotenv.config();
 let connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
 
 const usersTable = 'users';
+const messageTable = 'message';
 
 
-const getEmail = (email) => {
+const getUserEmail = (email) => {
     return new Promise((resolve,reject)=>{
         const client = new Client(connectionString);
        client.connect()
@@ -46,9 +47,53 @@ const getEmail = (email) => {
         })
       }).catch((e)=>{
         reject(e);
-      })
-    })
+      });
+    });
   }
+
+  const getMessagesById = (userId) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+         const sql = `SELECT message,subject FROM ${messageTable} WHERE receiverid=$1`
+         const params = [userId];
+         client.query(sql,params)
+         .then((result)=>{
+             resolve(result.rows);
+             client.end();
+         }).catch((e)=>{
+           reject(e)
+         })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
+  const insertMessage = (receiverid,senderid,subject,message,status,createdon) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+        const sql = `INSERT INTO ${messageTable}(receiverid,senderid,subject,message,status,createdon)VALUES($1,$2,$3,$4,$5,$6)`
+        const params = [receiverid,senderid,subject,message,status,createdon]
+        client.query(sql,params)
+        .then((result)=>{
+           resolve(result.rows)
+           client.end();
+        }).catch((e)=>{
+          reject(e)
+        })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
+  
+        
+        
 
 
   const clearTable = tableName => new Promise((resolve, reject) => {
@@ -71,4 +116,4 @@ const getEmail = (email) => {
 
 
 
-export{getEmail,insertUsers}
+export{getUserEmail,insertMessage,getMessagesById}
