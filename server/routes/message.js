@@ -288,6 +288,7 @@ messageRouterv2.get('/messages', verifyToken, (req,res)=>{
 
 })
 
+<<<<<<< HEAD
 >>>>>>> Feat(User can receive all email
 
 messageRouterv2.get("/messages/unread", verifyToken, (req, res) => {
@@ -311,6 +312,8 @@ messageRouterv2.get("/messages/unread", verifyToken, (req, res) => {
       sendResponse(res, 400, null, "unable to fetch user data");
     });
 });
+=======
+>>>>>>> Feat(User can receive all email
 
 
 messageRouterv2.get("/messages/sent", verifyToken, (req, res) => {
