@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.messageRouter = undefined;
+exports.messageRouterv2 = exports.messageRouter = undefined;
 
 var _express = require('express');
 
@@ -21,6 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var messageRouter = _express2.default.Router(); /* eslint-disable radix */
 
+var messageRouterv2 = _express2.default.Router();
 
 messageRouter.post('/messages', _validators.createMessage, function (req, res) {
   var messageDetails = req.messageDetails;
@@ -125,11 +126,11 @@ messageRouter.get('/email/:id', function (req, res) {
     return result.userId === parseInt(id);
   });
   if (verifyUser.length > 0) {
-    var getEmail = verifyUser[0].email;
+    var _getEmail = verifyUser[0].email;
     res.status(200).send({
       status: 200,
       message: 'Email found',
-      email: getEmail
+      email: _getEmail
     });
   } else {
     (0, _responses.sendResponse)(res, 404, null, 'Not Found');
@@ -207,5 +208,30 @@ messageRouter.get('/messages/specificmail/:id', function (req, res) {
   }
 });
 
+messageRouterv2.post('/messages', _validators.senderItem, _validators.verifyToken, function (req, res) {
+  var _req$body = req.body,
+      userDetails = _req$body.userDetails,
+      receiverEmail = _req$body.receiverEmail,
+      subject = _req$body.subject,
+      message = _req$body.message,
+      status = _req$body.status;
+  var receiverId = req.receiverId;
+
+  var senderId = userDetails[0].userid;
+  getEmail(receiverEmail).then(function (result) {
+    if (result.length > 0) {
+      var _receiverId = result[0].userid;
+      var createdOn = new Date();
+      insertMessage(_receiverId, senderId, subject, message, status, createdOn);
+      (0, _responses.sendResponse)(res, 200, 'message sent', null);
+    } else {
+      (0, _responses.sendResponse)(res, 400, null, 'Could not retrieve email');
+    }
+  }).catch(function (e) {
+    (0, _responses.sendResponse)(res, 400, null, 'cannot process request');
+  });
+});
+
 exports.messageRouter = messageRouter;
+exports.messageRouterv2 = messageRouterv2;
 //# sourceMappingURL=message.js.map

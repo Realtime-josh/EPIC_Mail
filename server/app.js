@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { authRouter } from './routes/contacts';
-import { messageRouter } from './routes/message';
+import { authRouter, authRouterv2 } from './routes/auth';
+import { messageRouter, messageRouterv2 } from './routes/message';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,7 +10,9 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v2/auth', authRouterv2);
 app.use('/api/v1/message', messageRouter);
+app.use('/api/v2/message', messageRouterv2);
 app.get('/', (req, res) => {
   res.send({ message: 'Welcome to EPIC Mail Services' });
 });
