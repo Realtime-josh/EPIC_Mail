@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
+exports.getMessagesByUnread = exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
 
 var _pg = require('pg');
 
@@ -75,6 +75,24 @@ var getMessagesById = function getMessagesById(userId) {
   });
 };
 
+var getMessagesByUnread = function getMessagesByUnread(userId) {
+  return new Promise(function (resolve, reject) {
+    var client = new _pg.Client(connectionString);
+    client.connect().then(function () {
+      var sql = 'SELECT message,subject,status FROM ' + messageTable + ' WHERE receiverid=$1';
+      var params = [userId];
+      client.query(sql, params).then(function (result) {
+        resolve(result.rows);
+        client.end();
+      }).catch(function (e) {
+        reject(e);
+      });
+    }).catch(function (e) {
+      reject(e);
+    });
+  });
+};
+
 var insertMessage = function insertMessage(receiverid, senderid, subject, message, status, createdon) {
   return new Promise(function (resolve, reject) {
     var client = new _pg.Client(connectionString);
@@ -116,4 +134,5 @@ var clearTable = function clearTable(tableName) {
 exports.getUserEmail = getUserEmail;
 exports.insertMessage = insertMessage;
 exports.getMessagesById = getMessagesById;
+exports.getMessagesByUnread = getMessagesByUnread;
 //# sourceMappingURL=db.js.map
