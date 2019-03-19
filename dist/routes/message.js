@@ -241,6 +241,10 @@ messageRouterv2.get('/messages', _validators.verifyToken, function (req, res) {
   (0, _db.getMessagesById)(userId).then(function (result) {
     if (result.length > 0) {
       var messageDetails = result;
+<<<<<<< HEAD
+=======
+      console.log(messageDetails);
+>>>>>>> Feat(User can receive all email
       (0, _responses.sendResponse)(res, 200, messageDetails, null);
     } else {
       res.status(404).send({
@@ -250,6 +254,7 @@ messageRouterv2.get('/messages', _validators.verifyToken, function (req, res) {
     }
   }).catch(function (e) {
     (0, _responses.sendResponse)(res, 400, null, 'unable to fetch user data');
+<<<<<<< HEAD
   });
 });
 
@@ -271,6 +276,8 @@ messageRouterv2.get('/messages/unread', _validators.verifyToken, function (req, 
     }
   }).catch(function (e) {
     (0, _responses.sendResponse)(res, 400, null, 'unable to fetch user data');
+=======
+>>>>>>> Feat(User can receive all email
   });
 });
 
