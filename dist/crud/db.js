@@ -3,7 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+<<<<<<< HEAD
 exports.getMessagesByUnread = exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
+=======
+exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
+>>>>>>> Feat(User can receive all email
 
 var _pg = require('pg');
 
@@ -75,6 +79,7 @@ var getMessagesById = function getMessagesById(userId) {
   });
 };
 
+<<<<<<< HEAD
 var getMessagesByUnread = function getMessagesByUnread(userId) {
   return new Promise(function (resolve, reject) {
     var client = new _pg.Client(connectionString);
@@ -93,6 +98,8 @@ var getMessagesByUnread = function getMessagesByUnread(userId) {
   });
 };
 
+=======
+>>>>>>> Feat(User can receive all email
 var insertMessage = function insertMessage(receiverid, senderid, subject, message, status, createdon) {
   return new Promise(function (resolve, reject) {
     var client = new _pg.Client(connectionString);
@@ -134,5 +141,8 @@ var clearTable = function clearTable(tableName) {
 exports.getUserEmail = getUserEmail;
 exports.insertMessage = insertMessage;
 exports.getMessagesById = getMessagesById;
+<<<<<<< HEAD
 exports.getMessagesByUnread = getMessagesByUnread;
+=======
+>>>>>>> Feat(User can receive all email
 //# sourceMappingURL=db.js.map

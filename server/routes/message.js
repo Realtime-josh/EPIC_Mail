@@ -1,4 +1,5 @@
 /* eslint-disable radix */
+<<<<<<< HEAD
 import express from "express";
 import { createMessage, senderItem, verifyToken } from "../helpers/validators";
 import { sendResponse } from "../helpers/responses";
@@ -10,6 +11,15 @@ import {
   insertMessage,
   getMessagesByUnread
 } from "../crud/db";
+=======
+import express from 'express';
+import { createMessage,senderItem, verifyToken } from '../helpers/validators';
+import { sendResponse } from '../helpers/responses';
+import { Message } from '../models/messages';
+import { usersList, user } from '../models/users';
+import { getUserEmail, getMessagesById, insertMessage } from '../crud/db'
+
+>>>>>>> Feat(User can receive all email
 
 const messageRouter = express.Router();
 const messageRouterv2 = express.Router();
@@ -192,6 +202,7 @@ messageRouter.get("/messages/specificmail/:id", (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 messageRouterv2.post("/messages", senderItem, verifyToken, (req, res) => {
   const { userDetails, receiverEmail, subject, message, status } = req.body;
   const { receiverId } = req;
@@ -199,6 +210,16 @@ messageRouterv2.post("/messages", senderItem, verifyToken, (req, res) => {
   getUserEmail(receiverEmail)
     .then(result => {
       if (result.length > 0) {
+=======
+
+messageRouterv2.post('/messages',senderItem, verifyToken, (req,res)=>{
+     const {userDetails,receiverEmail, subject, message, status} = req.body
+     const {receiverId} = req;
+     const senderId = userDetails[0].userid;
+     getUserEmail(receiverEmail)
+     .then((result)=>{
+      if(result.length > 0){
+>>>>>>> Feat(User can receive all email
         const receiverId = result[0].userid;
         const createdOn = new Date();
         insertMessage(
@@ -213,6 +234,7 @@ messageRouterv2.post("/messages", senderItem, verifyToken, (req, res) => {
       } else {
         sendResponse(res, 400, null, "Could not retrieve email");
       }
+<<<<<<< HEAD
     })
     .catch(e => {
       sendResponse(res, 400, null, "something went wrong");
@@ -238,6 +260,34 @@ messageRouterv2.get("/messages", verifyToken, (req, res) => {
       sendResponse(res, 400, null, "unable to fetch user data");
     });
 });
+=======
+     }).catch((e)=>{
+       sendResponse(res,400,null, 'something went wrong'); 
+     })
+     
+});
+
+messageRouterv2.get('/messages', verifyToken, (req,res)=>{
+   const {userDetails} = req.body
+   const userId = userDetails[0].userid
+   getMessagesById(userId)
+   .then((result)=>{
+      if(result.length > 0){
+         const messageDetails = result
+         sendResponse(res,200,messageDetails,null)
+      }else{
+        res.status(404).send({
+        status,
+        message: `No messages found for ${userDetails[0].firstname}`,
+      })
+      }
+   }).catch((e)=>{
+     sendResponse(res,400, null, 'unable to fetch user data');
+   })
+
+})
+
+>>>>>>> Feat(User can receive all email
 
 messageRouterv2.get("/messages/unread", verifyToken, (req, res) => {
   const { userDetails } = req.body;

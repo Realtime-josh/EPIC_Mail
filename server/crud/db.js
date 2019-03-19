@@ -71,6 +71,7 @@ const getUserEmail = (email) => {
     });
   }
 
+<<<<<<< HEAD
   const getMessagesByUnread = (userId) => {
     return new Promise((resolve,reject)=>{
       const client = new Client(connectionString);
@@ -94,6 +95,8 @@ const getUserEmail = (email) => {
 
 
 
+=======
+>>>>>>> Feat(User can receive all email
   const insertMessage = (receiverid,senderid,subject,message,status,createdon) => {
     return new Promise((resolve,reject)=>{
       const client = new Client(connectionString);
@@ -139,4 +142,8 @@ const getUserEmail = (email) => {
 
 
 
+<<<<<<< HEAD
 export{getUserEmail,insertMessage,getMessagesById,getMessagesByUnread}
+=======
+export{getUserEmail,insertMessage,getMessagesById}
+>>>>>>> Feat(User can receive all email
