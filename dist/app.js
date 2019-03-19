@@ -12,7 +12,7 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-var _contacts = require('./routes/contacts');
+var _auth = require('./routes/auth');
 
 var _message = require('./routes/message');
 
@@ -23,8 +23,10 @@ var port = process.env.PORT || 3000;
 
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
-app.use('/api/v1/auth', _contacts.authRouter);
+app.use('/api/v1/auth', _auth.authRouter);
+app.use('/api/v2/auth', _auth.authRouterv2);
 app.use('/api/v1/message', _message.messageRouter);
+app.use('/api/v2/message', _message.messageRouterv2);
 app.get('/', function (req, res) {
   res.send({ message: 'Welcome to EPIC Mail Services' });
 });

@@ -1,12 +1,13 @@
 /* eslint-disable radix */
 import express from 'express';
-import { createMessage } from '../helpers/validators';
+import { createMessage,senderItem, verifyToken } from '../helpers/validators';
 import { sendResponse } from '../helpers/responses';
 import { Message } from '../models/messages';
 import { usersList, user } from '../models/users';
 
 
 const messageRouter = express.Router();
+const messageRouterv2 = express.Router();
 
 messageRouter.post('/messages', createMessage, (req, res) => {
   const { messageDetails } = req;
@@ -169,6 +170,33 @@ messageRouter.get('/messages/specificmail/:id', (req, res) => {
 });
 
 
+messageRouterv2.post('/messages',senderItem, verifyToken, (req,res)=>{
+     const {userDetails,receiverEmail, subject, message, status} = req.body
+     const {receiverId} = req
+     const senderId = userDetails[0].userid
+     getEmail(receiverEmail)
+     .then((result)=>{
+      if(result.length > 0){
+        const receiverId = result[0].userid;
+        const createdOn = new Date();
+        insertMessage(receiverId,senderId,subject,message,status,createdOn)
+        sendResponse(res,200,'message sent', null)
+      }else{
+        sendResponse(res,400,null, 'Could not retrieve email');
+      }
+     }).catch((e)=>{
+      sendResponse(res,400,null,'cannot process request')
+     })
+     
+});
+
+
+
+
+
+
+
 export {
   messageRouter,
+  messageRouterv2
 };
