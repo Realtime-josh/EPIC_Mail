@@ -194,13 +194,14 @@ messageRouter.get("/messages/specificmail/:id", (req, res) => {
   }
 });
 
-messageRouterv2.post("/messages", senderItem, verifyToken, (req, res) => {
-  const { userDetails, receiverEmail, subject, message, status } = req.body;
-  const { receiverId } = req;
-  const senderId = userDetails[0].userid;
-  getUserEmail(receiverEmail)
-    .then(result => {
-      if (result.length > 0) {
+
+messageRouterv2.post('/messages',senderItem, verifyToken, (req,res)=>{
+     const {userDetails,receiverEmail, subject, message, status} = req.body
+     const {receiverId} = req;
+     const senderId = userDetails[0].userid;
+     getUserEmail(receiverEmail)
+     .then((result)=>{
+      if(result.length > 0){
         const receiverId = result[0].userid;
         const createdOn = new Date();
         insertMessage(
@@ -215,10 +216,10 @@ messageRouterv2.post("/messages", senderItem, verifyToken, (req, res) => {
       } else {
         sendResponse(res, 400, null, "Could not retrieve email");
       }
-    })
-    .catch(e => {
-      sendResponse(res, 400, null, "something went wrong");
-    });
+     }).catch((e)=>{
+       sendResponse(res,400,null, 'something went wrong'); 
+     })
+     
 });
 
 messageRouterv2.get('/messages', verifyToken, (req,res)=>{

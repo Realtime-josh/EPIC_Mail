@@ -135,8 +135,6 @@ const getUserEmail = (email) => {
 
 
 
-
-
   const insertMessage = (receiverid,senderid,subject,message,status,createdon) => {
     return new Promise((resolve,reject)=>{
       const client = new Client(connectionString);
