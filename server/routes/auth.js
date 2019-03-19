@@ -2,7 +2,9 @@ import express from 'express';
 import { validateUserEntry, validateUserSignIn } from '../helpers/validators';
 import { sendResponse } from '../helpers/responses';
 import jwt from "jsonwebtoken"
+import dotenv from 'dotenv';
 const authRouter = express.Router();
+dotenv.config();
 
 authRouter.post('/signup', validateUserEntry, (req, res) => {
      const {token} = req
@@ -14,10 +16,7 @@ authRouter.post('/login', validateUserSignIn, (req,res)=> {
 	const {payload} = req;
 	const token = jwt.sign(payload, process.env.SECRET_KEY);
 	res.header('Authorization', `Bearer ${token}`);
-        res.status(202).send({
-          message: 'successfully logged in',
-          token,
-        });
+     sendResponse(res,200,token,null)
 });
 
 

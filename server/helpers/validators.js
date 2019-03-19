@@ -34,7 +34,8 @@ const validateUserEntry = (req, res, next) => {
     email, firstName, lastName, password,
   } = req.body;
 
-  if(email === undefined || firstName === undefined || lastName === undefined || password === undefined){
+  if(typeof email === 'undefined' || typeof firstName === 'undefined' || 
+    typeof lastName === 'undefined' || typeof password === 'undefined'){
     sendResponse(res, 400, null, "Ensure that all fields are correctly filled out")
   }else{
       const trimFirstName = trimAllSpace(firstName);
@@ -77,10 +78,9 @@ const validateUserEntry = (req, res, next) => {
 
 
 
-
 const validateUserSignIn = (req, res, next) => {
   const { email, password } = req.body;
-  if(typeof email === undefined && typeof password === undefined){
+  if(typeof email === 'undefined' || typeof password === 'undefined'){
     sendResponse(res,400, null, 'Something went wrong');
   }else{
     const trimEmail = trimAllSpace(email);
@@ -111,35 +111,65 @@ const validateUserSignIn = (req, res, next) => {
 };
 
 
-
-
-//FORMAT OF TOKEN
-//Authorizarion: Bearer <access_token>
-
-//verify Token
 const verifyToken = (req, res, next) => {
-  //Get auth header value
-  const bearerHeader = req.headers['authorization'];
+  const bearerHeader = req.get('Authorization');
+  if (typeof bearerHeader !== "undefined") {
+    const splitBearerHeader = bearerHeader.split(" ");
+    const token = splitBearerHeader[1]
+    jwt.verify(token, process.env.SECRET_KEY, (err, data) => {
+      if (err) {
+        sendResponse(res, 400, null, "authentication failed!");
+      } else {
+        const decrypt = jwt.verify(token, process.env.SECRET_KEY);
+        req.body.decrypted = decrypt;
+        getEmail(req.body.decrypted.email)
+          .then((result) => {
+            req.body.userDetails = result;
+            next();
+          })
+          .catch(() => {
+            // console.log(e);
+            sendResponse(res, 403, null, 'Invalid user');
+          });
 
-  //check if bearer header is undefined
-  if(typeof bearerHeader !== undefined){
-     //Split at the space
-     const bearer = bearerHeader.split(' ');
+      };
+    });
 
-     //Get token from array
-     const bearerToken = bearer[1];
-
-     //Set the token
-     req.token = bearerToken;
-
-     //Next middleware
-     next();
-  }else{
-    sendResponse(res,404 ,null, 'forbidden');
+  } else {
+    sendResponse(res, 404, null, "Cannot authenticate user")
   }
+}
+
+const senderItem = (req, res, next) =>{
+  const {receiverEmail, subject, message, status} = req.body
+  if(typeof receiverEmail === 'undefined' || typeof subject === 'undefined' || typeof message === 'undefined' ||
+    typeof status === 'undefined'){
+      sendResponse(res,400,"All fields must be filled out correctly")
+  }else{
+     const trimEmail = trimAllSpace(receiverEmail);
+     if (validator.isEmail(receiverEmail) && atEpicMail(trimEmail) && !filterInput(trimEmail)) {
+         getEmail(receiverEmail)
+         .then((result)=>{
+            if(result.length > 0){
+              const receiverId = result[0].userid
+              req.receiverId = receiverId
+              next();
+            }else{
+              sendResponse(res,404, null, 'could not fetch email')
+            };
+         }).catch((e)=>{
+           sendResponse(res,400, null, "unable to retrieve email");
+         });
+     }else{
+        sendResponse(res,400,null, 'unable process');
+     };
+  };
 }
 
 
 
-export {
-  isPositiveInteger,filterInput,trimAllSpace,validateUserEntry,validateUserSignIn,verifyToken,atEpicMail};
+
+
+
+export{isPositiveInteger,filterInput,trimAllSpace,
+  validateUserEntry,validateUserSignIn,verifyToken,atEpicMail,senderItem};

@@ -7,6 +7,7 @@ dotenv.config();
 let connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
 
 const usersTable = 'users';
+const messageTable = 'message'
 
 
 const getEmail = (email) => {
@@ -29,6 +30,27 @@ const getEmail = (email) => {
     })
   }
 
+  const getMessageIds = (receiverid,senderid) =>{
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+         const sql = `SELECT * FROM ${messageTable} 
+         WHERE (receiverid=$1 AND senderid=$2) OR (receiverid=$2 AND senderid=$1)`
+         const params = [receiverid,senderid]
+         client.query(sql,params)
+         .then((result)=>{
+             resolve(result.rows)
+             client.end();
+         }).catch((e)=>{
+           reject(e)
+         })
+      }).catch((e)=>{
+        reject(e)
+      })
+    })
+  }
+
 
   const insertUsers = (firstName, lastName, email, password, token) => {
     return new Promise((resolve,reject)=>{
@@ -37,6 +59,27 @@ const getEmail = (email) => {
       .then(()=>{
         const sql = `INSERT INTO ${usersTable}(firstname,lastname,email,password,token)VALUES($1,$2,$3,$4,$5)`;
         const params = [firstName,lastName,email,password,token];
+        client.query(sql,params)
+        .then((result)=>{
+             resolve(result.rows);
+             client.end();
+        }).catch((e)=>{
+          reject(e)
+        })
+      }).catch((e)=>{
+        reject(e);
+      })
+    })
+  }
+
+  const insertMessage = (receiverId, senderId, subject, message, status, createdOn) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+        const sql = `INSERT INTO ${messageTable}
+        (receiverid,senderid,subject,message,status,createdon)VALUES($1,$2,$3,$4,$5,$6)`;
+        const params = [receiverId,senderId,subject,message,status,createdOn];
         client.query(sql,params)
         .then((result)=>{
              resolve(result.rows);
@@ -71,4 +114,4 @@ const getEmail = (email) => {
 
 
 
-export{getEmail,insertUsers}
+export{getEmail,insertUsers, getMessageIds, insertMessage}
