@@ -71,6 +71,29 @@ const getUserEmail = (email) => {
     });
   }
 
+  const getMessagesByUnread = (userId) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+         const sql = `SELECT message,subject,status FROM ${messageTable} WHERE receiverid=$1`
+         const params = [userId];
+         client.query(sql,params)
+         .then((result)=>{
+             resolve(result.rows);
+             client.end();
+         }).catch((e)=>{
+           reject(e)
+         })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
+
+
+
   const insertMessage = (receiverid,senderid,subject,message,status,createdon) => {
     return new Promise((resolve,reject)=>{
       const client = new Client(connectionString);
@@ -116,4 +139,4 @@ const getUserEmail = (email) => {
 
 
 
-export{getUserEmail,insertMessage,getMessagesById}
+export{getUserEmail,insertMessage,getMessagesById,getMessagesByUnread}

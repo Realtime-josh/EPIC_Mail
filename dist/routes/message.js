@@ -241,8 +241,28 @@ messageRouterv2.get('/messages', _validators.verifyToken, function (req, res) {
   (0, _db.getMessagesById)(userId).then(function (result) {
     if (result.length > 0) {
       var messageDetails = result;
-      console.log(messageDetails);
       (0, _responses.sendResponse)(res, 200, messageDetails, null);
+    } else {
+      res.status(404).send({
+        status: status,
+        message: 'No messages found for ' + userDetails[0].firstname
+      });
+    }
+  }).catch(function (e) {
+    (0, _responses.sendResponse)(res, 400, null, 'unable to fetch user data');
+  });
+});
+
+messageRouterv2.get('/messages/unread', _validators.verifyToken, function (req, res) {
+  var userDetails = req.body.userDetails;
+
+  var userId = userDetails[0].userid;
+  (0, _db.getMessagesByUnread)(userId).then(function (result) {
+    if (result.length > 0) {
+      var unReadMessages = result.filter(function (data) {
+        return data.status === "unread";
+      });
+      (0, _responses.sendResponse)(res, 200, unReadMessages, null);
     } else {
       res.status(404).send({
         status: status,
