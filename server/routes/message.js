@@ -9,7 +9,8 @@ import {
   getUserEmail,
   getMessagesById,
   insertMessage,
-  getMessagesByUnread
+  getMessagesByUnread,
+  getMessagesBySent
 } from "../crud/db";
 =======
 import express from 'express';
@@ -310,5 +311,28 @@ messageRouterv2.get("/messages/unread", verifyToken, (req, res) => {
       sendResponse(res, 400, null, "unable to fetch user data");
     });
 });
+
+
+messageRouterv2.get("/messages/sent", verifyToken, (req, res) => {
+  const { userDetails } = req.body;
+  const userId = userDetails[0].userid;
+  getMessagesBySent(userId)
+    .then(result => {
+      if (result.length > 0) {
+        const messageDetails = result;
+        sendResponse(res, 200, messageDetails, null);
+      } else {
+        res.status(404).send({
+          status,
+          message: `No messages found for ${userDetails[0].firstname}`
+        });
+      }
+    })
+    .catch(e => {
+      sendResponse(res, 400, null, "unable to fetch user data");
+    });
+});
+
+
 
 export { messageRouter, messageRouterv2 };
