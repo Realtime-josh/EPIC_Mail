@@ -8,6 +8,8 @@ let connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
 
 const usersTable = 'users';
 const messageTable = 'message';
+const groupsTable = 'group_table'
+const groupsMembers = 'group_members'
 
 
 const getUserEmail = (email) => {
@@ -177,6 +179,49 @@ const getUserEmail = (email) => {
     });
   }
 
+  const insertGroupTable = (groupName,role,userId) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+        const sql = `INSERT into ${groupsTable}(group_name,role,user_id)VALUES($1,$2,$3)`
+        const params = [groupName,role,userId]
+        client.query(sql,params)
+        .then((result)=>{
+          resolve(result.rows)
+          client.end();
+        }).catch((e)=>{
+          reject(e)
+        })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
+  const insertGroupMembers = (userId,role,groupId,firstName,lastName) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+        const sql = `INSERT into ${groupsMembers}(user_id,role,group_id,first_name,last_name)VALUES($1,$2,$3,$4,$5)`
+        const params = [userId,role,groupId,firstName,lastName]
+        client.query(sql,params)
+        .then((result)=>{
+          resolve(result.rows)
+          client.end();
+        }).catch((e)=>{
+          reject(e)
+        })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
+
+
+
 
 
   
@@ -205,6 +250,7 @@ const getUserEmail = (email) => {
 
 
 export{
-  getUserEmail,insertMessage,getMessagesById,
-  getMessagesByUnread,getMessagesBySent,getMessagesBySpecificId,deleteBySpecificId
+  getUserEmail,insertMessage,getMessagesById,insertUsers,
+  getMessagesByUnread,getMessagesBySent,getMessagesBySpecificId,deleteBySpecificId,
+  insertGroupTable, insertGroupMembers
 }
