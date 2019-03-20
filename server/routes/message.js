@@ -345,30 +345,20 @@ messageRouterv2.get("/messages/:id", verifyToken, (req, res) => {
         });
       }
     })
-    .catch(e => {
+    .catch((e) => {
       sendResponse(res, 400, null, "unable to fetch user data");
     });
 });
-
 
 messageRouterv2.delete("/messages/:id", verifyToken, (req, res) => {
   const { id } = req.params;
   const { userDetails } = req.body;
   const userId = userDetails[0].userid;
   deleteBySpecificId(userId,id)
-    .then(result => {
-      if (result.length > 0) {
-        const messageDetails = result;
-        sendResponse(res, 200, `Email deleted ${messageDetails}`, null);
-      } else {
-        res.status(404).send({
-          status,
-          message: `No messages found for ${userDetails[0].firstname}`
-        });
-      }
-    })
-    .catch(e => {
-      sendResponse(res, 400, null, "unable to fetch user data");
+    .then(()=>{
+      sendResponse(res,200,"Message deleted", null);
+    }).catch((e)=>{
+       sendResponse(res,204,"Unable to fetch mail", null);
     });
 });
 
