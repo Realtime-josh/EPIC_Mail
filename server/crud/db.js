@@ -112,6 +112,28 @@ const getUserEmail = (email) => {
     });
   }
 
+  const getMessagesBySpecificId = (userId, messageId) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+         const sql = `SELECT message,subject,createdon FROM ${messageTable} WHERE (receiverid=$1 OR senderid=$1) AND messageid=$2`
+         const params = [userId,messageId];
+         client.query(sql,params)
+         .then((result)=>{
+             resolve(result.rows);
+             client.end();
+         }).catch((e)=>{
+           reject(e)
+         })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
+
+
 
 
 
@@ -162,4 +184,7 @@ const getUserEmail = (email) => {
 
 
 
-export{getUserEmail,insertMessage,getMessagesById,getMessagesByUnread, getMessagesBySent}
+export{
+  getUserEmail,insertMessage,getMessagesById,
+  getMessagesByUnread,getMessagesBySent,getMessagesBySpecificId
+}
