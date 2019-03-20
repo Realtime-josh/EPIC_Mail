@@ -4,10 +4,14 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
 =======
 exports.getMessagesBySpecificId = exports.getMessagesBySent = exports.getMessagesByUnread = exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
 >>>>>>> user can get specific mail by its id
+=======
+exports.deleteBySpecificId = exports.getMessagesBySpecificId = exports.getMessagesBySent = exports.getMessagesByUnread = exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
+>>>>>>> user can delete specific mail record
 
 var _pg = require('pg');
 
@@ -135,7 +139,28 @@ var getMessagesBySpecificId = function getMessagesBySpecificId(userId, messageId
   });
 };
 
+<<<<<<< HEAD
 >>>>>>> user can get specific mail by its id
+=======
+var deleteBySpecificId = function deleteBySpecificId(userId, messageId) {
+  return new Promise(function (resolve, reject) {
+    var client = new _pg.Client(connectionString);
+    client.connect().then(function () {
+      var sql = 'DELETE FROM ' + messageTable + ' WHERE (receiverid=$1 OR senderid=$1) AND messageid=$2';
+      var params = [userId, messageId];
+      client.query(sql, params).then(function (result) {
+        resolve(result.rows);
+        client.end();
+      }).catch(function (e) {
+        reject(e);
+      });
+    }).catch(function (e) {
+      reject(e);
+    });
+  });
+};
+
+>>>>>>> user can delete specific mail record
 var insertMessage = function insertMessage(receiverid, senderid, subject, message, status, createdon) {
   return new Promise(function (resolve, reject) {
     var client = new _pg.Client(connectionString);
@@ -182,5 +207,9 @@ exports.getMessagesById = getMessagesById;
 exports.getMessagesByUnread = getMessagesByUnread;
 exports.getMessagesBySent = getMessagesBySent;
 exports.getMessagesBySpecificId = getMessagesBySpecificId;
+<<<<<<< HEAD
 >>>>>>> user can get specific mail by its id
+=======
+exports.deleteBySpecificId = deleteBySpecificId;
+>>>>>>> user can delete specific mail record
 //# sourceMappingURL=db.js.map

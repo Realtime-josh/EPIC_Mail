@@ -471,6 +471,18 @@ messageRouterv2.get("/messages/:id", _validators.verifyToken, function (req, res
   });
 });
 
+messageRouterv2.delete("/messages/:id", _validators.verifyToken, function (req, res) {
+  var id = req.params.id;
+  var userDetails = req.body.userDetails;
+
+  var userId = userDetails[0].userid;
+  (0, _db.deleteBySpecificId)(userId, id).then(function () {
+    (0, _responses.sendResponse)(res, 200, "Message deleted", null);
+  }).catch(function (e) {
+    (0, _responses.sendResponse)(res, 204, "Unable to fetch mail", null);
+  });
+});
+
 exports.messageRouter = messageRouter;
 exports.messageRouterv2 = messageRouterv2;
 //# sourceMappingURL=message.js.map
