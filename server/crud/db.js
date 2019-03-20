@@ -93,6 +93,27 @@ const getUserEmail = (email) => {
   }
 
 
+  const getMessagesBySent = (userId) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+         const sql = `SELECT message,subject,createdon FROM ${messageTable} WHERE senderid=$1`
+         const params = [userId];
+         client.query(sql,params)
+         .then((result)=>{
+             resolve(result.rows);
+             client.end();
+         }).catch((e)=>{
+           reject(e)
+         })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
+
 
 
 =======
@@ -116,6 +137,8 @@ const getUserEmail = (email) => {
       });
     });
   }
+
+
 
   
         
@@ -143,7 +166,11 @@ const getUserEmail = (email) => {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export{getUserEmail,insertMessage,getMessagesById,getMessagesByUnread}
 =======
 export{getUserEmail,insertMessage,getMessagesById}
 >>>>>>> Feat(User can receive all email
+=======
+export{getUserEmail,insertMessage,getMessagesById,getMessagesByUnread, getMessagesBySent}
+>>>>>>> Feat(User can get all sent messages in inbox)
