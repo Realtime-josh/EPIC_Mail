@@ -3,7 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+<<<<<<< HEAD
 exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
+=======
+exports.getMessagesBySpecificId = exports.getMessagesBySent = exports.getMessagesByUnread = exports.getMessagesById = exports.insertMessage = exports.getUserEmail = undefined;
+>>>>>>> user can get specific mail by its id
 
 var _pg = require('pg');
 
@@ -75,6 +79,63 @@ var getMessagesById = function getMessagesById(userId) {
   });
 };
 
+<<<<<<< HEAD
+=======
+var getMessagesByUnread = function getMessagesByUnread(userId) {
+  return new Promise(function (resolve, reject) {
+    var client = new _pg.Client(connectionString);
+    client.connect().then(function () {
+      var sql = 'SELECT message,subject,status FROM ' + messageTable + ' WHERE receiverid=$1';
+      var params = [userId];
+      client.query(sql, params).then(function (result) {
+        resolve(result.rows);
+        client.end();
+      }).catch(function (e) {
+        reject(e);
+      });
+    }).catch(function (e) {
+      reject(e);
+    });
+  });
+};
+
+var getMessagesBySent = function getMessagesBySent(userId) {
+  return new Promise(function (resolve, reject) {
+    var client = new _pg.Client(connectionString);
+    client.connect().then(function () {
+      var sql = 'SELECT message,subject,createdon FROM ' + messageTable + ' WHERE senderid=$1';
+      var params = [userId];
+      client.query(sql, params).then(function (result) {
+        resolve(result.rows);
+        client.end();
+      }).catch(function (e) {
+        reject(e);
+      });
+    }).catch(function (e) {
+      reject(e);
+    });
+  });
+};
+
+var getMessagesBySpecificId = function getMessagesBySpecificId(userId, messageId) {
+  return new Promise(function (resolve, reject) {
+    var client = new _pg.Client(connectionString);
+    client.connect().then(function () {
+      var sql = 'SELECT message,subject,createdon FROM ' + messageTable + ' WHERE (receiverid=$1 OR senderid=$1) AND messageid=$2';
+      var params = [userId, messageId];
+      client.query(sql, params).then(function (result) {
+        resolve(result.rows);
+        client.end();
+      }).catch(function (e) {
+        reject(e);
+      });
+    }).catch(function (e) {
+      reject(e);
+    });
+  });
+};
+
+>>>>>>> user can get specific mail by its id
 var insertMessage = function insertMessage(receiverid, senderid, subject, message, status, createdon) {
   return new Promise(function (resolve, reject) {
     var client = new _pg.Client(connectionString);
@@ -116,4 +177,10 @@ var clearTable = function clearTable(tableName) {
 exports.getUserEmail = getUserEmail;
 exports.insertMessage = insertMessage;
 exports.getMessagesById = getMessagesById;
+<<<<<<< HEAD
+=======
+exports.getMessagesByUnread = getMessagesByUnread;
+exports.getMessagesBySent = getMessagesBySent;
+exports.getMessagesBySpecificId = getMessagesBySpecificId;
+>>>>>>> user can get specific mail by its id
 //# sourceMappingURL=db.js.map
