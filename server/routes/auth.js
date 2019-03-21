@@ -19,7 +19,7 @@ authRouter.post('/signup', validateUserEntry, (req, res) => {
   });
 });
 
-authRouter.post('/login', validateUserSignIn, (req, res) => {
+authRouter.post('/login', validateUserSignIn,verifyToken, (req, res) => {
   const { accountDetails } = req;
   res.status(200).send({
     status: 200,

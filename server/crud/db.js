@@ -219,6 +219,26 @@ const getUserEmail = (email) => {
     });
   }
 
+  const getGroups = (userId) => {
+    return new Promise((resolve,reject)=>{
+      const client = new Client(connectionString);
+      client.connect()
+      .then(()=>{
+        const sql = `SELECT * FROM ${groupsTable} WHERE user_id=$1`
+        const params = [userId]
+        client.query(sql,params)
+        .then((result)=>{
+          resolve(result.rows)
+          client.end();
+        }).catch((e)=>{
+          reject(e)
+        })
+      }).catch((e)=>{
+        reject(e)
+      });
+    });
+  }
+
 
 
 
@@ -252,5 +272,5 @@ const getUserEmail = (email) => {
 export{
   getUserEmail,insertMessage,getMessagesById,insertUsers,
   getMessagesByUnread,getMessagesBySent,getMessagesBySpecificId,deleteBySpecificId,
-  insertGroupTable, insertGroupMembers
+  insertGroupTable, insertGroupMembers,getGroups
 }
