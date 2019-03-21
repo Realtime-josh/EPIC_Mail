@@ -4,7 +4,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 // let connectionString = process.env.DATABASE_URL;
 // Database connection String
-let connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
+// let connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
+
+let connectionString = process.env.DATABASE_URL;
+
+if (process.env.current_env === 'test') {
+  connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
+}
 
 const usersTable = 'users';
 const messageTable = 'message';
