@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS message
     group_id serial NOT NULL PRIMARY KEY,
  );
 
-  CREATE TABLE IF NOT EXISTS cart
+  CREATE TABLE IF NOT EXISTS group_members
  (
     user_id integer NOT NULL PRIMARY KEY,
     role text NOT NULL,
