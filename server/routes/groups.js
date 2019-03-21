@@ -1,7 +1,7 @@
 import express from 'express';
 import { sendResponse } from "../helpers/responses";
 import { verifyToken } from '../helpers/validators';
-import {insertGroupTable,insertGroupMembers, getGroups} from "../crud/db";
+import {insertGroupTable,insertGroupMembers, getGroups, deleteGroups} from "../crud/db";
 
 const groupRouter = express.Router();
 
@@ -33,6 +33,14 @@ groupRouter.get("/groups", verifyToken, (req,res)=>{
     }).catch((e)=>{
         sendResponse(res,400,null,'something went wrong')
     })
+})
+
+groupRouter.delete('/groups/:id', verifyToken, (req,res)=>{
+    const { id } = req.params;
+    const {userDetails} = req.body
+    const userId = userDetails[0].userid
+    deleteGroups(userId,id)
+    sendResponse(res,200,'Group deleted', null);
 })
 
 
