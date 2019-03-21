@@ -7,7 +7,7 @@
     "test": "npm run build && nyc --reporter=lcov --reporter=text --cache mocha dist/test/*.test.js --sort --exit --timeout=20000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
-    "start": "npm run build && node dist/app.js",
+    "start": "node dist/app.js",
     "clean": "rm -rf dist",
     "build": "npm run clean && mkdir dist && babel server -s -d dist",
     "heroku-db-tables-setup": "heroku pg:psql -f server/modell/heroku-db.sql"
