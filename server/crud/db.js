@@ -6,7 +6,7 @@ dotenv.config();
 // Database connection String
 // let connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
 
-let connectionString = 'postgres://qvywtkvnhyinwq:6f3a32f2e4730d3bf7c94e914ca1ce837bd8660b4e18dfc601c70381fadaab58@ec2-107-20-177-161.compute-1.amazonaws.com:5432/depai5fpe8lbdm';
+let connectionString = 'postgres://Frank:jfrank@127.0.0.1:5432/epicmail'
 
 
 const usersTable = 'users';
