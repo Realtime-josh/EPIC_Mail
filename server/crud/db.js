@@ -5,8 +5,12 @@ dotenv.config();
 // let connectionString = process.env.DATABASE_URL;
 // Database connection String
 // let connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
-
-let connectionString = 'postgres://Frank:jfrank@127.0.0.1:5432/epicmail'
+const env = process.env.NODE_ENV || 'development';
+let connectionString;
+connectionString = "postgres://Frank:jfrank@127.0.0.1:5432/epicmail";
+if(process.env.NODE_ENV === 'production'){
+  connectionString = process.env.DATABASE_URL;
+}
 
 
 const usersTable = 'users';
@@ -17,7 +21,7 @@ const groupsMembers = 'group_members'
 
 const getUserEmail = (email) => {
     return new Promise((resolve,reject)=>{
-        const client = new Client(connectionString);
+       const client = new Client(connectionString);
        client.connect()
        .then(()=>{
            const sql = `SELECT * FROM ${usersTable} WHERE email=$1`;

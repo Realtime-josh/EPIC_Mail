@@ -32,8 +32,8 @@ groupRouter.get("/groups", verifyToken, (req,res)=>{
         }
     }).catch((e)=>{
         sendResponse(res,400,null,'something went wrong')
-    })
-})
+    });
+});
 
 groupRouter.delete('/groups/:id', verifyToken, (req,res)=>{
     const { id } = req.params;
@@ -42,7 +42,6 @@ groupRouter.delete('/groups/:id', verifyToken, (req,res)=>{
     deleteGroups(userId,id)
     sendResponse(res,200,'Group deleted', null);
 })
-
 
 
 
