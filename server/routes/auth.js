@@ -19,7 +19,7 @@ authRouter.post('/signup', validateUserEntry, (req, res) => {
   });
 });
 
-authRouter.post('/login', validateUserSignIn,verifyToken, (req, res) => {
+authRouter.post('/login', validateUserSignIn, (req, res) => {
   const { accountDetails } = req;
   res.status(200).send({
     status: 200,
@@ -35,7 +35,7 @@ authRouterv2.post('/signup', validateUserEntryy, (req, res) => {
     
 });
 
-authRouterv2.post('/login',validateUserSignInn,verifyToken, (req,res)=> {
+authRouterv2.post('/login',validateUserSignInn, (req,res)=> {
   const {payload} = req;
   const token = jwt.sign(payload, process.env.SECRET_KEY);
   res.header('Authorization', `Bearer ${token}`);
