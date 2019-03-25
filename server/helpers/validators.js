@@ -191,7 +191,7 @@ const validateUserEntryy = (req, res, next) => {
 
 const validateUserSignInn = (req, res, next) => {
   const { email, password } = req.body;
-  if(typeof email === undefined && typeof password === undefined){
+  if(typeof email === 'undefined' || typeof password === 'undefined'){
     sendResponse(res,400, null, 'Something went wrong');
   }else{
     const trimEmail = trimAllSpace(email);
